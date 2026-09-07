@@ -1,0 +1,6 @@
+{
+  "name": "LeadMaxx.ai",
+  "description": "Instant 5-second automated WhatsApp replies, brochure dispatch, and phone alerts for high-ticket service businesses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
