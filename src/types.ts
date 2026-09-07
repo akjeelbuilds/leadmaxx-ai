@@ -1,8 +1,10 @@
 export interface LeadFormData {
   name: string;
   phone: string;
-  businessName: string;
-  city: string;
+  email?: string;
+  notes?: string;
+  businessName?: string;
+  city?: string;
   websiteUrl?: string;
   monthlyLeads?: string;
 }
