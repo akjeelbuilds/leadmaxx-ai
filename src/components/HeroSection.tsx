@@ -14,8 +14,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
           {/* Left Column (col-span-5): Copy, Pain Point & Primary CTA */}
           <div className="lg:col-span-5 flex flex-col justify-center space-y-4 text-left">
             {/* Pill Tag */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-semibold text-slate-200 self-start">
-              <span>🇮🇳 BUILT FOR INDIAN MSMES • PRIVATE BETA</span>
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-semibold text-slate-200 self-start">
+              <svg 
+                viewBox="0 0 24 16" 
+                className="w-4 h-3 rounded-[2px] overflow-hidden shrink-0 mr-1.5 shadow-sm inline-block" 
+                aria-label="Flag of India"
+                role="img"
+              >
+                <rect width="24" height="5.33" fill="#FF9933" />
+                <rect y="5.33" width="24" height="5.33" fill="#FFFFFF" />
+                <rect y="10.66" width="24" height="5.34" fill="#138808" />
+                <circle cx="12" cy="8" r="2" fill="none" stroke="#000080" strokeWidth="0.8" />
+                <circle cx="12" cy="8" r="0.6" fill="#000080" />
+              </svg>
+              <span>BUILT FOR INDIAN MSMES • PRIVATE BETA</span>
             </div>
 
             {/* Headline <h1> */}
