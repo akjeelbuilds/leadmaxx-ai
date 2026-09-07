@@ -175,45 +175,72 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
     }
   };
 
+  const handleOtherServicesClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onBookCall) {
+      onBookCall();
+    } else {
+      const target = document.getElementById('audit-form-section') || document.getElementById('auditForm');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   return (
     <div className="w-full bg-slate-950/80 border border-slate-800/80 rounded-2xl p-4 sm:p-5 pb-5 sm:pb-6 shadow-2xl relative space-y-3">
-      {/* Mobile View (<640px): Custom Native Select Dropdown */}
-      <div className="sm:hidden w-full">
-        <label htmlFor="industry-select" className="sr-only">Select Industry</label>
-        <div className="relative">
-          <select
-            id="industry-select"
-            value={activeIndustry}
-            onChange={(e) => setActiveIndustry(e.target.value)}
-            className="w-full bg-slate-900/90 border border-slate-700 text-white text-xs font-semibold rounded-xl py-2 px-3 pr-8 appearance-none focus:outline-none focus:border-blue-500 transition-colors"
-          >
-            <option value="Interiors">Interiors & Kitchens</option>
-            <option value="Healthcare">Healthcare & Clinics</option>
-            <option value="Solar">Rooftop Solar</option>
-            <option value="Coaching">Coaching & Institutes</option>
-            <option value="Real Estate">Real Estate & Builders</option>
-          </select>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-400 text-xs">
-            ▼
+      {/* Top Niche Selection Bar & Other Services Link */}
+      <div className="w-full space-y-1.5">
+        {/* Mobile View (<640px): Custom Native Select Dropdown */}
+        <div className="sm:hidden w-full">
+          <label htmlFor="industry-select" className="sr-only">Select Industry</label>
+          <div className="relative">
+            <select
+              id="industry-select"
+              value={activeIndustry}
+              onChange={(e) => setActiveIndustry(e.target.value)}
+              className="w-full bg-slate-900/90 border border-slate-700 text-white text-xs font-semibold rounded-xl py-2 px-3 pr-8 appearance-none focus:outline-none focus:border-blue-500 transition-colors"
+            >
+              <option value="Interiors">Interiors & Kitchens</option>
+              <option value="Healthcare">Healthcare & Clinics</option>
+              <option value="Solar">Rooftop Solar</option>
+              <option value="Coaching">Coaching & Institutes</option>
+              <option value="Real Estate">Real Estate & Builders</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-400 text-xs">
+              ▼
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Desktop/Tablet View (>=640px): 5-Tab Segmented Row */}
-      <div className="hidden sm:flex w-full items-center justify-between gap-1 p-1 bg-slate-900/60 rounded-xl border border-slate-800/80">
-        {industries.map((ind) => (
-          <button
-            key={ind.id}
-            onClick={() => setActiveIndustry(ind.id)}
-            className={`flex-1 text-center text-xs py-1.5 px-2 rounded-lg font-medium transition-all whitespace-nowrap ${
-              activeIndustry === ind.id
-                ? 'bg-blue-600 text-white shadow-sm font-semibold'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
-            }`}
+        {/* Desktop/Tablet View (>=640px): 5-Tab Segmented Row */}
+        <div className="hidden sm:flex w-full items-center justify-between gap-1 p-1 bg-slate-900/60 rounded-xl border border-slate-800/80">
+          {industries.map((ind) => (
+            <button
+              key={ind.id}
+              onClick={() => setActiveIndustry(ind.id)}
+              className={`flex-1 text-center text-xs py-1.5 px-2 rounded-lg font-medium transition-all whitespace-nowrap ${
+                activeIndustry === ind.id
+                  ? 'bg-blue-600 text-white shadow-sm font-semibold'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              }`}
+            >
+              {ind.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Subtle centered hyperlink for other services */}
+        <div className="text-center pt-0.5 pb-1">
+          <a
+            id="other-services-beta-link"
+            href="#audit-form-section"
+            onClick={handleOtherServicesClick}
+            className="text-xs text-slate-400 hover:text-blue-400 underline transition-colors text-center w-full block cursor-pointer"
           >
-            {ind.label}
-          </button>
-        ))}
+            Apply for beta access for other services →
+          </a>
+        </div>
       </div>
 
       {/* Dual Column Layout: Left = Customer Form | Right = Instant WhatsApp Result */}

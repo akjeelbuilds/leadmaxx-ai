@@ -34,20 +34,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
             {/* The 4 Clean Bullet Chips (2x2 Grid) */}
             <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
               <div className="py-1 px-2 text-[11px] sm:text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
-                <span className="shrink-0 text-emerald-400 text-xs sm:text-sm">⚡</span>
-                <span className="truncate whitespace-nowrap">Fast Mobile Funnel</span>
+                <span className="shrink-0 text-xs sm:text-sm">🚀</span>
+                <span className="truncate whitespace-nowrap">Instant Lead Capture</span>
               </div>
               <div className="py-1 px-2 text-[11px] sm:text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
-                <span className="shrink-0 text-blue-400 text-xs sm:text-sm">💬</span>
-                <span className="truncate whitespace-nowrap">Official WhatsApp</span>
+                <span className="shrink-0 text-xs sm:text-sm">📲</span>
+                <span className="truncate whitespace-nowrap">Real-Time Owner Alert</span>
               </div>
               <div className="py-1 px-2 text-[11px] sm:text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
-                <span className="shrink-0 text-amber-400 text-xs sm:text-sm">📄</span>
-                <span className="truncate whitespace-nowrap">Instant Rate Cards</span>
+                <span className="shrink-0 text-xs sm:text-sm">📋</span>
+                <span className="truncate whitespace-nowrap">Auto Rates & Details</span>
               </div>
               <div className="py-1 px-2 text-[11px] sm:text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
-                <span className="shrink-0 text-purple-400 text-xs sm:text-sm">📲</span>
-                <span className="truncate whitespace-nowrap">Hot Lead Alerts</span>
+                <span className="shrink-0 text-xs sm:text-sm">💰</span>
+                <span className="truncate whitespace-nowrap">₹0 Software Cost</span>
               </div>
             </div>
 
