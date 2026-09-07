@@ -81,7 +81,7 @@ export const TEMPLATES: NicheTemplate[] = [
 type RequestedAsset = 'Price List' | 'PDF Catalog' | 'Consultation';
 
 const getDeliveryStatusText = (_asset: RequestedAsset): string => {
-  return '✓ Pricing & portfolio catalog delivered. Reply here to schedule an estimate or site visit.';
+  return '✓ Inquiry details delivered. Reply here to book your slot or speak with us directly.';
 };
 
 interface WhatsAppSimulatorProps {
