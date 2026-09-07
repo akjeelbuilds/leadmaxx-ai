@@ -114,7 +114,7 @@ export const AllInclusiveSection: React.FC<AllInclusiveSectionProps> = ({ onScro
                   >
                     <Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-800/80 text-slate-300 border border-slate-700/60">
+                  <span className="text-xs sm:text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-800/80 text-slate-300 border border-slate-700/60">
                     {item.badge}
                   </span>
                 </div>
@@ -123,14 +123,14 @@ export const AllInclusiveSection: React.FC<AllInclusiveSectionProps> = ({ onScro
                   {item.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                <p className="text-sm leading-normal sm:text-sm sm:leading-relaxed text-slate-300 mb-4">
                   {item.description}
                 </p>
               </div>
 
               <div className="pt-3 border-t border-slate-800/80 space-y-1.5">
                 {item.highlights.map((highlight, hIdx) => (
-                  <div key={hIdx} className="flex items-center gap-2 text-[11px] sm:text-xs text-slate-400">
+                  <div key={hIdx} className="flex items-center gap-2 text-xs text-slate-400">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                     <span>{highlight}</span>
                   </div>
@@ -148,12 +148,12 @@ export const AllInclusiveSection: React.FC<AllInclusiveSectionProps> = ({ onScro
             <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div className="min-w-0 flex-1">
-            <div className="text-[10px] sm:text-xs font-bold text-emerald-400 uppercase tracking-wider">
+            <div className="text-xs sm:text-xs font-bold text-emerald-400 uppercase tracking-wider">
               TOTAL MONTHLY RUNNING COST FOR EVERYTHING ABOVE
             </div>
             <div className="text-xl sm:text-2xl font-extrabold text-white font-display flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
               <span className="text-emerald-400 font-extrabold tracking-tight">₹ 0<span className="text-base sm:text-lg font-semibold text-emerald-300/90 ml-1">/month</span></span>
-              <span className="text-xs font-normal text-slate-400 block sm:inline ml-1">(Pay only your regular ~₹ 800/year domain renewal)</span>
+              <span className="text-sm sm:text-xs font-normal text-slate-400 block sm:inline ml-1">(Pay only your regular ~₹ 800/year domain renewal)</span>
             </div>
           </div>
         </div>

@@ -257,14 +257,14 @@ export const AuditOfferFormSection: React.FC<AuditOfferFormSectionProps> = ({
                 <span>💬 Fast-Track Access: Ping Us on WhatsApp</span>
               </a>
 
-              <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400 font-medium">
+              <div className="flex items-center justify-center gap-1.5 text-xs sm:text-[11px] text-slate-400 font-medium">
                 <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                 <span>Need expedited setup? Our founders respond on WhatsApp within 2 hours.</span>
               </div>
             </div>
 
             {/* Trust Reassurance */}
-            <div className="mt-8 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-3 text-[11px] text-slate-400 font-medium">
+            <div className="mt-8 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-[11px] text-slate-400 font-medium">
               <span className="inline-flex items-center gap-1 text-emerald-400">
                 <Lock className="w-3.5 h-3.5" />
                 <span>Zero Credit Card Required</span>
@@ -295,7 +295,7 @@ export const AuditOfferFormSection: React.FC<AuditOfferFormSectionProps> = ({
                     <span>Limited Pilot Cohort • 1-on-1 Implementation Support</span>
                   </p>
                 </div>
-                <div className="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-300 text-[11px] font-bold shrink-0">
+                <div className="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-300 text-xs sm:text-[11px] font-bold shrink-0">
                   Limited Pilot Cohort
                 </div>
               </div>
@@ -338,12 +338,12 @@ export const AuditOfferFormSection: React.FC<AuditOfferFormSectionProps> = ({
               {/* 1. Full Name */}
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <label htmlFor="userName" className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-                    <span className="h-4 w-4 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-mono flex items-center justify-center font-bold">1</span>
+                  <label htmlFor="userName" className="text-sm sm:text-xs font-bold text-slate-300 flex items-center gap-1.5">
+                    <span className="h-4 w-4 rounded-full bg-blue-500/20 text-blue-400 text-xs sm:text-[10px] font-mono flex items-center justify-center font-bold">1</span>
                     <span>Full Name</span>
                   </label>
                   {nameTouched && formData.name.trim().length >= 2 && (
-                    <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
+                    <span className="text-xs sm:text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3" /> Ready
                     </span>
                   )}
@@ -362,7 +362,7 @@ export const AuditOfferFormSection: React.FC<AuditOfferFormSectionProps> = ({
                       setFormData({ ...formData, name: e.target.value });
                       if (errorMsg) setErrorMsg(null);
                     }}
-                    placeholder="e.g. Ramesh Kumar"
+                    placeholder="e.g. Ramesh Patel"
                     className={`w-full bg-slate-950/80 border ${
                       nameTouched && formData.name.trim().length < 2
                         ? 'border-rose-500/60 focus:border-rose-500'
@@ -375,13 +375,13 @@ export const AuditOfferFormSection: React.FC<AuditOfferFormSectionProps> = ({
               {/* 2. WhatsApp Number (with +91 country code) */}
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-1 mb-1.5">
-                  <label htmlFor="userPhone" className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-                    <span className="h-4 w-4 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-mono flex items-center justify-center font-bold">2</span>
+                  <label htmlFor="userPhone" className="text-sm sm:text-xs font-bold text-slate-300 flex items-center gap-1.5">
+                    <span className="h-4 w-4 rounded-full bg-emerald-500/20 text-emerald-400 text-xs sm:text-[10px] font-mono flex items-center justify-center font-bold">2</span>
                     <span>WhatsApp Number (+91)</span>
                   </label>
                   {formData.phone.length > 0 && (
                     <span
-                      className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full flex items-center gap-1 ${
+                      className={`text-xs sm:text-[10px] font-mono font-bold px-2 py-0.5 rounded-full flex items-center gap-1 ${
                         isPhoneValid
                           ? 'text-emerald-400 bg-emerald-500/15 border border-emerald-500/30'
                           : 'text-amber-400 bg-amber-500/15 border border-amber-500/30'
@@ -426,7 +426,7 @@ export const AuditOfferFormSection: React.FC<AuditOfferFormSectionProps> = ({
                 </div>
 
                 {phoneTouched && !isPhoneValid && (
-                  <div className="mt-1.5 flex items-center gap-1.5 text-[11px] text-rose-400 font-medium">
+                  <div className="mt-1.5 flex items-center gap-1.5 text-xs sm:text-[11px] text-rose-400 font-medium">
                     <AlertCircle className="w-3.5 h-3.5 shrink-0 text-rose-400" />
                     <span>{phoneValidation.error || 'Please enter a valid 10-digit Indian WhatsApp number (starts with 6, 7, 8, or 9)'}</span>
                   </div>
@@ -436,12 +436,12 @@ export const AuditOfferFormSection: React.FC<AuditOfferFormSectionProps> = ({
               {/* 3. Email Address */}
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <label htmlFor="userEmail" className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-                    <span className="h-4 w-4 rounded-full bg-cyan-500/20 text-cyan-400 text-[10px] font-mono flex items-center justify-center font-bold">3</span>
+                  <label htmlFor="userEmail" className="text-sm sm:text-xs font-bold text-slate-300 flex items-center gap-1.5">
+                    <span className="h-4 w-4 rounded-full bg-cyan-500/20 text-cyan-400 text-xs sm:text-[10px] font-mono flex items-center justify-center font-bold">3</span>
                     <span>Email Address</span>
                   </label>
                   {emailTouched && formData.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) && (
-                    <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
+                    <span className="text-xs sm:text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3" /> Ready
                     </span>
                   )}
@@ -472,8 +472,8 @@ export const AuditOfferFormSection: React.FC<AuditOfferFormSectionProps> = ({
               {/* 4. Notes & Business Requirements */}
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <label htmlFor="userNotes" className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-                    <span className="h-4 w-4 rounded-full bg-purple-500/20 text-purple-400 text-[10px] font-mono flex items-center justify-center font-bold">4</span>
+                  <label htmlFor="userNotes" className="text-sm sm:text-xs font-bold text-slate-300 flex items-center gap-1.5">
+                    <span className="h-4 w-4 rounded-full bg-purple-500/20 text-purple-400 text-xs sm:text-[10px] font-mono flex items-center justify-center font-bold">4</span>
                     <span>Business &amp; Requirements (Notes)</span>
                   </label>
                 </div>
@@ -517,7 +517,7 @@ export const AuditOfferFormSection: React.FC<AuditOfferFormSectionProps> = ({
                 </button>
 
                 {/* Form Microcopy */}
-                <p className="text-xs text-slate-400 font-medium text-center mt-3 leading-relaxed">
+                <p className="text-sm sm:text-xs text-slate-400 font-medium text-center mt-3 leading-snug sm:leading-relaxed">
                   Qualified service businesses will receive a direct invitation within 24 hours.
                 </p>
               </div>
@@ -525,7 +525,7 @@ export const AuditOfferFormSection: React.FC<AuditOfferFormSectionProps> = ({
 
             {/* Pilot Trust Indicator Bar */}
             <div className="mt-6 pt-4 border-t border-slate-800/80 space-y-2 text-center">
-              <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] text-slate-400 font-medium">
+              <div className="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-[11px] text-slate-400 font-medium">
                 <span className="inline-flex items-center gap-1 text-emerald-400">
                   <Lock className="w-3.5 h-3.5" />
                   <span>Zero Credit Card Required</span>

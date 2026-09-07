@@ -155,20 +155,20 @@ export const TopIndustriesSection: React.FC<TopIndustriesSectionProps> = ({ onSc
         <div className="bg-slate-900/70 backdrop-blur-xl border border-slate-800 rounded-3xl p-4 sm:p-8 shadow-2xl space-y-6 text-left">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-800/80 pb-5">
             <div>
-              <div className="text-[11px] sm:text-xs font-bold text-blue-400 uppercase tracking-wider">Industry Breakdown</div>
+              <div className="text-xs font-bold text-blue-400 uppercase tracking-wider">Industry Breakdown</div>
               <h3 className="text-lg sm:text-2xl font-bold text-white font-display mt-0.5">
                 {activeIndustry.name}
               </h3>
             </div>
             <div className="grid grid-cols-2 sm:flex items-center gap-2 sm:gap-3 w-full sm:w-auto shrink-0">
               <div className="bg-slate-950/80 border border-slate-800 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-left">
-                <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase font-semibold">Deal Value</div>
+                <div className="text-xs sm:text-[10px] text-slate-400 uppercase font-semibold">Deal Value</div>
                 <div className="text-xs sm:text-sm font-bold text-emerald-400 font-display truncate">
                   {activeIndustry.avgDeal}
                 </div>
               </div>
               <div className="bg-blue-950/40 border border-blue-800/40 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-left">
-                <div className="text-[9px] sm:text-[10px] text-blue-300 uppercase font-semibold">Impact</div>
+                <div className="text-xs sm:text-[10px] text-blue-300 uppercase font-semibold">Impact</div>
                 <div className="text-xs sm:text-sm font-bold text-blue-200 truncate">
                   {activeIndustry.roiMultiplier}
                 </div>
@@ -184,10 +184,10 @@ export const TopIndustriesSection: React.FC<TopIndustriesSectionProps> = ({ onSc
                 <Clock className="w-4 h-4 text-red-400" />
                 <span>The Usual Fatal Leak</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm leading-normal sm:text-sm sm:leading-relaxed text-slate-300">
                 {activeIndustry.painPoint}
               </p>
-              <div className="pt-2 border-t border-red-900/40 text-[11px] text-red-300 font-medium">
+              <div className="pt-2 border-t border-red-900/40 text-xs sm:text-[11px] text-red-300 font-medium">
                 ⏱️ Traditional response lag: <strong className="text-white">{activeIndustry.beforeDelay}</strong>
               </div>
             </div>
@@ -198,10 +198,10 @@ export const TopIndustriesSection: React.FC<TopIndustriesSectionProps> = ({ onSc
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                 <span>The 5-Second WhatsApp Engine</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm leading-normal sm:text-sm sm:leading-relaxed text-slate-300">
                 Prospect immediately receives your customized price brochure and catalog on their WhatsApp. Your phone alerts you with a 1-tap call button before they leave your site.
               </p>
-              <div className="pt-2 border-t border-emerald-900/40 text-[11px] text-emerald-300 font-medium">
+              <div className="pt-2 border-t border-emerald-900/40 text-xs sm:text-[11px] text-emerald-300 font-medium">
                 ⚡ Instant WhatsApp speed: <strong className="text-white">{activeIndustry.afterResult}</strong>
               </div>
             </div>
@@ -214,20 +214,20 @@ export const TopIndustriesSection: React.FC<TopIndustriesSectionProps> = ({ onSc
                 <Smartphone className="w-3.5 h-3.5 text-emerald-400" />
                 Sample Automated Customer WhatsApp Dispatch
               </span>
-              <span className="text-[10px] text-emerald-400 font-semibold bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">
+              <span className="text-xs sm:text-[10px] text-emerald-400 font-semibold bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">
                 Delivered in &lt; 5s
               </span>
             </div>
 
-            <div className="bg-[#0b141a] p-4 rounded-xl border border-emerald-900/30 text-xs text-slate-200 space-y-2.5 max-w-xl">
-              <p className="leading-relaxed">{activeIndustry.sampleMessage}</p>
+            <div className="bg-[#0b141a] p-4 rounded-xl border border-emerald-900/30 text-xs sm:text-xs text-slate-200 space-y-2.5 max-w-xl">
+              <p className="text-sm sm:text-xs leading-normal sm:leading-relaxed">{activeIndustry.sampleMessage}</p>
               <div className="flex items-center space-x-2.5 bg-[#1f2c34] p-2.5 rounded-lg border border-slate-700/50">
                 <FileText className="w-6 h-6 text-red-400 shrink-0" />
                 <div className="truncate">
-                  <div className="font-semibold text-white text-[11px] truncate">
+                  <div className="font-semibold text-white text-xs sm:text-[11px] truncate">
                     {activeIndustry.whatsappBrochure}
                   </div>
-                  <div className="text-[9px] text-slate-400">PDF Document • 2.1 MB</div>
+                  <div className="text-xs sm:text-[9px] text-slate-400">PDF Document • 2.1 MB</div>
                 </div>
               </div>
             </div>
@@ -235,7 +235,7 @@ export const TopIndustriesSection: React.FC<TopIndustriesSectionProps> = ({ onSc
 
           {/* Action trigger */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-            <p className="text-xs text-slate-400 text-center sm:text-left">
+            <p className="text-sm sm:text-xs text-slate-400 text-center sm:text-left leading-snug sm:leading-normal">
               Want this exact 5-second automation flow deployed for your {activeIndustry.shortName} business?
             </p>
             <button

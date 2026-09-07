@@ -80,7 +80,7 @@ export const FAQSection: React.FC = () => {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 animate-fade-in font-normal">
+                  <div className="px-5 pb-5 pt-1 text-sm leading-normal sm:text-sm sm:leading-relaxed text-slate-400 border-t border-slate-800/60 animate-fade-in font-normal">
                     {faq.a}
                   </div>
                 )}
@@ -94,8 +94,8 @@ export const FAQSection: React.FC = () => {
           <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
           <ShieldCheck className="w-8 h-8 text-blue-400 mx-auto mb-2" />
           <h3 className="text-base sm:text-lg font-bold text-white font-display">Private Beta Pilot Cohort</h3>
-          <p className="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto mt-1 leading-relaxed">
-            Zero Setup Fees: We are onboarding 25 verified Indian service businesses to deploy their own serverless lead engine with zero monthly tool rent.
+          <p className="text-sm leading-normal sm:text-sm sm:leading-relaxed text-slate-300 max-w-lg mx-auto mt-1">
+            We are onboarding a select cohort of 25 verified Indian service businesses to test our zero-cost lead engine with no monthly software rent.
           </p>
           <div className="mt-3.5 inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
             <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />

@@ -14,7 +14,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
           {/* Left Column (col-span-5): Copy, Pain Point & Primary CTA */}
           <div className="lg:col-span-5 flex flex-col justify-center space-y-4 text-left">
             {/* Pill Tag */}
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-semibold text-slate-200 self-start">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-semibold text-slate-200 self-start">
               <svg 
                 viewBox="0 0 24 16" 
                 className="w-4 h-3 rounded-[2px] overflow-hidden shrink-0 mr-1.5 shadow-sm inline-block" 
@@ -39,25 +39,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xs leading-normal sm:text-sm md:text-base sm:leading-relaxed text-slate-300 max-w-lg">
+            <p className="text-sm leading-normal sm:text-sm md:text-base sm:leading-relaxed text-slate-300 max-w-lg">
               While competitors take hours to follow up, your engine delivers prices, brochures, and booking links to their WhatsApp instantly. 100% owned infrastructure with zero monthly SaaS rent.
             </p>
 
             {/* The 4 Clean Bullet Chips (2x2 Grid) */}
             <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
-              <div className="py-1 px-2 text-[11px] sm:text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
+              <div className="py-1 px-2 text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
                 <span className="shrink-0 text-xs sm:text-sm">🚀</span>
                 <span className="truncate whitespace-nowrap">Instant Lead Capture</span>
               </div>
-              <div className="py-1 px-2 text-[11px] sm:text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
+              <div className="py-1 px-2 text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
                 <span className="shrink-0 text-xs sm:text-sm">📲</span>
                 <span className="truncate whitespace-nowrap">Real-Time Owner Alert</span>
               </div>
-              <div className="py-1 px-2 text-[11px] sm:text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
+              <div className="py-1 px-2 text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
                 <span className="shrink-0 text-xs sm:text-sm">📋</span>
                 <span className="truncate whitespace-nowrap">Auto Rates & Details</span>
               </div>
-              <div className="py-1 px-2 text-[11px] sm:text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
+              <div className="py-1 px-2 text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
                 <span className="shrink-0 text-xs sm:text-sm">💰</span>
                 <span className="truncate whitespace-nowrap">₹0 Software Cost</span>
               </div>
@@ -72,7 +72,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
               >
                 <span>Request Beta Access (Free Pilot) →</span>
               </button>
-              <p className="text-[11px] text-slate-400 mt-2">Private Beta • Limited to 25 verified Indian service businesses</p>
+              <p className="text-xs sm:text-[11px] text-slate-400 mt-2">Private Beta • Limited to 25 verified Indian service businesses</p>
             </div>
           </div>
 

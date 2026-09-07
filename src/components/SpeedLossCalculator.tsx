@@ -89,7 +89,7 @@ export const SpeedLossCalculator: React.FC<SpeedLossCalculatorProps> = ({ onScro
                 onChange={(e) => setMonthlyLeads(Number(e.target.value))}
                 className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
               />
-              <div className="flex justify-between text-[10px] text-slate-500 mt-1 font-medium">
+              <div className="flex justify-between text-xs sm:text-[10px] text-slate-500 mt-1 font-medium">
                 <span>10 leads</span>
                 <span>150 leads</span>
                 <span>300+ leads</span>
@@ -110,7 +110,7 @@ export const SpeedLossCalculator: React.FC<SpeedLossCalculatorProps> = ({ onScro
                 onChange={(e) => setAverageDealValue(Number(e.target.value))}
                 className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
               />
-              <div className="flex justify-between text-[10px] text-slate-500 mt-1 font-medium">
+              <div className="flex justify-between text-xs sm:text-[10px] text-slate-500 mt-1 font-medium">
                 <span>₹ 10,000</span>
                 <span>₹ 5,00,000</span>
                 <span>₹ 10,00,000+</span>
@@ -125,7 +125,7 @@ export const SpeedLossCalculator: React.FC<SpeedLossCalculatorProps> = ({ onScro
                 <button
                   type="button"
                   onClick={() => setCurrentResponseTime('slow')}
-                  className={`py-2 sm:py-2.5 px-1 sm:px-2 rounded-xl text-[10px] sm:text-xs font-semibold border text-center transition-all cursor-pointer truncate ${
+                  className={`py-2 sm:py-2.5 px-1 sm:px-2 rounded-xl text-xs font-semibold border text-center transition-all cursor-pointer truncate ${
                     currentResponseTime === 'slow'
                       ? 'bg-blue-600/20 border-blue-500 text-blue-300 ring-1 ring-blue-500'
                       : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white'
@@ -136,7 +136,7 @@ export const SpeedLossCalculator: React.FC<SpeedLossCalculatorProps> = ({ onScro
                 <button
                   type="button"
                   onClick={() => setCurrentResponseTime('medium')}
-                  className={`py-2 sm:py-2.5 px-1 sm:px-2 rounded-xl text-[10px] sm:text-xs font-semibold border text-center transition-all cursor-pointer truncate ${
+                  className={`py-2 sm:py-2.5 px-1 sm:px-2 rounded-xl text-xs font-semibold border text-center transition-all cursor-pointer truncate ${
                     currentResponseTime === 'medium'
                       ? 'bg-amber-600/20 border-amber-500 text-amber-300 ring-1 ring-amber-500'
                       : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white'
@@ -147,7 +147,7 @@ export const SpeedLossCalculator: React.FC<SpeedLossCalculatorProps> = ({ onScro
                 <button
                   type="button"
                   onClick={() => setCurrentResponseTime('delay')}
-                  className={`py-2 sm:py-2.5 px-1 sm:px-2 rounded-xl text-[10px] sm:text-xs font-semibold border text-center transition-all cursor-pointer truncate ${
+                  className={`py-2 sm:py-2.5 px-1 sm:px-2 rounded-xl text-xs font-semibold border text-center transition-all cursor-pointer truncate ${
                     currentResponseTime === 'delay'
                       ? 'bg-red-600/20 border-red-500 text-red-300 ring-1 ring-red-500'
                       : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white'
@@ -172,7 +172,7 @@ export const SpeedLossCalculator: React.FC<SpeedLossCalculatorProps> = ({ onScro
                 <div className="text-2xl sm:text-3xl font-extrabold text-red-300 font-display">
                   {formatCurrency(lostRevenue)}
                 </div>
-                <div className="text-[11px] text-red-400/80 mt-1 font-normal">
+                <div className="text-xs sm:text-[11px] text-red-400/80 mt-1 font-normal leading-snug">
                   ~{lostLeadsCount} prospects buy from faster competitors due to delayed replies.
                 </div>
               </div>
@@ -185,7 +185,7 @@ export const SpeedLossCalculator: React.FC<SpeedLossCalculatorProps> = ({ onScro
                 <div className="text-xl sm:text-2xl font-extrabold text-emerald-300 font-display">
                   +{formatCurrency(recoveredRevenue)}/mo
                 </div>
-                <div className="text-[11px] text-emerald-400/80 mt-1 font-normal">
+                <div className="text-xs sm:text-[11px] text-emerald-400/80 mt-1 font-normal leading-snug">
                   By dispatching your pricing & catalog instantly on WhatsApp.
                 </div>
               </div>

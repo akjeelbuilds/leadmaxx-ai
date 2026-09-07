@@ -84,7 +84,7 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', showSubtitle = true, cl
           <span className={`font-black ${titleSize} tracking-tight text-white font-display`}>
             Lead<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-cyan-300">Maxx</span>
           </span>
-          <span className="px-1.5 py-0.5 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-blue-950/80 border border-blue-500/30 text-cyan-300 shadow-sm">
+          <span className="px-1.5 py-0.5 rounded-md text-xs sm:text-[10px] font-extrabold uppercase tracking-wider bg-blue-950/80 border border-blue-500/30 text-cyan-300 shadow-sm leading-none">
             .ai
           </span>
         </div>

@@ -93,7 +93,7 @@ export function SaaSCostSavingsSection({ onScrollToForm }: SaaSCostSavingsSectio
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto px-4 mb-6">
-          <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-5 max-w-full">
+          <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wider uppercase mb-5 max-w-full">
             <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
               <polyline points="16 7 22 7 22 13" />
@@ -108,7 +108,7 @@ export function SaaSCostSavingsSection({ onScrollToForm }: SaaSCostSavingsSectio
             </span>
           </h2>
           
-          <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm leading-normal sm:text-sm sm:leading-relaxed text-slate-300 max-w-2xl mx-auto">
             Most service businesses bleed cash on separate subscriptions for landing pages, form plugins, and messaging tools. We replace recurring SaaS fees with one direct, owned lead engine.
           </p>
         </div>
@@ -120,7 +120,7 @@ export function SaaSCostSavingsSection({ onScrollToForm }: SaaSCostSavingsSectio
               <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
             </svg>
           </div>
-          <p className="text-xs sm:text-sm font-semibold text-white leading-snug text-left m-0">
+          <p className="text-sm leading-snug sm:text-sm font-semibold text-white text-left m-0">
             Zero Monthly Software Rent <span className="text-emerald-400">•</span> Keep 100% of Your Data
           </p>
         </div>
@@ -151,12 +151,12 @@ export function SaaSCostSavingsSection({ onScrollToForm }: SaaSCostSavingsSectio
                             <Icon className="w-4 h-4 text-rose-400 shrink-0" />
                             <span className="text-xs font-bold text-slate-200 truncate">{item.title}</span>
                           </div>
-                          <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20 shrink-0">
+                          <span className="text-xs sm:text-[9px] font-semibold px-1.5 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20 shrink-0">
                             {item.badge}
                           </span>
                         </div>
                       </div>
-                      <p className="text-xs text-slate-300 mt-2 leading-snug font-medium">{item.detail}</p>
+                      <p className="text-sm sm:text-xs text-slate-300 mt-2 leading-snug font-medium">{item.detail}</p>
                     </div>
                   );
                 })}
@@ -166,8 +166,8 @@ export function SaaSCostSavingsSection({ onScrollToForm }: SaaSCostSavingsSectio
             {/* Total Footer for Subscription Trap */}
             <div className="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between bg-rose-950/20 -mx-4 -mb-4 sm:-mx-6 sm:-mb-6 p-4 rounded-b-2xl">
               <div>
-                <span className="text-[11px] text-slate-400 block">Total Yearly Subscription Bills</span>
-                <span className="text-xs text-rose-300 font-medium">Multiple fragmented monthly tools</span>
+                <span className="text-xs sm:text-[11px] text-slate-400 block">Total Yearly Subscription Bills</span>
+                <span className="text-sm sm:text-xs text-rose-300 font-medium">Multiple fragmented monthly tools</span>
               </div>
               <div className="text-right">
                 <span className="text-base sm:text-lg font-extrabold text-rose-400 font-display">
@@ -206,7 +206,7 @@ export function SaaSCostSavingsSection({ onScrollToForm }: SaaSCostSavingsSectio
                           </span>
                         </div>
                       </div>
-                      <p className="text-xs text-slate-200 mt-2 leading-snug font-medium">{item.detail}</p>
+                      <p className="text-sm sm:text-xs text-slate-200 mt-2 leading-snug font-medium">{item.detail}</p>
                     </div>
                   );
                 })}
@@ -216,8 +216,8 @@ export function SaaSCostSavingsSection({ onScrollToForm }: SaaSCostSavingsSectio
             {/* Total Footer for LeadMaxx */}
             <div className="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between bg-emerald-950/30 -mx-4 -mb-4 sm:-mx-6 sm:-mb-6 p-4 rounded-b-2xl">
               <div>
-                <span className="text-[11px] text-emerald-300 block font-semibold">Total Monthly Platform Rent</span>
-                <span className="text-xs text-slate-400 font-normal">Direct wholesale infrastructure only</span>
+                <span className="text-xs sm:text-[11px] text-emerald-300 block font-semibold">Total Monthly Platform Rent</span>
+                <span className="text-sm sm:text-xs text-slate-400 font-normal">Direct wholesale infrastructure only</span>
               </div>
               <div className="text-right">
                 <span className="text-base sm:text-lg font-extrabold text-emerald-400 font-display">
@@ -230,21 +230,21 @@ export function SaaSCostSavingsSection({ onScrollToForm }: SaaSCostSavingsSectio
 
         {/* Trust Reassurance Bar */}
         <div className="mt-8 pt-6 border-t border-slate-800/80 text-center">
-          <p className="text-xs sm:text-sm font-semibold text-slate-300 mb-4">
+          <p className="text-sm leading-normal sm:text-sm sm:leading-relaxed font-semibold text-slate-300 mb-4">
             Built specifically for Indian service businesses who want to own their systems instead of renting them forever.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
             <div className="p-3 rounded-xl bg-slate-950/40 border border-slate-800/60">
               <span className="text-xs font-bold text-white block">100% Data Ownership</span>
-              <span className="text-[11px] text-slate-400">All customer inquiries saved to your private Google Sheet</span>
+              <span className="text-xs sm:text-[11px] text-slate-400 leading-snug">All customer inquiries saved to your private Google Sheet</span>
             </div>
             <div className="p-3 rounded-xl bg-slate-950/40 border border-slate-800/60">
               <span className="text-xs font-bold text-white block">Official Meta Developer API</span>
-              <span className="text-[11px] text-slate-400">1,000 free service conversations every month</span>
+              <span className="text-xs sm:text-[11px] text-slate-400 leading-snug">1,000 free service conversations every month</span>
             </div>
             <div className="p-3 rounded-xl bg-slate-950/40 border border-slate-800/60">
               <span className="text-xs font-bold text-white block">Zero Monthly Tool Fees</span>
-              <span className="text-[11px] text-slate-400">Pay only official Meta conversation rates</span>
+              <span className="text-xs sm:text-[11px] text-slate-400 leading-snug">Pay only official Meta conversation rates</span>
             </div>
           </div>
         </div>

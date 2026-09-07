@@ -259,7 +259,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                   Customer fills site form
                 </h4>
               </div>
-              <span className="text-[10px] text-slate-400 font-medium px-2 py-0.5 rounded bg-slate-900 border border-slate-800 shrink-0 whitespace-nowrap">
+              <span className="text-xs sm:text-[10px] text-slate-400 font-medium px-2 py-0.5 rounded bg-slate-900 border border-slate-800 shrink-0 whitespace-nowrap">
                 Website Form
               </span>
             </div>
@@ -268,7 +268,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
             <form onSubmit={(e) => { e.preventDefault(); handleTestReply(); }} className="space-y-2">
               {/* Name field */}
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">
+                <label className="block text-xs sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">
                   Full Name
                 </label>
                 <div className="relative">
@@ -277,7 +277,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                     type="text"
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 font-medium"
+                    className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-8 pr-3 py-1.5 text-sm sm:text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 font-medium"
                     placeholder="Rahul Sharma"
                   />
                 </div>
@@ -285,7 +285,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
 
               {/* WhatsApp field */}
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">
+                <label className="block text-xs sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">
                   WhatsApp Number
                 </label>
                 <div className="relative">
@@ -294,7 +294,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                     type="text"
                     value={customerPhone}
                     onChange={(e) => setCustomerPhone(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 font-mono text-emerald-400 font-semibold"
+                    className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-8 pr-3 py-1.5 text-sm sm:text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 font-mono text-emerald-400 font-semibold"
                     placeholder="+91 98840 XXXXX"
                   />
                 </div>
@@ -302,7 +302,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
 
               {/* Selector Chips: Send me your */}
               <div>
-                <label className="block text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">
+                <label className="block text-xs sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">
                   Send me your:
                 </label>
                 <div className="grid grid-cols-3 gap-1.5">
@@ -311,7 +311,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                       key={asset}
                       type="button"
                       onClick={() => setRequestedAsset(asset)}
-                      className={`py-1 px-1 rounded-lg text-[10px] sm:text-[11px] font-semibold transition-all text-center border cursor-pointer truncate ${
+                      className={`py-1 px-1 rounded-lg text-xs sm:text-[11px] font-semibold transition-all text-center border cursor-pointer truncate ${
                         requestedAsset === asset
                           ? 'bg-blue-600/30 border-blue-500 text-blue-300 shadow-sm'
                           : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-800'
@@ -338,7 +338,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
             </form>
           </div>
 
-          <div className="mt-3 pt-1 text-[11px] text-slate-400 flex items-center justify-between">
+          <div className="mt-3 pt-1 text-xs sm:text-[11px] text-slate-400 flex items-center justify-between">
             <span className="truncate">⚡ Direct to official WhatsApp</span>
             <button
               type="button"
@@ -363,13 +363,13 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
               <h4 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5 min-w-0 truncate">
                 <span>Instant Result</span>
                 {simulationState === 'delivered' && (
-                  <span className="text-[10px] text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-semibold flex items-center gap-1 shrink-0">
+                  <span className="text-xs sm:text-[10px] text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-semibold flex items-center gap-1 shrink-0">
                     <CheckCircle2 className="w-3 h-3" /> 1.4s
                   </span>
                 )}
               </h4>
             </div>
-            <span className="text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded bg-emerald-950/40 border border-emerald-800/40 shrink-0 whitespace-nowrap">
+            <span className="text-xs sm:text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded bg-emerald-950/40 border border-emerald-800/40 shrink-0 whitespace-nowrap">
               WhatsApp
             </span>
           </div>
@@ -385,7 +385,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                   <div className="text-xs font-bold text-slate-300">
                     Awaiting inquiry submission...
                   </div>
-                  <p className="text-[11px] text-slate-500 max-w-xs mx-auto mt-0.5">
+                  <p className="text-xs sm:text-[11px] leading-snug text-slate-500 max-w-xs mx-auto mt-0.5">
                     Tap &quot;Test Instant Reply&quot; to see the WhatsApp message delivery and owner phone alert in real time.
                   </p>
                 </div>
@@ -406,7 +406,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-bounce"></span>
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-bounce [animation-delay:0.2s]"></span>
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-bounce [animation-delay:0.4s]"></span>
-                <span className="text-[11px] text-emerald-400 font-medium ml-1">
+                <span className="text-xs sm:text-[11px] text-emerald-400 font-medium ml-1">
                   Delivering {requestedAsset} to customer WhatsApp...
                 </span>
               </div>
@@ -417,7 +417,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
             <div className="flex-1 flex flex-col justify-between overflow-y-auto no-scrollbar gap-2 animate-fade-in">
               {/* Mock WhatsApp Message Card */}
               <div className="bg-[#202c33] border border-slate-700/60 rounded-2xl rounded-tl-none p-2.5 text-slate-100 shadow-md space-y-1.5 text-xs leading-tight">
-                <div className="flex items-center justify-between border-b border-slate-700/50 pb-1 text-[10px] gap-2">
+                <div className="flex items-center justify-between border-b border-slate-700/50 pb-1 text-xs sm:text-[10px] gap-2">
                   <span className="font-bold text-emerald-300 flex items-center gap-1 min-w-0 truncate">
                     <span className="truncate">{selectedTemplate.name}</span>
                     <span className="text-[9px] text-slate-400 font-normal shrink-0 hidden xs:inline">WhatsApp</span>
@@ -432,12 +432,12 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                 </p>
 
                 {/* PDF Attachment Pill */}
-                <div className="bg-[#111b21] border border-slate-700 rounded-xl py-1 px-2 text-[11px] flex items-center gap-2">
+                <div className="bg-[#111b21] border border-slate-700 rounded-xl py-1 px-2 text-xs sm:text-[11px] flex items-center gap-2">
                   <div className="h-6 w-6 rounded-lg bg-red-500/15 text-red-400 flex items-center justify-center shrink-0 border border-red-500/30">
                     <FileText className="w-3 h-3" />
                   </div>
                   <div className="truncate flex-1">
-                    <div className="font-semibold text-white text-[11px] truncate leading-tight">
+                    <div className="font-semibold text-white text-xs sm:text-[11px] truncate leading-tight">
                       {requestedAsset === 'Price List' && selectedTemplate.priceList}
                       {requestedAsset === 'PDF Catalog' && selectedTemplate.brochureName}
                       {requestedAsset === 'Consultation' && selectedTemplate.consultation}
@@ -448,7 +448,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between text-[9px] text-slate-400 pt-0.5 gap-2">
+                <div className="flex items-center justify-between text-xs sm:text-[9px] text-slate-400 pt-0.5 gap-2">
                   <span className="text-emerald-400 font-semibold leading-tight">
                     {getDeliveryStatusText(requestedAsset)}
                   </span>
@@ -465,15 +465,15 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                     <Smartphone className="w-3.5 h-3.5" />
                     🚨 Instant Owner Alert
                   </span>
-                  <span className="text-[10px] text-blue-300 font-mono">1-Tap Ready</span>
+                  <span className="text-xs sm:text-[10px] text-blue-300 font-mono">1-Tap Ready</span>
                 </div>
 
-                <div className="text-[11px] text-slate-300 flex items-center justify-between bg-slate-950/80 px-2 py-1 rounded-lg border border-slate-800 gap-2">
+                <div className="text-xs sm:text-[11px] text-slate-300 flex items-center justify-between bg-slate-950/80 px-2 py-1 rounded-lg border border-slate-800 gap-2">
                   <div className="min-w-0 truncate">
                     <strong className="text-white">{customerName}</strong>
-                    <span className="text-slate-400 ml-1.5 font-mono text-[11px]">{customerPhone}</span>
+                    <span className="text-slate-400 ml-1.5 font-mono text-xs sm:text-[11px]">{customerPhone}</span>
                   </div>
-                  <span className="text-emerald-400 text-[10px] font-bold uppercase tracking-wider shrink-0">
+                  <span className="text-emerald-400 text-xs sm:text-[10px] font-bold uppercase tracking-wider shrink-0">
                     {requestedAsset}
                   </span>
                 </div>
@@ -483,7 +483,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                   <button
                     type="button"
                     onClick={() => showToast(`📞 Calling ${customerName} (${customerPhone})...`)}
-                    className="h-7 py-1 px-2 text-[11px] bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg flex items-center justify-center gap-1 cursor-pointer transition-all active:scale-95 whitespace-nowrap min-w-0"
+                    className="h-7 py-1 px-2 text-xs sm:text-[11px] bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg flex items-center justify-center gap-1 cursor-pointer transition-all active:scale-95 whitespace-nowrap min-w-0"
                   >
                     <PhoneCall className="w-3 h-3 shrink-0" />
                     <span className="truncate">Call Customer</span>
@@ -491,7 +491,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                   <button
                     type="button"
                     onClick={() => showToast(`💬 Opening WhatsApp chat with ${customerName}...`)}
-                    className="h-7 py-1 px-2 text-[11px] bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg flex items-center justify-center gap-1 cursor-pointer transition-all active:scale-95 whitespace-nowrap min-w-0"
+                    className="h-7 py-1 px-2 text-xs sm:text-[11px] bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg flex items-center justify-center gap-1 cursor-pointer transition-all active:scale-95 whitespace-nowrap min-w-0"
                   >
                     <Send className="w-3 h-3 shrink-0" />
                     <span className="truncate">Chat on WA</span>
@@ -499,12 +499,12 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                 </div>
 
                 {toastMessage && (
-                  <div className="p-1 rounded-md bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-center text-[10px] font-bold animate-fade-in">
+                  <div className="p-1 rounded-md bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-center text-xs sm:text-[10px] font-bold animate-fade-in">
                     {toastMessage}
                   </div>
                 )}
 
-                <div className="text-[9px] text-slate-400 flex items-center justify-between pt-0.5 border-t border-slate-800">
+                <div className="text-xs sm:text-[9px] text-slate-400 flex items-center justify-between pt-0.5 border-t border-slate-800">
                   <span className="flex items-center gap-1 text-slate-400">
                     <Database className="w-2.5 h-2.5 text-blue-400" />
                     Auto-saved to Google Sheets

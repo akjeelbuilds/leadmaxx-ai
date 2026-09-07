@@ -86,17 +86,17 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToForm, onOpenLegal }) =
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-slate-500 text-center sm:text-left">
+        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-[11px] text-slate-500 text-center sm:text-left leading-snug">
           <div>
             <p>
               © {new Date().getFullYear()} LeadMaxx.ai. Automatic WhatsApp Replies &amp; Lead Engines for Small Businesses.
             </p>
-            <p className="text-[10px] text-slate-500 mt-1">
+            <p className="text-xs sm:text-[10px] text-slate-500 mt-1 leading-snug">
               Proudly built for Indian service businesses, founders, and local practices. Zero monthly software rent, 100% owned infrastructure.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <span className="font-mono text-[10px] text-slate-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">
+            <span className="font-mono text-xs sm:text-[10px] text-slate-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800">
               DPDP Act (India) Compliant
             </span>
             <p className="flex items-center justify-center gap-1">
