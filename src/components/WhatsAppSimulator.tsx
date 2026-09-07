@@ -81,7 +81,7 @@ export const TEMPLATES: NicheTemplate[] = [
 type RequestedAsset = 'Price List' | 'PDF Catalog' | 'Consultation';
 
 const getDeliveryStatusText = (_asset: RequestedAsset): string => {
-  return '✓ Inquiry details delivered. Reply here to book your slot or speak with us directly.';
+  return '✓ Inquiry details delivered. Reply here to speak with us directly.';
 };
 
 interface WhatsAppSimulatorProps {
@@ -136,17 +136,12 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
       }, 150);
     }
 
-    // Step 1: Submitting form & dispatching trigger (0.3s)
-    const t1 = setTimeout(() => {
-      setSimulationState('bot_typing');
-    }, 400);
-
-    // Step 2: Instant WhatsApp response & Owner Alert delivered (1.2s)
-    const t2 = setTimeout(() => {
+    // Realistic 500ms transition state: Show button in brief loading/delivering state, then render incoming WhatsApp card
+    const t = setTimeout(() => {
       setSimulationState('delivered');
-    }, 1200);
+    }, 500);
 
-    timeoutsRef.current = [t1, t2];
+    timeoutsRef.current = [t];
   };
 
   const handleTestReply = (e?: React.FormEvent | React.MouseEvent | React.TouchEvent) => {
@@ -188,7 +183,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
   };
 
   return (
-    <div className="w-full bg-slate-950/80 border border-slate-800/80 rounded-2xl p-4 sm:p-5 pb-5 sm:pb-6 shadow-2xl relative space-y-3">
+    <div className="w-full bg-slate-950/80 border border-slate-700/60 hover:border-slate-600/80 transition-colors rounded-2xl p-4 sm:p-5 pb-5 sm:pb-6 shadow-2xl relative space-y-3">
       {/* Top Niche Selection Bar & Other Services Link */}
       <div className="w-full space-y-1.5">
         {/* Mobile View (<640px): Custom Native Select Dropdown */}
@@ -328,11 +323,21 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                 <button
                   type="button"
                   id="simulator-test-reply-btn"
+                  disabled={simulationState === 'submitting'}
                   onClick={handleTestReply}
                   onTouchEnd={(e) => { e.preventDefault(); handleTestReply(); }}
-                  className="relative z-30 w-full py-3.5 px-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 active:scale-[0.98] transition cursor-pointer select-none touch-manipulation"
+                  className={`relative z-30 w-full py-3.5 px-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 active:scale-[0.98] transition-all duration-200 hover:brightness-110 shadow-md shadow-blue-600/25 hover:shadow-blue-600/40 cursor-pointer select-none touch-manipulation ${
+                    simulationState === 'submitting' ? 'opacity-90 cursor-wait' : ''
+                  }`}
                 >
-                  Test Instant Reply →
+                  {simulationState === 'submitting' ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <span className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin shrink-0"></span>
+                      <span>Delivering Instant Reply...</span>
+                    </span>
+                  ) : (
+                    <span>Test Instant Reply →</span>
+                  )}
                 </button>
               </div>
             </form>
@@ -364,7 +369,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                 <span>Instant Result</span>
                 {simulationState === 'delivered' && (
                   <span className="text-xs sm:text-[10px] text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-semibold flex items-center gap-1 shrink-0">
-                    <CheckCircle2 className="w-3 h-3" /> 1.4s
+                    <CheckCircle2 className="w-3 h-3 text-[#25D366]" /> 1.4s
                   </span>
                 )}
               </h4>
@@ -379,7 +384,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
             <div className="flex-1 flex flex-col justify-center">
               <div className="text-center py-6 px-3 bg-slate-900/40 rounded-xl border border-dashed border-slate-800 space-y-2">
                 <div className="h-10 w-10 mx-auto rounded-full bg-slate-800 text-slate-400 flex items-center justify-center">
-                  <Smartphone className="w-5 h-5" />
+                  <Smartphone className="w-5 h-5 text-slate-400 animate-pulse" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-300">
@@ -395,8 +400,8 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
 
           {simulationState === 'submitting' && (
             <div className="flex-1 flex flex-col justify-center text-center py-8 space-y-2 animate-fade-in">
-              <div className="h-8 w-8 mx-auto rounded-full border-2 border-blue-500 border-t-transparent animate-spin"></div>
-              <div className="text-xs font-semibold text-blue-300">Receiving form submission on website...</div>
+              <div className="h-8 w-8 mx-auto rounded-full border-2 border-emerald-500 border-t-transparent animate-spin"></div>
+              <div className="text-xs font-semibold text-emerald-400">Delivering to customer WhatsApp...</div>
             </div>
           )}
 
@@ -414,9 +419,9 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
           )}
 
           {simulationState === 'delivered' && (
-            <div className="flex-1 flex flex-col justify-between overflow-y-auto no-scrollbar gap-2 animate-fade-in">
+            <div className="flex-1 flex flex-col justify-between overflow-y-auto no-scrollbar gap-2 transition-all duration-300 ease-out transform translate-y-0 opacity-100 animate-fade-in">
               {/* Mock WhatsApp Message Card */}
-              <div className="bg-[#202c33] border border-slate-700/60 rounded-2xl rounded-tl-none p-2.5 text-slate-100 shadow-md space-y-1.5 text-xs leading-tight">
+              <div className="bg-[#202c33]/90 backdrop-blur-sm border border-emerald-500/20 rounded-2xl rounded-tl-none p-2.5 text-slate-100 shadow-md space-y-1.5 text-xs leading-tight">
                 <div className="flex items-center justify-between border-b border-slate-700/50 pb-1 text-xs sm:text-[10px] gap-2">
                   <span className="font-bold text-emerald-300 flex items-center gap-1 min-w-0 truncate">
                     <span className="truncate">{selectedTemplate.name}</span>
@@ -432,18 +437,15 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                 </p>
 
                 {/* PDF Attachment Pill */}
-                <div className="bg-[#111b21] border border-slate-700 rounded-xl py-1 px-2 text-xs sm:text-[11px] flex items-center gap-2">
+                <div className="bg-[#111b21] border border-slate-700 rounded-xl py-1.5 px-2 text-xs sm:text-[11px] flex items-center gap-2">
                   <div className="h-6 w-6 rounded-lg bg-red-500/15 text-red-400 flex items-center justify-center shrink-0 border border-red-500/30">
                     <FileText className="w-3 h-3" />
                   </div>
-                  <div className="truncate flex-1">
+                  <div className="truncate flex-1 min-w-0">
                     <div className="font-semibold text-white text-xs sm:text-[11px] truncate leading-tight">
                       {requestedAsset === 'Price List' && selectedTemplate.priceList}
                       {requestedAsset === 'PDF Catalog' && selectedTemplate.brochureName}
                       {requestedAsset === 'Consultation' && selectedTemplate.consultation}
-                    </div>
-                    <div className="text-[9px] text-emerald-400 font-medium leading-tight">
-                      Instant Delivery • PDF &amp; Booking Ready
                     </div>
                   </div>
                 </div>
@@ -452,8 +454,8 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                   <span className="text-emerald-400 font-semibold leading-tight">
                     {getDeliveryStatusText(requestedAsset)}
                   </span>
-                  <span className="flex items-center gap-0.5 text-[#53bdeb] shrink-0">
-                    <CheckCheck className="w-3 h-3" /> Read
+                  <span className="flex items-center gap-0.5 text-[#25D366] shrink-0 font-medium">
+                    <CheckCheck className="w-3.5 h-3.5 text-[#25D366]" /> Read
                   </span>
                 </div>
               </div>
