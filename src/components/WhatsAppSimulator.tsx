@@ -357,7 +357,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
         </div>
 
         {/* Right Card: Instant Result (< 2s WhatsApp Delivery & Owner Phone Alert) */}
-        <div ref={resultsRef} className="flex flex-col justify-between h-auto min-h-[360px] bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative scroll-mt-20 transition-all duration-300">
+        <div ref={resultsRef} className="flex flex-col justify-between h-auto md:h-full min-h-[360px] bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative scroll-mt-20 transition-all duration-300">
           
           {/* Header */}
           <div className="flex items-center justify-between border-b border-slate-800/80 pb-2 mb-2 gap-2 shrink-0">
@@ -515,8 +515,8 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                 </div>
               </div>
 
-              {/* Post-Result Prominent Conversion CTA Button */}
-              <div className="pt-1">
+              {/* Post-Result Prominent Conversion CTA Button - Mobile Only */}
+              <div className="pt-1 block sm:hidden">
                 <button
                   type="button"
                   id="simulator-deploy-cta-btn"
@@ -530,7 +530,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                       }
                     }
                   }}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl shadow-lg shadow-blue-600/30 transition-all active:scale-[0.98] cursor-pointer text-center flex items-center justify-center gap-1.5 whitespace-nowrap"
+                  className="w-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2.5 px-3 rounded-xl shadow-lg shadow-blue-600/30 transition-all active:scale-[0.98] cursor-pointer text-center flex items-center justify-center gap-1.5 whitespace-nowrap"
                 >
                   <span className="inline-flex items-center gap-1 whitespace-nowrap">
                     Deploy for Your Business (Free Beta) <span className="inline-block shrink-0">→</span>
