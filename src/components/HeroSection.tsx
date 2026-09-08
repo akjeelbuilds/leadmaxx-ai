@@ -7,7 +7,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => {
   return (
-    <section className="relative w-full min-h-[calc(100vh-4rem)] flex items-center justify-center pt-6 sm:pt-4 pb-6 sm:pb-12 lg:py-6 overflow-hidden">
+    <section className="relative w-full min-h-0 sm:min-h-[calc(100vh-4rem)] flex items-center justify-center pt-6 sm:pt-4 pb-6 sm:pb-12 lg:py-6 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-8 items-start w-full max-w-7xl mx-auto">
           
@@ -79,8 +79,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
           </div>
 
           {/* Right Column: Live WhatsApp Simulator */}
-          <div className="lg:col-span-6 xl:col-span-7 flex flex-col w-full max-w-2xl mx-auto lg:max-w-none">
-            <div className="relative group w-full flex flex-col">
+          <div className="lg:col-span-6 xl:col-span-7 flex flex-col w-full max-w-2xl mx-auto lg:max-w-none h-auto min-h-0">
+            <div className="relative group w-full flex flex-col h-auto min-h-0">
               {/* Subtle surrounding glow aura */}
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-35 transition duration-500 pointer-events-none"></div>
 
