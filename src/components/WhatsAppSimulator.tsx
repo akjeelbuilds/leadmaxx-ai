@@ -250,11 +250,11 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                 <div className="h-6 w-6 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-xs border border-blue-500/20 shrink-0">
                   1
                 </div>
-                <h4 className="text-xs sm:text-sm font-bold text-white truncate">
-                  Customer fills site form
+                <h4 className="text-xs sm:text-sm font-bold text-white whitespace-nowrap">
+                  Customer Inquiry
                 </h4>
               </div>
-              <span className="text-xs sm:text-[10px] text-slate-400 font-medium px-2 py-0.5 rounded bg-slate-900 border border-slate-800 shrink-0 whitespace-nowrap">
+              <span className="text-[11px] sm:text-[10px] text-slate-400 font-medium px-2 py-0.5 rounded bg-slate-900 border border-slate-800 shrink-0 whitespace-nowrap">
                 Website Form
               </span>
             </div>
