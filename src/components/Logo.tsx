@@ -89,7 +89,7 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', showSubtitle = true, cl
           </span>
         </div>
         {showSubtitle && (
-          <span className="text-[10px] text-slate-400 font-medium tracking-wider uppercase hidden sm:block mt-1">
+          <span className="text-[10px] text-slate-400 font-medium tracking-wide uppercase leading-none mt-1 block">
             Instant WhatsApp Replies for Small Businesses
           </span>
         )}

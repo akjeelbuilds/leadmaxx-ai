@@ -357,7 +357,12 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
         </div>
 
         {/* Right Card: Instant Result (< 2s WhatsApp Delivery & Owner Phone Alert) */}
-        <div ref={resultsRef} className="flex flex-col justify-between h-auto md:h-full min-h-[360px] bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative scroll-mt-20 transition-all duration-300 mt-10 sm:mt-0">
+        <div
+          ref={resultsRef}
+          className={`flex-col justify-between h-auto md:h-full min-h-[360px] bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative scroll-mt-20 transition-all duration-300 mt-3 sm:mt-0 ${
+            simulationState === 'idle' ? 'hidden sm:flex' : 'flex'
+          }`}
+        >
           
           {/* Header */}
           <div className="flex items-center justify-between border-b border-slate-800/80 pb-2 mb-2 gap-2 shrink-0">
