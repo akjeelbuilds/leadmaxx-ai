@@ -129,11 +129,11 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
 
     setSimulationState('submitting');
 
-    // Auto-scroll on mobile when test enquiry starts
-    if (typeof window !== 'undefined' && window.innerWidth < 1024 && resultsRef.current) {
+    // Auto-scroll on mobile when test enquiry starts (< 640px)
+    if (typeof window !== 'undefined' && window.innerWidth < 640) {
       setTimeout(() => {
-        resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 150);
+        document.getElementById('instant-result-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
     }
 
     // Realistic 500ms transition state: Show button in brief loading/delivering state, then render incoming WhatsApp card
@@ -147,11 +147,6 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
   const handleTestReply = (e?: React.FormEvent | React.MouseEvent | React.TouchEvent) => {
     if (e && e.preventDefault) e.preventDefault();
     handleRunSimulation(e as React.FormEvent);
-    if (typeof window !== 'undefined' && window.innerWidth < 1024 && resultsRef.current) {
-      setTimeout(() => {
-        resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 150);
-    }
   };
 
   const industries = [
@@ -358,6 +353,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
 
         {/* Right Card: Instant Result (< 2s WhatsApp Delivery & Owner Phone Alert) */}
         <div
+          id="instant-result-card"
           ref={resultsRef}
           className={`flex-col justify-between h-auto md:h-full min-h-0 md:min-h-[360px] bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative scroll-mt-20 transition-all duration-300 ${
             simulationState === 'idle' ? 'hidden sm:flex' : 'flex mt-3 sm:mt-0'
@@ -521,7 +517,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
               </div>
 
               {/* Post-Result Prominent Conversion CTA Button - Mobile Only */}
-              <div className="pt-1 block sm:hidden">
+              <div className="mt-5 block sm:hidden">
                 <button
                   type="button"
                   id="simulator-deploy-cta-btn"
@@ -535,13 +531,13 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                       }
                     }
                   }}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2.5 px-3 rounded-xl shadow-lg shadow-blue-600/30 transition-all active:scale-[0.98] cursor-pointer text-center flex items-center justify-center gap-1.5 whitespace-nowrap"
+                  className="py-3.5 sm:py-3 w-full font-bold text-base tracking-wide bg-blue-600 hover:bg-blue-500 text-white px-4 rounded-xl shadow-lg shadow-blue-500/25 ring-1 ring-blue-400/40 hover:shadow-blue-500/40 transition-all active:scale-[0.98] cursor-pointer text-center flex items-center justify-center gap-1.5 whitespace-nowrap"
                 >
                   <span className="inline-flex items-center gap-1 whitespace-nowrap">
                     Deploy for Your Business (Free Beta) <span className="inline-block shrink-0">→</span>
                   </span>
                 </button>
-                <span className="text-xs text-slate-400 mt-1 block text-center">
+                <span className="text-xs text-slate-300 font-medium mt-2 block text-center">
                   Zero software rent • Limited to 25 verified businesses
                 </span>
               </div>
