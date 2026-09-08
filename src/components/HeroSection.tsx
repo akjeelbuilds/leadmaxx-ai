@@ -42,7 +42,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
 
             {/* Subtitle */}
             <p className="text-xs sm:text-base leading-normal sm:leading-relaxed text-slate-300 max-w-lg mb-3">
-              While competitors take hours to follow up, your engine delivers prices, brochures, and booking links to their WhatsApp instantly. 100% owned infrastructure with zero monthly SaaS rent.
+              While competitors take hours to follow up, your engine delivers prices, brochures, and booking links to your customer's WhatsApp instantly. 100% owned infrastructure with zero monthly SaaS rent.
             </p>
 
             {/* The 4 Clean Bullet Chips (2x2 Grid) */}
