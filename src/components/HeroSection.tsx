@@ -32,10 +32,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
 
             {/* Headline <h1> */}
             <h1 className="font-extrabold tracking-tight text-white leading-tight">
-              <span className="block text-2xl sm:text-3xl lg:text-[2.2rem] xl:text-[2.6rem] lg:whitespace-nowrap">
+              <span className="block text-[1.75rem] sm:text-3xl lg:text-[2.2rem] xl:text-[2.6rem] lg:whitespace-nowrap">
                 Never Keep an Inquiry Waiting.
               </span>
-              <span className="block text-xl sm:text-2xl lg:text-[2.1rem] xl:text-[2.4rem] text-cyan-400 mt-1 lg:whitespace-nowrap">
+              <span className="block text-[1.5rem] sm:text-2xl lg:text-[2.1rem] xl:text-[2.4rem] text-cyan-400 mt-1 lg:whitespace-nowrap">
                 Your 5-Second Lead Engine.
               </span>
             </h1>
