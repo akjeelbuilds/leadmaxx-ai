@@ -239,10 +239,10 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
       </div>
 
       {/* Dual Column Layout: Left = Customer Form | Right = Instant WhatsApp Result */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 min-h-0 md:min-h-[380px] md:h-[370px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 h-auto">
         
         {/* Left Card: Customer Action on Your Website */}
-        <div className="flex flex-col justify-between h-full bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative z-20">
+        <div className="flex flex-col justify-between h-auto md:h-full bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative z-20">
           <div>
             {/* Header */}
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-1.5 sm:pb-2 mb-1.5 sm:mb-2 gap-2">
@@ -357,7 +357,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
         </div>
 
         {/* Right Card: Instant Result (< 2s WhatsApp Delivery & Owner Phone Alert) */}
-        <div ref={resultsRef} className="flex flex-col justify-between h-full bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 overflow-hidden text-left relative scroll-mt-20">
+        <div ref={resultsRef} className="flex flex-col justify-between h-auto min-h-[360px] bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative scroll-mt-20 transition-all duration-300">
           
           {/* Header */}
           <div className="flex items-center justify-between border-b border-slate-800/80 pb-2 mb-2 gap-2 shrink-0">
@@ -419,7 +419,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
           )}
 
           {simulationState === 'delivered' && (
-            <div className="flex-1 flex flex-col justify-between overflow-y-auto no-scrollbar gap-2 transition-all duration-300 ease-out transform translate-y-0 opacity-100 animate-fade-in">
+            <div className="flex-1 flex flex-col justify-between gap-2.5 transition-all duration-300 ease-out transform translate-y-0 opacity-100 animate-fade-in">
               {/* Mock WhatsApp Message Card */}
               <div className="bg-[#202c33]/90 backdrop-blur-sm border border-emerald-500/20 rounded-2xl rounded-tl-none p-2.5 text-slate-100 shadow-md space-y-1.5 text-xs leading-tight">
                 <div className="flex items-center justify-between border-b border-slate-700/50 pb-1 text-xs sm:text-[10px] gap-2">
@@ -461,7 +461,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
               </div>
 
               {/* Owner Alert Card */}
-              <div className="p-2 rounded-lg bg-slate-950/60 border border-slate-800 mt-auto space-y-1.5 shadow-md text-xs">
+              <div className="p-2 rounded-lg bg-slate-950/60 border border-slate-800 space-y-1.5 shadow-md text-xs">
                 <div className="flex items-center justify-between text-xs font-bold text-white">
                   <span className="flex items-center gap-1 text-emerald-400">
                     <Smartphone className="w-3.5 h-3.5" />
@@ -513,6 +513,30 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                   </span>
                   <span className="text-emerald-400 font-semibold">Response: 1.4s</span>
                 </div>
+              </div>
+
+              {/* Post-Result Prominent Conversion CTA Button */}
+              <div className="pt-1">
+                <button
+                  type="button"
+                  id="simulator-deploy-cta-btn"
+                  onClick={() => {
+                    if (onBookCall) {
+                      onBookCall();
+                    } else {
+                      const el = document.getElementById('audit-form-section');
+                      if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }
+                  }}
+                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-xl shadow-lg shadow-blue-600/30 transition-all active:scale-[0.98] cursor-pointer text-center block"
+                >
+                  Deploy This for Your Business (Free Beta) →
+                </button>
+                <span className="text-xs text-slate-400 mt-1 block text-center">
+                  Zero software rent • Limited to 25 verified businesses
+                </span>
               </div>
             </div>
           )}

@@ -12,7 +12,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-8 items-start w-full max-w-7xl mx-auto">
           
           {/* Left Column (col-span-5): Copy, Pain Point & Primary CTA */}
-          <div className="lg:col-span-5 flex flex-col justify-center space-y-2 sm:space-y-4 text-left">
+          <div className="lg:col-span-5 flex flex-col justify-center space-y-2 sm:space-y-4 text-left w-full max-w-xl lg:max-w-2xl">
             {/* Pill Tag */}
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-semibold text-slate-200 self-start mb-2 sm:mb-4">
               <svg 
@@ -31,9 +31,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
             </div>
 
             {/* Headline <h1> */}
-            <h1 className="text-2xl sm:text-4xl font-black leading-tight tracking-tight text-white mb-2">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight text-white mb-2">
               <span className="block">Never Keep an Inquiry Waiting.</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mt-0.5 sm:mt-1 whitespace-normal sm:whitespace-nowrap">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mt-1">
                 Your Complete 5-Second Lead Engine.
               </span>
             </h1>
