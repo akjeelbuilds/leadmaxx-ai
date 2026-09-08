@@ -183,7 +183,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
   };
 
   return (
-    <div className="w-full h-auto min-h-0 bg-slate-950/80 border border-slate-700/60 hover:border-slate-600/80 transition-colors rounded-2xl p-3 pb-4 sm:p-6 sm:pb-6 shadow-2xl relative space-y-2 sm:space-y-3">
+    <div className="w-full h-auto min-h-0 lg:min-h-[520px] bg-slate-950/80 border border-slate-700/60 hover:border-slate-600/80 transition-colors rounded-2xl p-3 pb-4 sm:p-6 shadow-2xl relative space-y-2 sm:space-y-3">
       {/* Top Niche Selection Bar & Other Services Link */}
       <div className="w-full space-y-1 sm:space-y-1.5">
         {/* Mobile View (<640px): Custom Native Select Dropdown */}
