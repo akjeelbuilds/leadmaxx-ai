@@ -389,11 +389,9 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                 Instant Result
               </h4>
             </div>
-            <div className="flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-2.5 py-0.5 rounded-full shrink-0">
-              <span>⚡ 1.4s</span>
-              <span className="text-slate-500">•</span>
-              <span>WhatsApp</span>
-            </div>
+            <span className="text-xs text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-2 py-0.5 rounded-full shrink-0 font-medium">
+              WhatsApp
+            </span>
           </div>
 
           {/* Body Canvas */}
