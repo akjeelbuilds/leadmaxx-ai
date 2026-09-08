@@ -12,7 +12,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ config, onOpenSettings, onScrollToForm }) => {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80 transition-colors">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-4 flex items-center justify-between">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-2 sm:py-4 flex items-center justify-between">
         {/* Brand Logo */}
         <div className="cursor-pointer group flex items-center shrink-0" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <Logo size="md" />
@@ -34,11 +34,10 @@ export const Navbar: React.FC<NavbarProps> = ({ config, onOpenSettings, onScroll
           <button
             id="nav-book-cta"
             onClick={onScrollToForm}
-            className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all duration-200 shadow-sm leading-none text-center cursor-pointer shrink-0"
+            className="hidden sm:inline-flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all duration-200 shadow-sm leading-none text-center cursor-pointer shrink-0"
           >
             <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-            <span className="hidden sm:inline leading-none">Request Beta Access</span>
-            <span className="sm:hidden leading-none">Beta Access</span>
+            <span className="leading-none">Request Beta Access</span>
           </button>
         </div>
       </div>

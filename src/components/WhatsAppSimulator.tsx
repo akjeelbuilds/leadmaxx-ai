@@ -183,9 +183,9 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
   };
 
   return (
-    <div className="w-full bg-slate-950/80 border border-slate-700/60 hover:border-slate-600/80 transition-colors rounded-2xl p-4 sm:p-5 pb-5 sm:pb-6 shadow-2xl relative space-y-3">
+    <div className="w-full bg-slate-950/80 border border-slate-700/60 hover:border-slate-600/80 transition-colors rounded-2xl p-3 sm:p-6 shadow-2xl relative space-y-2 sm:space-y-3">
       {/* Top Niche Selection Bar & Other Services Link */}
-      <div className="w-full space-y-1.5">
+      <div className="w-full space-y-1 sm:space-y-1.5">
         {/* Mobile View (<640px): Custom Native Select Dropdown */}
         <div className="sm:hidden w-full">
           <label htmlFor="industry-select" className="sr-only">Select Industry</label>
@@ -194,7 +194,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
               id="industry-select"
               value={activeIndustry}
               onChange={(e) => setActiveIndustry(e.target.value)}
-              className="w-full bg-slate-900/90 border border-slate-700 text-white text-xs font-semibold rounded-xl py-2 px-3 pr-8 appearance-none focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full bg-slate-900/90 border border-slate-700 text-white text-xs font-semibold rounded-xl py-1.5 px-3 pr-8 appearance-none focus:outline-none focus:border-blue-500 transition-colors"
             >
               <option value="Interiors">Interiors & Kitchens</option>
               <option value="Healthcare">Healthcare & Clinics</option>
@@ -226,12 +226,12 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
         </div>
 
         {/* Subtle centered hyperlink for other services */}
-        <div className="text-center pt-0.5 pb-1">
+        <div className="text-center pt-0.5 pb-0.5 sm:pb-1">
           <a
             id="other-services-beta-link"
             href="#audit-form-section"
             onClick={handleOtherServicesClick}
-            className="text-xs text-slate-400 hover:text-blue-400 underline transition-colors text-center w-full block cursor-pointer"
+            className="text-[11px] sm:text-xs text-slate-400 hover:text-blue-400 underline transition-colors text-center w-full block cursor-pointer"
           >
             Apply for beta access for other services →
           </a>
@@ -239,13 +239,13 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
       </div>
 
       {/* Dual Column Layout: Left = Customer Form | Right = Instant WhatsApp Result */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 min-h-[380px] md:h-[370px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 min-h-0 md:min-h-[380px] md:h-[370px]">
         
         {/* Left Card: Customer Action on Your Website */}
-        <div className="flex flex-col justify-between h-full bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 text-left relative z-20">
+        <div className="flex flex-col justify-between h-full bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative z-20">
           <div>
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-2 mb-2 gap-2">
+            <div className="flex items-center justify-between border-b border-slate-800/80 pb-1.5 sm:pb-2 mb-1.5 sm:mb-2 gap-2">
               <div className="flex items-center gap-2 min-w-0">
                 <div className="h-6 w-6 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-xs border border-blue-500/20 shrink-0">
                   1
@@ -263,7 +263,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
             <form onSubmit={(e) => { e.preventDefault(); handleTestReply(); }} className="space-y-2">
               {/* Name field */}
               <div>
-                <label className="block text-xs sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">
+                <label className="block text-[11px] sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">
                   Full Name
                 </label>
                 <div className="relative">
@@ -272,7 +272,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                     type="text"
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-8 pr-3 py-1.5 text-sm sm:text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 font-medium"
+                    className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 font-medium"
                     placeholder="Rahul Sharma"
                   />
                 </div>
@@ -280,7 +280,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
 
               {/* WhatsApp field */}
               <div>
-                <label className="block text-xs sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">
+                <label className="block text-[11px] sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">
                   WhatsApp Number
                 </label>
                 <div className="relative">
@@ -289,7 +289,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                     type="text"
                     value={customerPhone}
                     onChange={(e) => setCustomerPhone(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-8 pr-3 py-1.5 text-sm sm:text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 font-mono text-emerald-400 font-semibold"
+                    className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 font-mono text-emerald-400 font-semibold"
                     placeholder="+91 98840 XXXXX"
                   />
                 </div>
@@ -297,7 +297,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
 
               {/* Selector Chips: Send me your */}
               <div>
-                <label className="block text-xs sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">
+                <label className="block text-[11px] sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-0.5 sm:mb-1">
                   Send me your:
                 </label>
                 <div className="grid grid-cols-3 gap-1.5">
@@ -319,14 +319,14 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
               </div>
 
               {/* Submit CTA Button */}
-              <div className="pt-1.5">
+              <div className="pt-1 sm:pt-1.5">
                 <button
                   type="button"
                   id="simulator-test-reply-btn"
                   disabled={simulationState === 'submitting'}
                   onClick={handleTestReply}
                   onTouchEnd={(e) => { e.preventDefault(); handleTestReply(); }}
-                  className={`relative z-30 w-full py-3.5 px-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 active:scale-[0.98] transition-all duration-200 hover:brightness-110 shadow-md shadow-blue-600/25 hover:shadow-blue-600/40 cursor-pointer select-none touch-manipulation ${
+                  className={`relative z-30 w-full py-2.5 sm:py-3.5 px-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 active:scale-[0.98] transition-all duration-200 hover:brightness-110 shadow-md shadow-blue-600/25 hover:shadow-blue-600/40 cursor-pointer select-none touch-manipulation ${
                     simulationState === 'submitting' ? 'opacity-90 cursor-wait' : ''
                   }`}
                 >
@@ -343,7 +343,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
             </form>
           </div>
 
-          <div className="mt-3 pt-1 text-xs sm:text-[11px] text-slate-400 flex items-center justify-between">
+          <div className="mt-2 pt-1 text-[11px] sm:text-[11px] text-slate-400 flex items-center justify-between">
             <span className="truncate">⚡ Direct to official WhatsApp</span>
             <button
               type="button"
