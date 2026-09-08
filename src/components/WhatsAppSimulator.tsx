@@ -132,7 +132,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
     // Auto-scroll on mobile when test enquiry starts (< 640px)
     if (typeof window !== 'undefined' && window.innerWidth < 640) {
       setTimeout(() => {
-        document.getElementById('instant-result-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('instant-result-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
     }
 
@@ -236,8 +236,27 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
       {/* Dual Column Layout: Left = Customer Form | Right = Instant WhatsApp Result */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 h-auto">
         
+        {/* Mobile-Only Collapsed State when simulation is active */}
+        {simulationState !== 'idle' && (
+          <button
+            type="button"
+            onClick={() => resetSimulation()}
+            className="sm:hidden w-full bg-slate-900/90 hover:bg-slate-900 border border-slate-800 rounded-xl p-2.5 flex items-center justify-between text-xs transition-colors cursor-pointer text-left"
+          >
+            <span className="flex items-center gap-1.5 font-medium truncate text-emerald-400">
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span className="truncate">✓ Inquiry Sent for {selectedTemplate.name}</span>
+            </span>
+            <span className="text-blue-400 font-semibold text-[11px] shrink-0 ml-2 underline">
+              Tap to edit ✎
+            </span>
+          </button>
+        )}
+
         {/* Left Card: Customer Action on Your Website */}
-        <div className="flex flex-col justify-between h-auto md:h-full bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative z-20">
+        <div className={`flex-col justify-between h-auto md:h-full bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative z-20 ${
+          simulationState !== 'idle' ? 'hidden sm:flex' : 'flex'
+        }`}>
           <div>
             {/* Header */}
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-1.5 sm:pb-2 mb-1.5 sm:mb-2 gap-2">
@@ -355,8 +374,8 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
         <div
           id="instant-result-card"
           ref={resultsRef}
-          className={`flex-col justify-between h-auto md:h-full min-h-0 md:min-h-[360px] bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative scroll-mt-20 transition-all duration-300 ${
-            simulationState === 'idle' ? 'hidden sm:flex' : 'flex mt-3 sm:mt-0'
+          className={`flex-col justify-between h-auto md:h-full min-h-0 md:min-h-[360px] bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative scroll-mt-16 transition-all duration-300 ${
+            simulationState === 'idle' ? 'hidden sm:flex' : 'flex mt-2 sm:mt-0'
           }`}
         >
           
