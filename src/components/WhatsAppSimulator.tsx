@@ -380,19 +380,19 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
         >
           
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-slate-800/80 pb-2 mb-2 gap-2 shrink-0">
-            <div className="flex items-center gap-2 min-w-0">
+          <div className="flex items-center justify-between border-b border-slate-800/80 pb-2 mb-2 gap-1.5 sm:gap-2 shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
               <div className="h-6 w-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xs border border-emerald-500/20 shrink-0">
                 2
               </div>
-              <h4 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5 min-w-0 truncate">
-                <span>Instant Result</span>
-                {simulationState === 'delivered' && (
-                  <span className="text-xs sm:text-[10px] text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-semibold flex items-center gap-1 shrink-0">
-                    <CheckCircle2 className="w-3 h-3 text-[#25D366]" /> 1.4s
-                  </span>
-                )}
+              <h4 className="text-sm sm:text-base font-bold text-white shrink min-w-0 whitespace-nowrap">
+                Instant Result
               </h4>
+              {simulationState === 'delivered' && (
+                <span className="text-xs sm:text-[10px] text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-semibold flex items-center gap-1 shrink-0 whitespace-nowrap">
+                  <CheckCircle2 className="w-3 h-3 text-[#25D366] shrink-0" /> 1.4s
+                </span>
+              )}
             </div>
             <span className="text-xs sm:text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded bg-emerald-950/40 border border-emerald-800/40 shrink-0 whitespace-nowrap">
               WhatsApp
