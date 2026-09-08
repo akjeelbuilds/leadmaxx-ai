@@ -45,8 +45,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
               While competitors take hours to follow up, your engine delivers prices, brochures, and booking links to their WhatsApp instantly. 100% owned infrastructure with zero monthly SaaS rent.
             </p>
 
-            {/* The 4 Clean Bullet Chips (2x2 Grid) - Hidden on mobile to keep interactive demo above the fold */}
-            <div className="hidden sm:grid sm:grid-cols-2 gap-1.5 sm:gap-2">
+            {/* The 4 Clean Bullet Chips (2x2 Grid) */}
+            <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
               <div className="py-1 px-2 text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
                 <span className="shrink-0 text-xs sm:text-sm">🚀</span>
                 <span className="truncate whitespace-nowrap">Instant Lead Capture</span>
@@ -85,26 +85,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-35 transition duration-500 pointer-events-none"></div>
 
               <WhatsAppSimulator onBookCall={onScrollToAudit} />
-            </div>
-
-            {/* Mobile Feature Badges - Placed below interactive preview card on mobile */}
-            <div className="grid sm:hidden grid-cols-2 gap-1.5 mt-3">
-              <div className="py-1 px-2 text-xs rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
-                <span className="shrink-0 text-xs">🚀</span>
-                <span className="truncate whitespace-nowrap">Instant Lead Capture</span>
-              </div>
-              <div className="py-1 px-2 text-xs rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
-                <span className="shrink-0 text-xs">📲</span>
-                <span className="truncate whitespace-nowrap">Real-Time Owner Alert</span>
-              </div>
-              <div className="py-1 px-2 text-xs rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
-                <span className="shrink-0 text-xs">📋</span>
-                <span className="truncate whitespace-nowrap">Auto Rates & Details</span>
-              </div>
-              <div className="py-1 px-2 text-xs rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
-                <span className="shrink-0 text-xs">💰</span>
-                <span className="truncate whitespace-nowrap">₹0 Software Cost</span>
-              </div>
             </div>
           </div>
 
