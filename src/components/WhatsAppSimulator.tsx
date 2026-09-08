@@ -226,7 +226,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
         </div>
 
         {/* Subtle centered hyperlink for other services */}
-        <div className="text-center pt-0.5 pb-0.5 sm:pb-1">
+        <div className="hidden sm:block text-center pt-0.5 pb-0.5 sm:pb-1">
           <a
             id="other-services-beta-link"
             href="#audit-form-section"
@@ -357,7 +357,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
         </div>
 
         {/* Right Card: Instant Result (< 2s WhatsApp Delivery & Owner Phone Alert) */}
-        <div ref={resultsRef} className="flex flex-col justify-between h-auto md:h-full min-h-[360px] bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative scroll-mt-20 transition-all duration-300">
+        <div ref={resultsRef} className="flex flex-col justify-between h-auto md:h-full min-h-[360px] bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-3.5 text-left relative scroll-mt-20 transition-all duration-300 mt-10 sm:mt-0">
           
           {/* Header */}
           <div className="flex items-center justify-between border-b border-slate-800/80 pb-2 mb-2 gap-2 shrink-0">

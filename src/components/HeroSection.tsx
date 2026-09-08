@@ -7,14 +7,14 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => {
   return (
-    <section className="relative w-full min-h-[calc(100vh-4rem)] flex items-center justify-center pt-1 sm:pt-4 pb-6 sm:pb-12 lg:py-6 overflow-hidden">
+    <section className="relative w-full min-h-[calc(100vh-4rem)] flex items-center justify-center pt-6 sm:pt-4 pb-6 sm:pb-12 lg:py-6 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-8 items-start w-full max-w-7xl mx-auto">
           
           {/* Left Column: Copy, Pain Point & Primary CTA */}
           <div className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center space-y-2 sm:space-y-4 text-left w-full max-w-2xl lg:max-w-2xl">
             {/* Pill Tag */}
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-semibold text-slate-200 self-start mb-2 sm:mb-4">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-semibold text-slate-200 self-start mt-2 mb-3 sm:mb-4">
               <svg 
                 viewBox="0 0 24 16" 
                 className="w-4 h-3 rounded-[2px] overflow-hidden shrink-0 mr-1.5 shadow-sm inline-block" 
