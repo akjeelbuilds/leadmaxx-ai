@@ -12,7 +12,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start w-full max-w-7xl mx-auto">
           
           {/* Left Column: Copy, Pain Point & Primary CTA */}
-          <div className="relative z-10 w-full flex flex-col justify-center space-y-2 sm:space-y-4 text-left">
+          <div className="relative z-10 w-full flex flex-col justify-center space-y-2 sm:space-y-4 text-left lg:pr-6">
             {/* Pill Tag */}
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-semibold text-slate-200 self-start mt-2 mb-3 sm:mb-4">
               <svg 
@@ -31,11 +31,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
             </div>
 
             {/* Headline <h1> */}
-            <h1 className="font-black leading-tight lg:leading-[1.15] tracking-tight text-white mb-2">
-              <span className="block text-2xl sm:text-3xl lg:text-[2.2rem] xl:text-[2.6rem]">
+            <h1 className="font-black leading-tight lg:leading-[1.15] tracking-tight text-white mb-2 text-balance">
+              <span className="block text-2xl sm:text-3xl lg:text-[2.5rem] xl:text-[2.85rem] tracking-tight text-balance">
                 Never Keep an Inquiry Waiting.
               </span>
-              <span className="block text-2xl sm:text-3xl lg:text-[1.85rem] xl:text-[2.1rem] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mt-1 whitespace-normal sm:whitespace-nowrap">
+              <span className="block text-2xl sm:text-3xl lg:text-[1.95rem] xl:text-[2.2rem] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mt-1 whitespace-normal sm:whitespace-nowrap tracking-tight">
                 Your 5-Second Lead Engine.
               </span>
             </h1>
