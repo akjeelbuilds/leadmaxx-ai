@@ -11,8 +11,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-8 items-start w-full max-w-7xl mx-auto">
           
-          {/* Left Column (col-span-5): Copy, Pain Point & Primary CTA */}
-          <div className="lg:col-span-5 flex flex-col justify-center space-y-2 sm:space-y-4 text-left w-full max-w-xl lg:max-w-2xl">
+          {/* Left Column: Copy, Pain Point & Primary CTA */}
+          <div className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center space-y-2 sm:space-y-4 text-left w-full max-w-2xl lg:max-w-2xl">
             {/* Pill Tag */}
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-semibold text-slate-200 self-start mb-2 sm:mb-4">
               <svg 
@@ -31,9 +31,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
             </div>
 
             {/* Headline <h1> */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight text-white mb-2">
-              <span className="block">Never Keep an Inquiry Waiting.</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mt-1">
+            <h1 className="text-2xl sm:text-3xl lg:text-[2.6rem] xl:text-5xl font-black leading-tight lg:leading-[1.15] tracking-tight text-white mb-2">
+              <span className="block lg:whitespace-nowrap">Never Keep an Inquiry Waiting.</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mt-1 lg:whitespace-nowrap">
                 Your Complete 5-Second Lead Engine.
               </span>
             </h1>
@@ -76,8 +76,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
             </div>
           </div>
 
-          {/* Right Column (col-span-7): Live WhatsApp Simulator */}
-          <div className="lg:col-span-7 xl:col-span-7 flex flex-col w-full max-w-2xl mx-auto lg:max-w-none">
+          {/* Right Column: Live WhatsApp Simulator */}
+          <div className="lg:col-span-6 xl:col-span-7 flex flex-col w-full max-w-2xl mx-auto lg:max-w-none">
             <div className="relative group w-full flex flex-col">
               {/* Subtle surrounding glow aura */}
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-35 transition duration-500 pointer-events-none"></div>

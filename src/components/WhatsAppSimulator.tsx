@@ -530,9 +530,11 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                       }
                     }
                   }}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-xl shadow-lg shadow-blue-600/30 transition-all active:scale-[0.98] cursor-pointer text-center block"
+                  className="w-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl shadow-lg shadow-blue-600/30 transition-all active:scale-[0.98] cursor-pointer text-center flex items-center justify-center gap-1.5 whitespace-nowrap"
                 >
-                  Deploy This for Your Business (Free Beta) →
+                  <span className="inline-flex items-center gap-1 whitespace-nowrap">
+                    Deploy for Your Business (Free Beta) <span className="inline-block shrink-0">→</span>
+                  </span>
                 </button>
                 <span className="text-xs text-slate-400 mt-1 block text-center">
                   Zero software rent • Limited to 25 verified businesses
