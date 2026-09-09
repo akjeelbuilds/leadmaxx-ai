@@ -61,7 +61,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollToAudit }) => 
               </div>
               <div className="py-1 px-2 text-xs md:text-sm rounded-lg border border-slate-800 bg-slate-900/60 text-slate-300 flex items-center gap-1.5 min-w-0">
                 <span className="shrink-0 text-xs sm:text-sm">💰</span>
-                <span className="truncate whitespace-nowrap">₹0 Software Cost</span>
+                <span className="truncate whitespace-nowrap">Zero Monthly Rent</span>
               </div>
             </div>
 

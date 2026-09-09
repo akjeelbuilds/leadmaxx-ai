@@ -552,7 +552,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ onBookCall
                   </span>
                 </button>
                 <span className="text-xs text-slate-300 font-medium mt-2 block text-center">
-                  Zero software rent • Limited to 25 verified businesses
+                  Zero monthly tool rent • Limited to 25 verified businesses
                 </span>
               </div>
             </div>

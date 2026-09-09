@@ -15,7 +15,7 @@ export const FAQSection: React.FC = () => {
     },
     {
       q: 'How does the ₹0 monthly software bill actually work with WhatsApp?',
-      a: 'Third-party WhatsApp tools charge you ₹2,000 to ₹3,000/month just for their web dashboard. We bypass these middlemen completely by connecting your site directly to Meta\'s official WhatsApp Cloud service (which gives 1,000 free monthly conversations) and hosting on Google Cloud\'s free tier. You only pay for your domain renewal (~₹800/year).',
+      a: "Third-party tools charge you ₹2,000 to ₹3,000/month just for a dashboard. We bypass these middlemen completely by connecting your engine directly to Meta's official WhatsApp API. Customer replies are 100% free, and automated catalog dispatches cost pure utility rates (~12 paise/lead) paid directly to Meta. No monthly tool rent, no platform markups.",
     },
     {
       q: 'What support is included after launch?',
@@ -39,7 +39,7 @@ export const FAQSection: React.FC = () => {
     },
     {
       q: 'What happens if our business receives more than 1,000 inquiries in a month?',
-      a: 'Meta provides 1,000 free customer-initiated service conversations every single month. If your volume exceeds 1,000 chats, Meta bills at official standard WhatsApp rates (~₹0.30 per chat) with zero middleman markup or monthly tool subscription fees.',
+      a: "Customer-initiated chats and replies inside the 24-hour service window are free. For outbound catalog deliveries beyond high volumes, Meta bills at pure direct utility rates (~12 to 14 paise per message) straight to your account. There are zero platform markups, zero overage penalties, and zero monthly software fees.",
     },
   ];
 
