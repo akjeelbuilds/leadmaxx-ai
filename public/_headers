@@ -1,0 +1,16 @@
+# Cloudflare Pages headers.
+# This file MUST live in the published directory (public/) or it is silently ignored.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-Frame-Options: SAMEORIGIN
+
+# Always revalidate the HTML so a deploy is visible immediately.
+# There is only one file, so there is nothing else to cache-bust.
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
