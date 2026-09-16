@@ -28,3 +28,24 @@ Rules of the road:
 | `public/_headers` | Security and caching settings. Do not edit. |
 | `public/robots.txt` | Tells search engines they may index the site |
 | `public/sitemap.xml` | The list of pages for search engines |
+
+## How hosting is wired up
+
+Cloudflare (the project called `leadmaxx-ai`) reads this repository and
+publishes the `public` folder to https://leadmaxx-ai.pages.dev
+
+The settings that make that work, written down in case a future developer
+needs them:
+
+| Setting | Value |
+|---|---|
+| Git repository | `akjeelbuilds/leadmaxx-ai` |
+| Production branch | `main` |
+| Automatic production deployments | Enabled |
+| Build command | empty |
+| Build output directory | `public` |
+| Root directory | empty |
+
+Build command is deliberately empty. This is a plain HTML site, so there is
+nothing to build. Anything in that box would run a program instead of simply
+publishing the files.
