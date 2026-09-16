@@ -272,7 +272,7 @@ button{font:inherit;cursor:pointer}
 .site__send:active{transform:translateY(1px)}
 .site__send svg{width:16px;height:16px}
 .site__send.is-sending{opacity:.7;pointer-events:none}
-.site__tiny{display:block;margin-top:8px;text-align:center;font-size:11px;color:#8A93A3}
+.site__tiny{display:block;margin-top:8px;text-align:center;font-size:11px;color:#6B7484}
 #demoChat{max-height:346px;overflow-y:auto;scrollbar-width:none}
 #demoChat::-webkit-scrollbar{display:none}
 /* ---------- the pair: the customer's chat and your own notification ---------- */
@@ -342,7 +342,7 @@ button{font:inherit;cursor:pointer}
 .price__list li svg{width:16px;height:16px;flex:none;margin-top:4px;color:var(--green)}
 .price__list b{color:var(--text);display:block;font-weight:700;margin-bottom:2px;font-size:15px}
 .price__not{margin-top:22px;padding:15px 16px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px}
-.price__not h4{font-size:13px;font-weight:700;color:var(--text-2);margin-bottom:10px}
+.price__not h3{font-size:13px;font-weight:700;color:var(--text-2);margin-bottom:10px}
 .price__not ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
 .price__not li{font-size:13.2px;color:var(--text-3);display:flex;gap:8px;line-height:1.55}
 .price__not li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--text-3);flex:none;margin-top:8px}
@@ -426,7 +426,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 .footer{border-top:1px solid var(--line);padding-block:44px 34px;background:var(--bg-2)}
 .footer__grid{display:grid;gap:26px}
 @media (min-width:760px){.footer__grid{grid-template-columns:1.5fr 1fr 1fr}}
-.footer h4{font-size:13px;font-weight:750;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3);margin-bottom:13px}
+.footer h3{font-size:13px;font-weight:750;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3);margin-bottom:13px}
 .footer ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
 .footer a{font-size:14px;color:var(--text-2)}
 .footer a:hover{color:var(--green-bright)}
@@ -647,7 +647,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 
         <div class="demo__under">
           <button class="btn btn--ghost btn--sm" type="button" id="demoReset">Start again</button>
-          <p class="timer__note">This is only a demo. Nothing actually gets sent.</p>
+          <p class="timer__note">Sample only. Nothing is sent from here.</p>
         </div>
       </div>
 
@@ -995,7 +995,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
       </a>
 
       <div class="price__not">
-        <h4>Some things we want to be clear about:</h4>
+        <h3>Some things we want to be clear about:</h3>
         <ul>
           <li>The build price is quoted on the call. It depends on your business, how many services you have and what you need. You get the full price in writing before you commit.</li>
           <li>Your domain, if you need a new one, is about &#8377;800 a year. You pay that to your own domain company.</li>
@@ -1184,7 +1184,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
       </div>
 
       <div>
-        <h4>On this page</h4>
+        <h3>On this page</h3>
         <ul>
           <li><a href="#demo">See it working</a></li>
           <li><a href="#how">How it works</a></li>
@@ -1194,7 +1194,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
       </div>
 
       <div>
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <ul>
           <li><a href="#book">Book your call</a></li>
           <li><a href="https://wa.me/916382298388" target="_blank" rel="noopener">Message us on WhatsApp</a></li>
@@ -1388,6 +1388,18 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     rafId = requestAnimationFrame(tick);
   }
 
+  /* Anything a visitor types must be escaped before it goes into innerHTML.
+     The demo name and number fields are free text, so without this a visitor
+     could type markup and have it run as HTML in their own browser. */
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
   function bubble(html, cls) {
     var d = document.createElement("div");
     // "in" is what makes a bubble visible. Miss it and the bubble sits at opacity 0.
@@ -1512,7 +1524,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 
     later(function () {
       if (typing.parentNode) typing.parentNode.removeChild(typing);
-      var reply = data.reply.replace("{name}", name.charAt(0).toUpperCase() + name.slice(1));
+      var reply = data.reply.replace("{name}", esc(name.charAt(0).toUpperCase() + name.slice(1)));
       chat.appendChild(bubble(
         reply +
         '<span class="doc">' +
@@ -1534,12 +1546,12 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
           "New enquiry" +
           '<span style="margin-left:auto;color:#34D97B;font-weight:800;text-transform:none;letter-spacing:0">replied in ' +
           REPLY_SECONDS.toFixed(1) + "s</span></span>" +
-        '<span class="alert__row"><span>Name</span><span>' + name + "</span></span>" +
-        '<span class="alert__row"><span>Number</span><span>' + phoneNum + "</span></span>" +
+        '<span class="alert__row"><span>Name</span><span>' + esc(name) + "</span></span>" +
+        '<span class="alert__row"><span>Number</span><span>' + esc(phoneNum) + "</span></span>" +
         '<span class="alert__row"><span>Asked for</span><span>' + askText + "</span></span>" +
         '<span class="alert__row"><span>Business type</span><span>' + currentInd + "</span></span>" +
         '<button class="alert__call" type="button" tabindex="-1" aria-hidden="true">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Tap to call ' + name + "</button>";
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Tap to call ' + esc(name) + "</button>";
       if (notif) { notif.innerHTML = ""; notif.appendChild(alert); }
       else { chat.appendChild(alert); }
       chat.scrollTop = chat.scrollHeight;
