@@ -1,8 +1,19 @@
 # Cloudflare Pages headers.
 # This file MUST live in the published directory (public/) or it is silently ignored.
 
+# Content-Security-Policy carries four lock-downs and nothing else, so it restricts
+# nothing this page actually uses and cannot break the site or the payment window:
+#   frame-ancestors 'none'  nobody may put this page inside a frame
+#   base-uri 'self'         a hijacked <base> tag cannot redirect the page elsewhere
+#   object-src 'none'       no plugins or embedded objects
+#   form-action 'self'      a form may only ever post back to this site
+# Script, style, image and connection sources are deliberately left unrestricted
+# for now: the payment window loads from Razorpay and it is not worth risking a
+# real payment on a policy that has never been tested with real money.
+
 /*
   X-Content-Type-Options: nosniff
+  Content-Security-Policy: frame-ancestors 'none'; base-uri 'self'; object-src 'none'; form-action 'self'
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   X-Frame-Options: SAMEORIGIN
