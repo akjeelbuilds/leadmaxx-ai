@@ -135,7 +135,8 @@ button{font:inherit;cursor:pointer}
 .mnav__note{margin:12px 2px 0;font-size:12.5px;color:var(--text-3)}
 .mnav__scrim{display:none}
 /* while the menu is open the page underneath must not scroll */
-html.nav-locked,html.nav-locked body{overflow:hidden}
+/* the class is kept as a state flag for the tests; the scroll is held back by the
+   gestures below, because hiding the page overflow also un-sticks the header bar */
 /* the burger becomes a close cross */
 .burger[aria-expanded="true"] span{background:transparent}
 .burger[aria-expanded="true"] span::before{transform:translateY(5.5px) rotate(45deg)}
@@ -145,7 +146,7 @@ html.nav-locked,html.nav-locked body{overflow:hidden}
   .mnav__scrim{display:block;position:fixed;left:0;right:0;bottom:0;top:var(--hh,67px);z-index:1;
     background:rgba(4,7,15,.74);opacity:0;pointer-events:none;transition:opacity .18s ease;z-index:55}
   .mnav__scrim.is-open{opacity:1;pointer-events:auto}
-  .mnav{position:fixed;left:0;right:0;top:var(--hh,67px);z-index:2;max-height:calc(100vh - var(--hh,67px));
+  .mnav{position:fixed;left:0;right:0;top:var(--hh,67px);z-index:56;max-height:calc(100vh - var(--hh,67px));
     overflow-y:auto;padding:8px 20px 18px;box-shadow:0 26px 44px -22px rgba(0,0,0,.85)}
   .mnav a{padding:15px 4px;font-size:16.5px}
 }
@@ -429,7 +430,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 
 /* ---------- sticky mobile cta ---------- */
 .sticky-cta{
-  position:fixed;left:0;right:0;bottom:0;z-index:55;
+  position:fixed;left:0;right:0;bottom:0;z-index:54;
   padding:11px 16px calc(11px + env(safe-area-inset-bottom));
   background:rgba(7,10,18,.96);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   border-top:1px solid var(--line);
@@ -560,6 +561,11 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     </div>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span></button>
   </div>
+</header>
+
+<!-- sits outside the header on purpose: the header blurs what is behind it, which
+     would also trap a fixed child and collapse the backdrop to nothing -->
+<div class="mnav__scrim" id="mnavScrim" aria-hidden="true"></div>
   <nav class="mnav" id="mnav" aria-label="Mobile">
     <a href="#demo">See it working</a>
     <a href="#how">How it works</a>
@@ -568,11 +574,6 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     <a class="btn btn--primary btn--block" href="#book">Book &#8377;399 call</a>
     <p class="mnav__note">20 minute call. No obligation to buy anything.</p>
   </nav>
-</header>
-
-<!-- sits outside the header on purpose: the header blurs what is behind it, which
-     would also trap a fixed child and collapse the backdrop to nothing -->
-<div class="mnav__scrim" id="mnavScrim" aria-hidden="true"></div>
 
 <main id="main">
 
@@ -1372,25 +1373,48 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
   }
   measureHeader();
   window.addEventListener("resize", measureHeader);
-  function setMenu(open) {
+  var scrollKeys = { " ": 1, Spacebar: 1, ArrowUp: 1, ArrowDown: 1, PageUp: 1, PageDown: 1, Home: 1, End: 1 };
+  function blockGesture(e) {
+    /* the menu itself may still scroll if it is taller than a very small screen */
+    if (e.target && e.target.closest && e.target.closest("#mnav")) return;
+    e.preventDefault();
+  }
+  function blockKey(e) {
+    if (e.key === "Escape") return;
+    if (scrollKeys[e.key]) e.preventDefault();
+  }
+  function lockPage(on) {
+    document.documentElement.classList.toggle("nav-locked", on);
+    if (on) {
+      document.addEventListener("touchmove", blockGesture, { passive: false });
+      document.addEventListener("wheel", blockGesture, { passive: false });
+      document.addEventListener("keydown", blockKey);
+    } else {
+      document.removeEventListener("touchmove", blockGesture, { passive: false });
+      document.removeEventListener("wheel", blockGesture, { passive: false });
+      document.removeEventListener("keydown", blockKey);
+    }
+  }
+  function setMenu(open, keepScroll) {
     if (!mnav) return;
     mnav.classList.toggle("is-open", open);
     if (scrim) scrim.classList.toggle("is-open", open);
     burger.setAttribute("aria-expanded", open ? "true" : "false");
     burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    lockPage(open);
     if (open) {
       navY = window.scrollY || 0;
-      document.documentElement.classList.add("nav-locked");
-    } else {
-      document.documentElement.classList.remove("nav-locked");
-      if (window.scrollY !== navY) window.scrollTo(0, navY);
+    } else if (!keepScroll && window.scrollY !== navY) {
+      /* only put the page back where it was when the visitor did not ask to go anywhere.
+         Choosing a menu item must be left alone, or it fights the jump to that section. */
+      window.scrollTo(0, navY);
     }
   }
   if (burger && mnav) {
     burger.addEventListener("click", function () { setMenu(!mnav.classList.contains("is-open")); });
     if (scrim) scrim.addEventListener("click", function () { setMenu(false); });
     $$("#mnav a").forEach(function (a) {
-      a.addEventListener("click", function () { setMenu(false); });
+      a.addEventListener("click", function () { setMenu(false, true); });
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && mnav.classList.contains("is-open")) setMenu(false);
