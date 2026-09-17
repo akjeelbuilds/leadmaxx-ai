@@ -515,6 +515,14 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
   /* Thumbs are not mouse pointers. Anything a visitor has to hit gets a bigger target
      on a phone: the sliders in the calculator, the industry pills and the accordions. */
   @media (hover:none) and (pointer:coarse){
+    /* every real target gets at least 44px of height. The hidden spam trap field is
+       left alone on purpose, it is positioned off screen and never tapped. */
+    .logo{padding-block:8px}
+    .burger{width:44px;height:44px}
+    #demoRun{min-height:46px}
+    #demoReset{min-height:44px;padding-block:12px}
+    .site__field input,.site__field select{min-height:44px;padding:11px 12px}
+    .footer a{display:inline-block;padding-block:11px}
     input[type=range]{height:44px;background:transparent;background-image:none}
     input[type=range]::-webkit-slider-runnable-track{height:5px;border-radius:100px;background:var(--line-strong)}
     input[type=range]::-moz-range-track{height:5px;border-radius:100px;background:var(--line-strong)}
