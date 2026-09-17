@@ -471,6 +471,10 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     .offer-inline s{display:none}
     .offer-inline{gap:0;margin-inline:0}
     .duo__cap{font-size:10.5px;margin-bottom:7px}
+    /* On a phone the two phones cannot sit side by side, so they stack into a whole
+       extra screen and then repeat in the demo section. They now appear only in the
+       demo, where the visitor presses Send and watches the story finish. */
+    .hero .duo{display:none}
     /* tapping a field should not make the phone zoom in */
     .field input,.field select,.field textarea{font-size:16px}
     .field textarea{min-height:132px}
