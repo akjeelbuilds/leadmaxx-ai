@@ -1,0 +1,16 @@
+{
+  "name": "leadmaxx-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LeadMaxx.ai marketing site. One static HTML file, no build step. Deploys to Cloudflare Pages.",
+  "scripts": {
+    "dev": "python3 -m http.server 8080 --directory public",
+    "test": "node tests/test-site.js",
+    "test:browser": "node tests/test-browser.js",
+    "test:all": "npm run test && npm run test:browser"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1",
+    "playwright": "^1.63.0"
+  }
+}
