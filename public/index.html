@@ -378,6 +378,15 @@ button{font:inherit;cursor:pointer}
 .price__not li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--text-3);flex:none;margin-top:8px}
 .reassure{margin-top:18px;font-size:13px;color:var(--text-3);text-align:center;line-height:1.6}
 .footer__base{margin-top:10px;font-size:13px;color:var(--text-3)}
+/* The straight-talking panel. It carries the one claim a brand new product can
+   honestly make, and it is built to look deliberate rather than apologetic. */
+.straight{max-width:860px;margin:34px auto 0;padding:clamp(20px,3.4vw,32px);border-radius:22px;
+  border:1px solid var(--line-strong);border-left:3px solid var(--green);
+  background:linear-gradient(180deg,var(--surface-2),var(--surface));
+  font-size:15.2px;line-height:1.62;color:var(--text-2)}
+.straight b{display:block;color:var(--text);font-weight:780;letter-spacing:-.022em;
+  font-size:clamp(1.08rem,2.4vw,1.3rem);margin-bottom:9px}
+.straight strong{color:var(--text);font-weight:700}
 
 /* ---------- calculator ---------- */
 .calc{display:grid;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(20px,3vw,30px)}
@@ -600,6 +609,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     </a>
     <nav class="nav" aria-label="Main">
       <a href="#demo">See it working</a>
+      <a href="#story">Why us</a>
       <a href="#how">How it works</a>
       <a href="#call">The &#8377;399 call</a>
       <a href="#faq">FAQ</a>
@@ -616,6 +626,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 <div class="mnav__scrim" id="mnavScrim" aria-hidden="true"></div>
   <nav class="mnav" id="mnav" aria-label="Mobile">
     <a href="#demo">See it working</a>
+    <a href="#story">Why us</a>
     <a href="#how">How it works</a>
     <a href="#call">The &#8377;399 call</a>
     <a href="#faq">FAQ</a>
@@ -878,6 +889,46 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     <p class="center reveal" style="margin-top:34px;font-size:clamp(1.15rem,2.6vw,1.45rem);font-weight:750;letter-spacing:-.02em">
       You do not have a customer problem. You have a <span style="color:var(--green-bright)">reply speed</span> problem.
     </p>
+  </div>
+</section>
+
+<!-- ===================== WHY US ===================== -->
+<section class="sec" id="story">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow"><span class="dot"></span> Where this came from</span>
+      <h2 class="h2" style="margin-top:18px">This work was done by hand for real businesses before it became a product.</h2>
+      <p class="lede" style="margin-top:14px">We have set up WhatsApp replies for small businesses one at a time, using their own rate card, their own photos and their own answers. That work is the whole product.</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="card reveal">
+        <span class="step__num">Where we started</span>
+        <h3 class="h3" style="margin-top:9px">Set up by hand, one business at a time</h3>
+        <p>Interiors, clinics, solar installers, coaching centres, real estate. Every setup was built for that one business, using their own rate card and their own photos, not switched on from a template.</p>
+      </div>
+
+      <div class="card reveal">
+        <span class="step__num">What we kept seeing</span>
+        <h3 class="h3" style="margin-top:9px">The same problems, every time</h3>
+        <p>The owner is on site or with a customer. Enquiries arrive anyway. Replies go out hours later. Rate cards get copy pasted. Nobody keeps a record, and nobody follows up.</p>
+      </div>
+
+      <div class="card reveal">
+        <span class="step__num">What we built</span>
+        <h3 class="h3" style="margin-top:9px">So the fix was built once, properly</h3>
+        <p>Your page, your WhatsApp, your rate card, your photos, your Google Sheet. Live in 24 to 48 hours, and still answering at 11 at night on a Sunday.</p>
+      </div>
+    </div>
+
+    <div class="straight reveal">
+      <b>This is a new product, and we would rather say that than pretend otherwise.</b>
+      You will not find a wall of client logos on this page, because we would rather
+      <strong>earn them than borrow them</strong>. So here is what we put in writing instead:
+      money back if the call is not useful to you, the full &#8377;399 off your build if you go
+      ahead, and no auto debit, this month or any month. That is everything a wall of logos
+      would have told you, and you can hold us to every word of it.
+    </div>
   </div>
 </section>
 
@@ -1322,6 +1373,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
         <h3>On this page</h3>
         <ul>
           <li><a href="#demo">See it working</a></li>
+          <li><a href="#story">Why us</a></li>
           <li><a href="#how">How it works</a></li>
           <li><a href="#calc">Cost calculator</a></li>
           <li><a href="#call">The &#8377;399 call</a></li>
