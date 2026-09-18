@@ -1234,12 +1234,6 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
         </div>
 
         <div class="field">
-          <label for="fEmail">Email <span aria-hidden="true">*</span></label>
-          <input id="fEmail" name="email" type="email" autocomplete="email" required placeholder="you@yourbusiness.in" />
-          <p class="field__err" id="eEmail">Please enter a valid email address.</p>
-        </div>
-
-        <div class="field">
           <label for="fType">Your business type</label>
           <select id="fType" name="type">
             <option>Interiors / Modular kitchens</option>
@@ -1248,16 +1242,6 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
             <option>Coaching / Study abroad</option>
             <option>Real estate / Builders</option>
             <option>Other service business</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="fWhen">When is a good time to call you?</label>
-          <select id="fWhen" name="when">
-            <option>Morning, 10am to 1pm</option>
-            <option>Afternoon, 1pm to 5pm</option>
-            <option selected>Evening, 5pm to 8pm</option>
-            <option>Any time is fine</option>
           </select>
         </div>
 
@@ -1839,17 +1823,17 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     else input.removeAttribute("aria-invalid");
   }
 
-  [["fName", "eName"], ["fPhone", "ePhone"], ["fEmail", "eEmail"]].forEach(function (pair) {
+  [["fName", "eName"], ["fPhone", "ePhone"]].forEach(function (pair) {
     var el = $("#" + pair[0]);
     if (el) el.addEventListener("input", function () { markField(el, pair[1], false); });
   });
 
   var SUBMIT_LABEL = "Continue to payment";
 
-  function buildWaLink(name, phone, business, when) {
+  function buildWaLink(name, phone, business) {
     return "https://wa.me/" + CONFIG.WHATSAPP_NUMBER + "?text=" + encodeURIComponent(
       "Hi, I booked a LeadMaxx call.\nName: " + name + "\nBusiness: " + business +
-      "\nPreferred time: " + when + "\nPhone: " + phone
+      "\nPhone: " + phone
     );
   }
 
@@ -1857,22 +1841,19 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      var nameEl = $("#fName"), phoneEl = $("#fPhone"), emailEl = $("#fEmail"),
-          typeEl = $("#fType"), whenEl = $("#fWhen"), notesEl = $("#fNotes"), hpEl = $("#fWebsite");
+      var nameEl = $("#fName"), phoneEl = $("#fPhone"),
+          typeEl = $("#fType"), notesEl = $("#fNotes"), hpEl = $("#fWebsite");
 
       if (hpEl && hpEl.value.trim() !== "") return;   // honeypot
 
       var name = nameEl.value.trim();
       var phone = phoneEl.value.replace(/\D/g, "").replace(/^(91)(?=\d{10}$)/, "");
-      var email = emailEl.value.trim();
       var business = typeEl.value;
-      var when = whenEl.value;
       var notes = notesEl.value.trim();
 
       var bad = false;
       if (name.length < 2) { markField(nameEl, "eName", true); bad = true; }
       if (!/^[6-9]\d{9}$/.test(phone)) { markField(phoneEl, "ePhone", true); bad = true; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { markField(emailEl, "eEmail", true); bad = true; }
       if (bad) {
         setStatus("Please check the boxes marked in red and try again.", "err");
         var firstBad = form.querySelector(".has-err input");
@@ -1884,8 +1865,8 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
       var payload = {
         name: name,
         phone: phone,
-        email: email,
-        notes: "Business: " + business + "\nCall me: " + when +
+        email: "",
+        notes: "Business: " + business +
                "\nRequirement: " + (notes || "(not given)") +
                "\nType: " + CONFIG.PRICE_LABEL + " " + CONFIG.PRICE_INR
       };
@@ -1909,7 +1890,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
         payBox.classList.add("show");
 
         var waLink = $("#waLink");
-        if (waLink) waLink.href = buildWaLink(name, phone, business, when);
+        if (waLink) waLink.href = buildWaLink(name, phone, business);
 
         var stepTwo = $("#stepTwo"); if (stepTwo) stepTwo.classList.add("is-on");
         payBox.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
@@ -1920,7 +1901,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
         btn.textContent = SUBMIT_LABEL;
         payBox.classList.add("show");
         var waLink = $("#waLink");
-        if (waLink) waLink.href = buildWaLink(name, phone, business, when);
+        if (waLink) waLink.href = buildWaLink(name, phone, business);
       });
     });
   }
@@ -1932,11 +1913,10 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
       var name = ($("#fName") && $("#fName").value.trim()) || "";
       var phone = ($("#fPhone") && $("#fPhone").value.trim()) || "";
       var business = ($("#fType") && $("#fType").value) || "";
-      var when = ($("#fWhen") && $("#fWhen").value) || "";
 
       if (!CONFIG.RAZORPAY_KEY_ID) {
         // Not set up yet. Hand off to WhatsApp so nobody is left stuck.
-        window.open(buildWaLink(name, phone, business, when), "_blank", "noopener");
+        window.open(buildWaLink(name, phone, business), "_blank", "noopener");
         return;
       }
 
@@ -1954,8 +1934,9 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
             description: CONFIG.CALL_LENGTH + " consultation call",
             prefill: {
               name: name,
-              email: ($("#fEmail") && $("#fEmail").value.trim()) || "",
               contact: phone
+              // No email is collected up front any more, so Razorpay asks for one
+              // inside its own window only when it actually needs it.
             },
             theme: { color: "#22C55E" },
             handler: function () {
