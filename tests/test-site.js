@@ -159,15 +159,18 @@ setTimeout(() => {
     !!sticky && /replies in 5 seconds/i.test(sticky.textContent),
     sticky ? sticky.textContent.replace(/\s+/g, " ").trim() : "no bar");
   const chipWords = $$(".chips .chip").map((c) => c.textContent.trim());
-  check("the four promises are written in customer words, not jargon",
-    chipWords.length === 4 && !/\bAPI\b|Backend|Integration|CRM|Automation/.test(chipWords.join(" ")),
+  check("the three promises are written in customer words, not jargon",
+    chipWords.length === 3 && !/\bAPI\b|Backend|Integration|CRM|Automation/.test(chipWords.join(" ")),
     chipWords.join(" | "));
-  // The four worries, in the order they stop a service business owner from buying:
-  // who does the work, where the leads go, how long it takes, what it costs after.
-  check("the four promises answer the four real worries",
-    /set it up|we do|for you/i.test(chipWords.join(" ")) && /lead|sheet/i.test(chipWords.join(" ")) &&
-    /24 to 48|hours/i.test(chipWords.join(" ")) && /monthly|paid once/i.test(chipWords.join(" ")),
+  // Three promises, each answering a different reason a service business owner hesitates:
+  // where the leads go, how long it takes to be live, and what it costs after the build.
+  // They are deliberately short so the row sits evenly under the button.
+  check("the three promises answer three different real worries",
+    /lead|sheet/i.test(chipWords.join(" ")) && /live|days|hours/i.test(chipWords.join(" ")) &&
+    /monthly|rent|paid/i.test(chipWords.join(" ")),
     chipWords.join(" | "));
+  check("no promise chip is long enough to wrap awkwardly",
+    chipWords.every((c) => c.length <= 26), chipWords.map((c) => c.length).join(", "));
 
   check("only one chip carries the price",
     $$(".chips .chip").filter((c) => /399|1,999/.test(c.textContent)).length === 0,
