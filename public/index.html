@@ -508,6 +508,9 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     .lede{font-size:17.2px;line-height:1.6}
     /* four promises, an even 2 x 2 block, quiet enough to sit under the paragraph */
     .hero .chips{order:1;margin:0;padding:0;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:7px}
+    /* three promises, two columns: the last one takes the full row so the block lines up
+       with the button underneath instead of leaving a ragged half-width gap. */
+    .hero .chips > *:last-child{grid-column:1 / -1}
     .chip{width:100%;justify-content:flex-start;align-items:center;text-align:left;gap:7px;
       padding:12px;border-radius:12px;font-size:13.2px;line-height:1.34;
       background:rgba(255,255,255,.028);color:var(--text-2)}
@@ -666,11 +669,9 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
       </div>
 
       <div class="chips">
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Set up done for you</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Every lead lands in your sheet</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live in 24 to 48 hours</span>
-        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Paid once. No monthly rent.</span>
-        
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Every lead in your sheet</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live in 2 days</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No monthly rent</span>
       </div>
     </div>
 
