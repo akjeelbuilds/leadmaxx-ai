@@ -380,6 +380,13 @@ button{font:inherit;cursor:pointer}
 .footer__base{margin-top:10px;font-size:13px;color:var(--text-3)}
 /* The straight-talking panel. It carries the one claim a brand new product can
    honestly make, and it is built to look deliberate rather than apologetic. */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2.2vw,22px);margin:30px 0 4px}
+.stats > div{background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:clamp(16px,2.6vw,24px);text-align:center}
+.stats b{display:block;font-size:clamp(1.9rem,5.2vw,2.7rem);font-weight:820;letter-spacing:-.045em;
+  line-height:1;color:var(--green-bright)}
+.stats span{display:block;margin-top:9px;font-size:13.4px;line-height:1.45;color:var(--text-2)}
+@media (max-width:560px){.stats{gap:10px}.stats > div{padding:14px 10px}.stats span{font-size:12px}}
 .straight{max-width:860px;margin:34px auto 0;padding:clamp(20px,3.4vw,32px);border-radius:22px;
   border:1px solid var(--line-strong);border-left:3px solid var(--green);
   background:linear-gradient(180deg,var(--surface-2),var(--surface));
@@ -897,8 +904,14 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
   <div class="wrap">
     <div class="sec-head center reveal">
       <span class="eyebrow"><span class="dot"></span> Where this came from</span>
-      <h2 class="h2" style="margin-top:18px">This work was done by hand for real businesses before it became a product.</h2>
-      <p class="lede" style="margin-top:14px">We have set up WhatsApp replies for small businesses one at a time, using their own rate card, their own photos and their own answers. That work is the whole product.</p>
+      <h2 class="h2" style="margin-top:18px">This work was done by hand for 250+ small businesses before it became a product.</h2>
+      <p class="lede" style="margin-top:14px">Since 2023 we have built websites and set up WhatsApp replies for small businesses one at a time, using their own rate card, their own photos and their own answers. That work is the whole product.</p>
+    </div>
+
+    <div class="stats reveal">
+      <div><b>250+</b><span>Small businesses helped</span></div>
+      <div><b>3 years</b><span>Building websites and WhatsApp setup</span></div>
+      <div><b>24 to 48</b><span>Hours from go ahead to live</span></div>
     </div>
 
     <div class="grid g3">
@@ -922,12 +935,13 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     </div>
 
     <div class="straight reveal">
-      <b>This is a new product, and we would rather say that than pretend otherwise.</b>
-      You will not find a wall of client logos on this page, because we would rather
-      <strong>earn them than borrow them</strong>. So here is what we put in writing instead:
-      money back if the call is not useful to you, the full &#8377;399 off your build if you go
-      ahead, and no auto debit, this month or any month. That is everything a wall of logos
-      would have told you, and you can hold us to every word of it.
+      <b>This product is new. The work behind it is not.</b>
+      Those 250+ setups were built by hand for real businesses, and the business owners still
+      have our number. What is new is selling it this way: one page, one demo, one clear price
+      instead of a proposal. So rather than paste other people's names on a website, here is
+      what we put in writing: <strong>money back if the call is not useful to you</strong>, the
+      full &#8377;399 off your build if you go ahead, and no auto debit, this month or any month.
+      You can hold us to every word of it.
     </div>
   </div>
 </section>
@@ -1169,8 +1183,8 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
         <div><b>Money back if the call is not useful to you.</b>Tell us on the call, or after it. We refund the full &#8377;399, no questions asked.</div>
       </div>
-      <p class="price__cohort">Founding cohort: we are taking the first 25 businesses only, so that each setup gets proper attention.</p>
-      <p class="price__who">LeadMaxx, Chennai. You deal with us directly, and you have our number.</p>
+      <p class="price__cohort">Founding cohort: we are taking the first 25 businesses on this packaged setup, so that each one gets proper attention.</p>
+      <p class="price__who">LeadMaxx, Chennai. 250+ small businesses helped since 2023, and you deal with us directly.</p>
 
       <ul class="price__list" style="margin-top:26px">
         <li>
@@ -1220,7 +1234,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     <div class="faq reveal">
       <details class="acc" open>
         <summary>Why should I pay &#8377;399 for a call? Others give free calls.<span class="plus" aria-hidden="true"></span></summary>
-        <div class="acc__body">Because a free call usually turns into a sales pitch, or into weeks of follow up calls that waste your time. We charge a small fee so that both of us take the 20 minutes seriously, and so you get a proper plan out of it instead of a pitch. <b>And if you go ahead with the build, we deduct the full &#8377;399 from your bill.</b> So in the end it costs you nothing. <b>And if the call does not turn out useful, just say so and we refund the whole &#8377;399, no questions asked.</b></div>
+        <div class="acc__body">We have helped 250+ small businesses since 2023, and the same two problems come up every time: enquiries go cold, and the owner never finds out which ones. A free call usually turns into a sales pitch, or into weeks of follow up calls that waste your time. We charge a small fee so that both of us take the 20 minutes seriously, and so you get a proper plan out of it instead of a pitch. <b>And if you go ahead with the build, we deduct the full &#8377;399 from your bill.</b> So in the end it costs you nothing. <b>And if the call does not turn out useful, just say so and we refund the whole &#8377;399, no questions asked.</b></div>
       </details>
 
       <details class="acc">
