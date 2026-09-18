@@ -358,6 +358,15 @@ button{font:inherit;cursor:pointer}
 .price__amt .now{font-size:clamp(2.6rem,8vw,3.6rem);font-weight:800;letter-spacing:-.045em;line-height:1}
 .price__amt .was{font-size:1.15rem;color:var(--text-3);text-decoration:line-through;font-weight:600}
 .price__once{font-size:13.8px;color:var(--text-2);font-weight:600}
+/* The risk reversal. On a new product this is what stands in for testimonials,
+   so it is given real weight instead of being buried in the small print. */
+.price__promise{display:flex;gap:11px;align-items:flex-start;margin-top:18px;padding:15px 17px;
+  border:1px solid rgba(34,197,94,.34);background:rgba(34,197,94,.07);border-radius:16px;
+  font-size:14.4px;line-height:1.5;color:var(--text-2)}
+.price__promise b{display:block;color:var(--text);font-size:14.9px;margin-bottom:2px}
+.price__promise svg{width:17px;height:17px;flex:none;color:var(--green-bright);margin-top:2px}
+.price__cohort{margin-top:14px;font-size:13.4px;color:var(--text-3)}
+.price__who{margin-top:7px;font-size:13.4px;color:var(--text-3)}
 .price__list{list-style:none;padding:0;margin:24px 0;display:grid;gap:14px}
 .price__list li{display:flex;gap:11px;font-size:14.6px;color:var(--text-2);align-items:flex-start}
 .price__list li svg{width:16px;height:16px;flex:none;margin-top:4px;color:var(--green)}
@@ -368,6 +377,7 @@ button{font:inherit;cursor:pointer}
 .price__not li{font-size:13.2px;color:var(--text-3);display:flex;gap:8px;line-height:1.55}
 .price__not li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--text-3);flex:none;margin-top:8px}
 .reassure{margin-top:18px;font-size:13px;color:var(--text-3);text-align:center;line-height:1.6}
+.footer__base{margin-top:10px;font-size:13px;color:var(--text-3)}
 
 /* ---------- calculator ---------- */
 .calc{display:grid;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(20px,3vw,30px)}
@@ -719,7 +729,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     <div class="sec-head center reveal">
       <span class="eyebrow"><span class="dot"></span> Try it now. No signup.</span>
       <h2 class="h2" style="margin-top:18px">Send a test enquiry. See what your customer gets.</h2>
-      <p class="lede" style="margin-top:14px">This is your website, your enquiry form and your WhatsApp. Pick your business type, fill the form the way a customer would, and watch what lands on both phones.</p>
+      <p class="lede" style="margin-top:14px">This is your website, your enquiry form and your WhatsApp. Pick your business type, fill the form the way a customer would, and watch what lands on both phones. Nothing here is a customer's screenshot. It is a working demo running on this page, so press Send and judge it yourself.</p>
     </div>
 
     <div class="demo__panel reveal">
@@ -1104,6 +1114,13 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
       </div>
       <span class="price__once">One time. Not monthly, not yearly, no auto debit.</span>
 
+      <div class="price__promise">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        <div><b>Money back if the call is not useful to you.</b>Tell us on the call, or after it. We refund the full &#8377;399, no questions asked.</div>
+      </div>
+      <p class="price__cohort">Founding cohort: we are taking the first 25 businesses only, so that each setup gets proper attention.</p>
+      <p class="price__who">LeadMaxx, Chennai. You deal with us directly, and you have our number.</p>
+
       <ul class="price__list" style="margin-top:26px">
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
@@ -1152,7 +1169,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     <div class="faq reveal">
       <details class="acc" open>
         <summary>Why should I pay &#8377;399 for a call? Others give free calls.<span class="plus" aria-hidden="true"></span></summary>
-        <div class="acc__body">Because a free call usually turns into a sales pitch, or into weeks of follow up calls that waste your time. We charge a small fee so that both of us take the 20 minutes seriously, and so you get a proper plan out of it instead of a pitch. <b>And if you go ahead with the build, we deduct the full &#8377;399 from your bill.</b> So in the end it costs you nothing.</div>
+        <div class="acc__body">Because a free call usually turns into a sales pitch, or into weeks of follow up calls that waste your time. We charge a small fee so that both of us take the 20 minutes seriously, and so you get a proper plan out of it instead of a pitch. <b>And if you go ahead with the build, we deduct the full &#8377;399 from your bill.</b> So in the end it costs you nothing. <b>And if the call does not turn out useful, just say so and we refund the whole &#8377;399, no questions asked.</b></div>
       </details>
 
       <details class="acc">
@@ -1259,7 +1276,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 
         <button class="btn btn--primary btn--block btn--lg" type="submit" id="submitBtn" style="margin-top:6px">Continue to payment</button>
 
-        <p class="reassure">Filling this form costs nothing. No card details on this step.</p>
+        <p class="reassure">Filling this form costs nothing. Your payment runs through Razorpay, and no card details touch this page.</p>
 
         <div class="status" id="formStatus" role="status" aria-live="polite"></div>
 
@@ -1298,6 +1315,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
           <span>Lead<em>Maxx</em><span style="color:var(--text-3);font-weight:600;font-size:14px">.ai</span></span>
         </span>
         <p class="lede" style="font-size:14px;margin-top:14px;max-width:38ch">We help Indian service businesses reply to every enquiry within 5 seconds, on WhatsApp.</p>
+        <p class="footer__base">LeadMaxx, Chennai.</p>
       </div>
 
       <div>
