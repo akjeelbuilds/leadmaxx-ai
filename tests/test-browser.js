@@ -265,12 +265,14 @@ function serve() {
     return { count: c.length, tops: c.map((r) => Math.round(r.top)), widths: c.map((r) => Math.round(r.width)),
       h1Top: Math.round(h1.top), ctaTop: Math.round(cta.top) };
   });
-  check("four promise boxes on a phone", chipGeo.count === 4, chipGeo.count + " boxes");
+  check("three promise boxes on a phone", chipGeo.count === 3, chipGeo.count + " boxes");
   check("they form an even 2 x 2 block",
     chipGeo.tops.filter((t, i) => i === 0 || t !== chipGeo.tops[i - 1]).length === 2,
     JSON.stringify(chipGeo.tops));
   check("the two boxes in a row are the same width", chipGeo.widths[0] === chipGeo.widths[1],
     chipGeo.widths.join(", "));
+  check("the third box takes the full row so the block lines up with the button",
+    chipGeo.widths[2] > chipGeo.widths[0] + 20, chipGeo.widths.join(", "));
   check("the promises come BEFORE the buttons on a phone",
     chipGeo.tops[0] < chipGeo.ctaTop, chipGeo.tops[0] + " vs " + chipGeo.ctaTop);
   check("the buttons come AFTER the headline",
