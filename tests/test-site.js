@@ -272,7 +272,6 @@ setTimeout(() => {
       check("empty submit blocked", fetchCalls.length === 0);
       check("name error shown", $("#fName").closest(".field").classList.contains("has-err"));
       check("phone error shown", $("#fPhone").closest(".field").classList.contains("has-err"));
-      check("email error shown", $("#fEmail").closest(".field").classList.contains("has-err"));
       check("aria-invalid set on bad field", $("#fName").getAttribute("aria-invalid") === "true");
       check("error status announced in plain words",
     /marked in red/i.test($("#formStatus").textContent), $("#formStatus").textContent);
@@ -284,7 +283,6 @@ setTimeout(() => {
         const before = fetchCalls.length;
         $("#fName").value = "Priya Raman";
         $("#fPhone").value = p;
-        $("#fEmail").value = "priya@example.in";
         // clear + resubmit
         $("#fPhone").dispatchEvent(new window.Event("input", { bubbles: true }));
         submit();
@@ -292,15 +290,8 @@ setTimeout(() => {
       });
       check("rejects invalid Indian mobile numbers", allBlocked);
 
-      // bad email
-      window.fetch = (...a) => { fetchCalls = [a]; return Promise.resolve({}); };
-      $("#fPhone").value = "9876543210";
-      $("#fEmail").value = "priya@";
-      submit();
-      check("rejects malformed email", fetchCalls.length === 0);
-
       // honeypot
-      $("#fEmail").value = "priya@example.in";
+      $("#fPhone").value = "9876543210";
       $("#fWebsite").value = "http://spam.example";
       submit();
       check("honeypot silently blocks bots", fetchCalls.length === 0);
@@ -325,9 +316,13 @@ setTimeout(() => {
         check("payload keeps legacy keys for the existing sheet",
           ["name", "phone", "email", "notes"].every((k) => k in body),
           JSON.stringify(Object.keys(body)));
+        check("no email is asked for up front, so it is sent blank",
+          body.email === "", JSON.stringify(body.email));
         check("industry folded into notes (sheet unchanged)",
           /Rooftop solar/.test(body.notes || ""), body.notes);
         check("plan + price included", /399/.test(body.notes || ""));
+        check("no preferred call time is collected any more",
+          !/Call me/i.test(body.notes || ""), body.notes);
       }
 
       setTimeout(() => {
