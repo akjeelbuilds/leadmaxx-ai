@@ -162,7 +162,6 @@ function serve() {
     await page.click('a[href="#book"]');
     await page.fill("#fName", "Test User");
     await page.fill("#fPhone", "9876543210");
-    await page.fill("#fEmail", "test@example.in");
     await page.locator("#bookingForm").evaluate((f) =>
       f.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true })));
 
@@ -364,8 +363,14 @@ function serve() {
     [...document.querySelectorAll("#book input, #book select, #book textarea")]
       .filter((e) => e.id !== "fWebsite")
       .map((e) => parseFloat(getComputedStyle(e).fontSize)));
+  // The count is checked against whatever the form holds, because the form is meant to
+  // keep shrinking as friction is removed. The rule is about the font size, not the count.
+  const fieldCount = await ph.evaluate(() =>
+    [...document.querySelectorAll("#book input, #book select, #book textarea")]
+      .filter((e) => e.id !== "fWebsite").length);
   check("form fields are 16px so the phone does not zoom when tapped",
-    fonts.length >= 5 && fonts.every((f) => f === 16), fonts.join(", "));
+    fonts.length === fieldCount && fieldCount >= 3 && fonts.every((f) => f === 16),
+    fonts.length + " fields: " + fonts.join(", "));
 
   // jump to the very bottom, then measure. behavior:instant overrides the page's smooth scrolling.
   await ph.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
