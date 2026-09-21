@@ -393,9 +393,12 @@ setTimeout(() => {
         check("build price is deferred to the call",
           /quoted on (the|your) call|tell you the full price on the call/i.test(body));
 
-        // plain-language check: no agency jargon
+        // Plain-language check: no agency jargon. "lead engine" was removed from this list
+        // on the owner's instruction (17 Sep): he uses it himself and wants it in the copy.
+        // It is the only phrase to come off the list, and this note is here so nobody adds
+        // it back by accident.
         const jargon = ["infrastructure", "dispatch", "prospect", "deploy",
-                        "landing page", "lead engine", "funnel", "scale up"];
+                        "landing page", "funnel", "scale up"];
         const found = jargon.filter((w) => new RegExp(w, "i").test(body));
         check("no agency jargon in the copy", found.length === 0, found.join(", "));
 
