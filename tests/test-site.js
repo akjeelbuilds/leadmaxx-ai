@@ -408,6 +408,32 @@ setTimeout(() => {
           lens.length === 2 && lens.every((t) => t === "20 minute"),
           JSON.stringify(lens));
 
+        // The three owner-approved changes of 21 Sep: a louder build anchor, the money back
+        // promise moved above the payment step, and the dead mailbox swapped for the number.
+        section("7. Owner-approved fixes");
+        const reveal = $$(".reassure--anchor");
+        check("the build anchor is on the page, emphasising the figure",
+          reveal.length === 1 && /\u20B94,999/.test(reveal[0].textContent) && !!reveal[0].querySelector("b"),
+          reveal.length ? reveal[0].textContent.trim() : "missing");
+        const promise = $(".reassure--promise");
+        const payBox = $("#payBox");
+        // source order, not a DOM constant: the promise must be written above the payment box
+        const order = window.document.documentElement.outerHTML;
+        check("the money back promise is visible before the payment step",
+          !!promise && !!payBox &&
+          order.indexOf("reassure--promise") > -1 &&
+          order.indexOf("reassure--promise") < order.indexOf('id="payBox"'),
+          promise ? promise.textContent.trim().slice(0, 48) : "missing");
+        check("the refund promise still names the amount in the pay box",
+          /refund the full \u20B9399/i.test(payBox ? payBox.textContent : ""),
+          "pay box carries the how-to-claim wording");
+        check("no dead mailbox is left anywhere on the page",
+          !/mailto:/i.test(window.document.documentElement.outerHTML) && !/hello@leadmaxx\.ai/i.test(window.document.documentElement.outerHTML),
+          "no mailto link, no unused contact email");
+        check("the footer carries the WhatsApp number as its contact",
+          /WhatsApp \+91 63822 98388/.test((window.document.querySelector(".footer__grid") || {}).textContent || ""),
+          "footer contact line");
+
         // ---------- summary ----------
         section("6. Errors & warnings");
         check("zero runtime errors overall", errors.length === 0, errors.join(" | "));

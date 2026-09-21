@@ -77,6 +77,19 @@
   footer{margin-top:20px;font-size:12.2px;color:var(--text3)}
   code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.4px;color:var(--green2)}
   @media (max-width:900px){.grid{grid-template-columns:1fr}.stage{grid-template-columns:1fr}}
+  /* clean view: what the buyer sees when you send the link */
+  body.clean .build,body.clean .panel.link,body.clean h1,body.clean .wrap > .muted{display:none}
+  body.clean .grid{grid-template-columns:1fr;margin-top:0}
+  body.clean .wrap{max-width:1120px;padding-top:22px}
+  @media (min-width:901px){body.clean .stage{grid-template-columns:1.25fr 1fr}}
+  .cleanbar{display:none}
+  body.clean .cleanbar{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;
+    justify-content:space-between;border:1px solid var(--line);border-radius:12px;
+    background:#0E1626;padding:11px 14px;margin-bottom:14px}
+  .cleanbar__mark{font-weight:800;font-size:15px}
+  .cleanbar__mark em{color:var(--green2);font-style:normal}
+  .cleanbar__for{color:var(--text-2);font-size:13.5px}
+  .cleanbar__for b{color:var(--text)}
 </style>
 </head>
 <body>
@@ -85,9 +98,14 @@
 <h1>LeadMaxx niche demo generator</h1>
 <p class="muted">One engine, ten niche packs, unlimited businesses. Everything a prospect sees comes from the address bar, so a demo can be built and shared without touching code or deploying anything.</p>
 
+<div class="cleanbar" id="cleanbar">
+  <span class="cleanbar__mark">Lead<em>Maxx</em></span>
+  <span class="cleanbar__for">Prepared for <b id="cFor"></b></span>
+</div>
+
 <div class="grid">
 
-  <div class="panel">
+  <div class="panel build">
     <h2>Build the demo</h2>
     <div class="pills" id="pills" role="group" aria-label="Pick a niche"></div>
 
@@ -278,6 +296,7 @@ function render() {
   $("#mBrand").textContent = biz;
   $("#mCity").textContent = city;
   $("#mTag").textContent = current.tag;
+  var cFor = $("#cFor"); if (cFor) cFor.textContent = biz ? biz + " in " + city : "";
   $("#mSub").textContent = current.sub;
   $("#mPhoneCap").textContent = owner + "'s customer, on WhatsApp";
   $("#aov").textContent = current.aovText;
@@ -320,6 +339,7 @@ function render() {
   q.set("city", city);
   q.set("owner", owner);
   if (num) q.set("phone", num);
+  q.set("view", "clean");   /* the link you send hides this builder panel on the other side */
   var link = location.origin + location.pathname + "?" + q.toString();
   $("#demoLink").value = link;
   $("#waText").textContent =
@@ -359,13 +379,22 @@ function setNiche(id, keepFields) {
   render();
 }
 
+/* The link you send carries view=clean. On that side the builder panel is hidden, so the
+   buyer sees the demo and nothing else. Same page, same engine, one extra word in the link. */
+function cleanView() {
+  var q = new URLSearchParams(location.search), h = new URLSearchParams(location.hash.replace(/^#/, ""));
+  var v = (q.get("view") || h.get("view") || "").toLowerCase();
+  return v === "clean" || v === "buyer" || q.get("clean") === "1";
+}
+
 /* Read both shapes: the tidy query string used in shared links, and the older hash form. */
 function readAddress() {
   var q = new URLSearchParams(location.search);
   var h = new URLSearchParams(location.hash.replace(/^#/, ""));
   var get = function (k) { return q.get(k) != null ? q.get(k) : h.get(k); };
   var any = ["niche","n","business","b","city","c","owner","o","phone","p"].some(function (k) { return get(k) != null; });
-  if (!any) return false;
+  if (cleanView()) document.body.className = "clean";
+  if (!any) return cleanView();
   setNiche(get("niche") || get("n"), true);
   var biz = get("business") || get("b"); if (biz != null) $("#fB").value = clean(biz, 40);
   var city = get("city") || get("c");     if (city != null) $("#fC").value = clean(city, 30);

@@ -30,6 +30,11 @@ To change the site: open the file on GitHub, click the pencil, edit, **Commit ch
 Note: Cloudflare serves `public/demo.html` at `/demo`. Both addresses work, and `/demo.html`
 redirects to `/demo`.
 
+A demo link can carry `view=clean`. On that side the builder panel is hidden and a
+"Prepared for" bar names the business, so the buyer sees the demo and nothing else. The Copy
+link button on the demo page builds that link for you. Open the page with no `view=clean` when
+you want the builder in front of you on a call.
+
 ## What is in here
 
 ```

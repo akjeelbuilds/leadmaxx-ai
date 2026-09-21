@@ -377,6 +377,10 @@ button{font:inherit;cursor:pointer}
 .price__not li{font-size:13.2px;color:var(--text-3);display:flex;gap:8px;line-height:1.55}
 .price__not li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--text-3);flex:none;margin-top:8px}
 .reassure{margin-top:18px;font-size:13px;color:var(--text-3);text-align:center;line-height:1.6}
+.reassure--anchor{margin-top:14px;font-size:15px;color:var(--text-2)}
+.reassure--anchor b{color:var(--text);font-weight:700}
+.reassure--promise{margin-top:10px;font-size:14px;color:var(--text-2)}
+.reassure--promise b{color:var(--text);font-weight:700}
 .footer__base{margin-top:10px;font-size:13px;color:var(--text-3)}
 /* The straight-talking panel. It carries the one claim a brand new product can
    honestly make, and it is built to look deliberate rather than apologetic. */
@@ -1215,7 +1219,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
         <svg class="btn__arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
 
-      <p class="reassure" style="margin-top:14px">Complete setups start from &#8377;4,999.</p>
+      <p class="reassure reassure--anchor">Complete setups start from <b>&#8377;4,999</b>.</p>
 
       <div class="price__not">
         <h3>Some things we want to be clear about:</h3>
@@ -1349,6 +1353,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 
         <button class="btn btn--primary btn--block btn--lg" type="submit" id="submitBtn" style="margin-top:6px">Continue to payment</button>
 
+        <p class="reassure reassure--promise"><b>Money back if the call is not useful to you.</b> No questions asked.</p>
         <p class="reassure">Filling this form costs nothing. Your payment runs through Razorpay, and no card details touch this page.</p>
 
         <div class="status" id="formStatus" role="status" aria-live="polite"></div>
@@ -1358,7 +1363,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
             <span class="k">Consultation call, adjusted against your build</span>
             <span class="v">&#8377;399</span>
           </div>
-          <p class="pay-box__promise">Money back if the call is not useful to you. No questions asked.</p>
+          <p class="pay-box__promise">Tell us on the call or after it and we refund the full &#8377;399. No questions asked.</p>
           <button class="btn btn--primary btn--block btn--lg" type="button" id="payBtn">Pay &#8377;399 and book my call</button>
           <p class="wa-alt" id="waAlt">
             Would rather talk first? <a href="#" id="waLink" target="_blank" rel="noopener">Message us on WhatsApp</a>
@@ -1407,8 +1412,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
         <h3>Contact</h3>
         <ul>
           <li><a href="#book">Book your call</a></li>
-          <li><a href="https://wa.me/916382298388" target="_blank" rel="noopener">Message us on WhatsApp</a></li>
-          <li><a href="mailto:hello@leadmaxx.ai">hello@leadmaxx.ai</a></li>
+          <li><a href="https://wa.me/916382298388" target="_blank" rel="noopener">WhatsApp +91 63822 98388</a></li>
         </ul>
       </div>
     </div>
@@ -1448,9 +1452,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 
     // Paste your Razorpay public key_id here (e.g. "rzp_live_XXXX"). Safe in front end.
     // Leave it empty and the pay button falls back to WhatsApp so nobody gets stuck.
-    RAZORPAY_KEY_ID: "rzp_live_TbrsBB5BeKqoXJ",
-
-    CONTACT_EMAIL: "hello@leadmaxx.ai"
+    RAZORPAY_KEY_ID: "rzp_live_TbrsBB5BeKqoXJ"
   };
 
   var $ = function (s, c) { return (c || document).querySelector(s); };
