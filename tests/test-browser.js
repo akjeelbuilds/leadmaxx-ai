@@ -133,8 +133,31 @@ function serve() {
     (await page.textContent("#demoChat")).slice(-70));
 
   console.log("\n===== CALCULATOR =====");
-  const rev = await page.textContent("#rRev");
-  check("calculator output rendered", /13L/.test(rev), rev);
+  // The calculator opens on numbers for the trade picked earlier in the demo, so this checks
+  // the arithmetic against the visitor's own sliders rather than a fixed figure. Pinning a
+  // constant here is what broke the moment the slider started following the business type.
+  const calcNow = await page.evaluate(() => {
+    const v = (id) => +document.querySelector(id).value;
+    const leads = v("#cLeads"), deal = v("#cDeal"), close = v("#cClose"), fast = v("#cFast"), loss = v("#cLoss");
+    const slow = leads * (100 - fast) / 100;
+    const lostDeals = slow * (close / 100) * (loss / 100);
+    const lostRev = lostDeals * deal;
+    const fmt = (n) => {
+      if (n >= 10000000) return "\u20B9" + (n / 10000000).toFixed(2).replace(/\.00$/, "") + "Cr";
+      if (n >= 100000) return "\u20B9" + (n / 100000).toFixed(1).replace(/\.0$/, "") + "L";
+      return "\u20B9" + Math.round(n).toLocaleString("en-IN");
+    };
+    return { deal, lostRev, expect: fmt(lostRev) + " / month",
+      rev: document.querySelector("#rRev").textContent.trim(),
+      deals: document.querySelector("#rDeals").textContent.trim(),
+      expectDeals: lostDeals.toFixed(1) + " orders" };
+  });
+  check("the order value slider followed the trade picked in the demo",
+    calcNow.deal === 200000, "solar order value is " + calcNow.deal);
+  check("calculator output rendered", /\u20B9/.test(calcNow.rev), calcNow.rev);
+  check("calculator maths matches its own sliders",
+    calcNow.rev === calcNow.expect && calcNow.deals === calcNow.expectDeals,
+    "showing " + calcNow.rev + ", arithmetic says " + calcNow.expect);
 
   console.log("\n===== PAYMENT FLOW (mocked, no real charge or sheet write) =====");
   {
