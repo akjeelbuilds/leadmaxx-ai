@@ -451,6 +451,8 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 .pay-box__row{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid var(--line)}
 .pay-box__row .k{font-size:14.5px;font-weight:700}
 .pay-box__row .v{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;color:var(--green-bright)}
+.pay-box__promise{margin:-2px 0 14px;font-size:13.6px;line-height:1.5;color:var(--text-2);text-align:center}
+.pay-box__promise b{color:var(--text)}
 .wa-alt{margin-top:14px;text-align:center;font-size:13.4px;color:var(--text-3)}
 .wa-alt a{color:var(--green-bright);font-weight:650;text-decoration:underline;text-underline-offset:3px}
 
@@ -1103,7 +1105,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
         <div class="field">
           <label for="cDeal">How much is one order worth to you?</label>
           <div class="slider">
-            <input id="cDeal" type="range" min="10000" max="1000000" step="10000" value="450000" />
+            <input id="cDeal" type="range" min="10000" max="1000000" step="5000" value="450000" />
             <output for="cDeal" id="oDeal">&#8377;4.5L</output>
           </div>
           <p class="field__hint">Slide it to your usual order size.</p>
@@ -1213,6 +1215,8 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
         <svg class="btn__arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
 
+      <p class="reassure" style="margin-top:14px">Complete setups start from &#8377;4,999.</p>
+
       <div class="price__not">
         <h3>Some things we want to be clear about:</h3>
         <ul>
@@ -1248,7 +1252,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 
       <details class="acc">
         <summary>How much does the build cost?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="acc__body">It depends on your business. How many services you offer, how many pages you need, and what you want the system to do. We tell you the full price on the call, in writing, before you commit to anything. There is no monthly software rent after that, ever.</div>
+        <div class="acc__body">It depends on your business. How many services you offer, how many pages you need, and what you want the system to do. <b>Complete setups start from &#8377;4,999.</b> We tell you the full price on the call, in writing, before you commit to anything. There is no monthly software rent after that, ever.</div>
       </details>
 
       <details class="acc">
@@ -1333,7 +1337,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 
         <div class="field">
           <label for="fNotes">What would you like to fix?</label>
-          <textarea id="fNotes" name="notes" placeholder="For example, I get around 40 enquiries a month, mostly from Instagram. I send the rate card myself but usually 3 or 4 hours late."></textarea>
+          <textarea id="fNotes" name="notes" placeholder="For example, I usually take a few hours to reply, or I have no way to track enquiries."></textarea>
           <p class="field__hint">Not required, but the more you tell us, the more we can cover on the call.</p>
         </div>
 
@@ -1354,6 +1358,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
             <span class="k">Consultation call, adjusted against your build</span>
             <span class="v">&#8377;399</span>
           </div>
+          <p class="pay-box__promise">Money back if the call is not useful to you. No questions asked.</p>
           <button class="btn btn--primary btn--block btn--lg" type="button" id="payBtn">Pay &#8377;399 and book my call</button>
           <p class="wa-alt" id="waAlt">
             Would rather talk first? <a href="#" id="waLink" target="_blank" rel="noopener">Message us on WhatsApp</a>
@@ -1891,6 +1896,41 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     if (el) el.addEventListener("input", calc);
   });
   calc();
+
+  /* The order value slider starts on interiors numbers, which is wrong for anyone else.
+     If the visitor has already picked a business type earlier on the page, the slider moves
+     to a typical order for that trade. It stays fully editable: the moment they move it
+     themselves, we stop touching it. */
+  var DEAL_BY_TRADE = [
+    [/interior|modular|home/i, 450000],
+    [/clinic|dental|aesthetic|health/i, 30000],
+    [/solar/i, 200000],
+    [/coach|study|academy|tuition/i, 65000],
+    [/real estate|builder|property|plot/i, 250000]
+  ];
+  var dealTouched = false;
+
+  function setDealFrom(text) {
+    if (!cDeal || dealTouched || !text) return;
+    for (var i = 0; i < DEAL_BY_TRADE.length; i++) {
+      if (DEAL_BY_TRADE[i][0].test(text)) {
+        cDeal.value = DEAL_BY_TRADE[i][1];
+        calc();
+        return;
+      }
+    }
+  }
+
+  if (cDeal) {
+    cDeal.addEventListener("input", function (e) { if (e.isTrusted) dealTouched = true; });
+  }
+  $$("#industryPills .pill").forEach(function (p) {
+    p.addEventListener("click", function () {
+      setDealFrom(p.getAttribute("data-ind") + " " + (p.textContent || ""));
+    });
+  });
+  var typeSelect = $("#fType");
+  if (typeSelect) typeSelect.addEventListener("change", function () { setDealFrom(typeSelect.value); });
 
   /* ============================================================
      BOOKING FORM
