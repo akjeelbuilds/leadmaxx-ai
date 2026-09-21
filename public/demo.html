@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>LeadMaxx niche demo generator</title>
+<style>
+  :root{
+    --bg:#070A12; --surface:#0F1522; --line:#1D2637; --line2:#2A3549;
+    --text:#F4F7FB; --text2:#A3B0C6; --text3:#7A8AA3;
+    --green:#22C55E; --green2:#34D97B; --ink:#04240F; --red:#F87171;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 60px}
+  h1{font-size:clamp(1.35rem,3.2vw,1.9rem);letter-spacing:-.025em;margin:0 0 8px}
+  h2{font-size:1rem;margin:0 0 10px}
+  p{margin:0 0 10px}
+  .muted{color:var(--text2)}
+  .small{font-size:12.6px;color:var(--text3)}
+  .grid{display:grid;grid-template-columns:330px 1fr;gap:18px;align-items:start;margin-top:20px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px}
+  .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+  .pill{background:rgba(255,255,255,.045);border:1px solid var(--line2);color:var(--text2);
+    border-radius:100px;padding:7px 12px;font:inherit;font-size:12.6px;cursor:pointer}
+  .pill:hover{color:var(--text);border-color:#42506E}
+  .pill[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--ink);font-weight:700}
+  label{display:block;font-size:12.2px;color:var(--text3);margin:10px 0 5px}
+  input{width:100%;background:#0B1220;border:1px solid var(--line2);color:var(--text);
+    border-radius:10px;padding:10px 11px;font:inherit;font-size:14px}
+  input:focus{outline:2px solid rgba(52,217,123,.45);outline-offset:1px}
+  .warn{margin-top:7px;font-size:12.2px;color:var(--red);display:none}
+  .warn.on{display:block}
+  button.act{margin-top:12px;width:100%;background:rgba(255,255,255,.07);border:1px solid var(--line2);
+    color:var(--text);border-radius:11px;padding:11px;font:inherit;font-weight:650;cursor:pointer}
+  button.act:hover{background:rgba(255,255,255,.12)}
+  .stage{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+  .browser{background:#0B1220;border:1px solid var(--line2);border-radius:16px;overflow:hidden}
+  .browser__bar{display:flex;gap:8px;align-items:center;padding:9px 12px;background:#0E1626;border-bottom:1px solid var(--line)}
+  .dots i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#26314A;margin-right:4px}
+  .browser__url{font-size:11.4px;color:var(--text3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .page{padding:16px}
+  .pnav{display:flex;justify-content:space-between;align-items:center;gap:10px;
+    padding-bottom:10px;border-bottom:1px solid var(--line);font-size:12.4px}
+  .pnav b{font-size:14px}
+  .tag{display:inline-block;margin:14px 0 8px;font-size:11.4px;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--green2)}
+  .hero{font-size:19px;font-weight:780;letter-spacing:-.02em;line-height:1.25;margin:0 0 8px}
+  .hero em{color:var(--green2);font-style:normal}
+  .rate{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .rate div{display:flex;justify-content:space-between;gap:10px;padding:8px 11px;font-size:12.7px;
+    border-bottom:1px solid var(--line);color:var(--text2)}
+  .rate div:last-child{border-bottom:0}
+  .rate b{color:var(--text);font-weight:650}
+  a.mockcta{display:block;margin-top:13px;background:var(--green);color:var(--ink);border-radius:11px;
+    padding:11px;text-align:center;font-weight:750;font-size:13.5px;text-decoration:none}
+  a.mockcta.off{background:rgba(255,255,255,.08);color:var(--text3);pointer-events:none}
+  .phone{background:#0B1220;border:1px solid var(--line2);border-radius:20px;padding:11px;align-self:start}
+  .ph__cap{font-size:11.2px;color:var(--text3);text-align:center;margin-bottom:8px}
+  .chat{background:#0E1626;border:1px solid var(--line);border-radius:14px;padding:11px;display:grid;gap:8px}
+  .msg{font-size:12.8px;line-height:1.45;padding:9px 11px;border-radius:11px;max-width:92%}
+  .msg.in{background:rgba(255,255,255,.055);color:var(--text2);border-bottom-left-radius:4px}
+  .msg.out{background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.32);color:var(--text);
+    margin-left:auto;border-bottom-right-radius:4px}
+  .live{margin-top:10px;font-size:11.4px;color:var(--text3);text-align:center}
+  .live b{color:var(--green2)}
+  .link{margin-top:18px}
+  .linkrow{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+  .linkrow input{flex:1;min-width:220px;font-size:12.4px;color:var(--text2)}
+  .linkrow button{flex:none;background:var(--green);color:var(--ink);border:0;border-radius:10px;
+    padding:0 16px;font:inherit;font-weight:750;cursor:pointer;min-height:42px}
+  .linkrow button.ghost{background:rgba(255,255,255,.07);color:var(--text);border:1px solid var(--line2)}
+  .wa{margin-top:12px;background:#0B1220;border:1px solid var(--line2);border-radius:14px;padding:13px;
+    font-size:13.2px;color:var(--text2);white-space:pre-wrap;word-break:break-word}
+  footer{margin-top:20px;font-size:12.2px;color:var(--text3)}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.4px;color:var(--green2)}
+  @media (max-width:900px){.grid{grid-template-columns:1fr}.stage{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>LeadMaxx niche demo generator</h1>
+<p class="muted">One engine, ten niche packs, unlimited businesses. Everything a prospect sees comes from the address bar, so a demo can be built and shared without touching code or deploying anything.</p>
+
+<div class="grid">
+
+  <div class="panel">
+    <h2>Build the demo</h2>
+    <div class="pills" id="pills" role="group" aria-label="Pick a niche"></div>
+
+    <label for="fB">Business name</label>
+    <input id="fB" type="text" autocomplete="off" maxlength="40">
+    <label for="fC">City</label>
+    <input id="fC" type="text" autocomplete="off" maxlength="30">
+    <label for="fO">Owner's first name</label>
+    <input id="fO" type="text" autocomplete="off" maxlength="20">
+    <label for="fP">Their WhatsApp number</label>
+    <input id="fP" type="text" inputmode="tel" autocomplete="off" maxlength="18" placeholder="10 digit mobile number">
+    <p class="warn" id="warnPhone">Enter a 10 digit Indian mobile number to switch the WhatsApp button on.</p>
+
+    <button class="act" id="reset" type="button">Reset to this niche's sample</button>
+    <p class="small" style="margin-top:12px">Typical order value for this trade: <b id="aov" style="color:var(--green2)"></b></p>
+  </div>
+
+  <div class="stage">
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="browser__url" id="mockUrl">example.in</span>
+      </div>
+      <div class="page">
+        <div class="pnav"><b id="mBrand">Business</b><span class="small" id="mCity">City</span></div>
+        <span class="tag" id="mTag"></span>
+        <p class="hero">Every enquiry gets a reply in <em>5 seconds</em>. Even at 11 at night.</p>
+        <p class="muted" style="font-size:13.2px" id="mSub"></p>
+        <div class="rate" id="mRate"></div>
+        <a class="mockcta" id="mCta" href="#" target="_blank" rel="noopener">Send my rate card on WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="phone">
+      <div class="ph__cap" id="mPhoneCap">Customer's WhatsApp</div>
+      <div class="chat">
+        <div class="msg in" id="mAsk"></div>
+        <div class="msg out" id="mReply"></div>
+      </div>
+      <p class="live">Reply time on the demo: <b>1.8 seconds</b></p>
+    </div>
+  </div>
+</div>
+
+<div class="panel link">
+  <h2>The link you send before the call</h2>
+  <p class="small">This is the whole demo, carried in the address bar. Send it on WhatsApp; it opens the same way on any phone or laptop, in any browser, with nothing stored.</p>
+  <div class="linkrow">
+    <input id="demoLink" readonly aria-label="Personalised demo link">
+    <button id="copy" type="button">Copy link</button>
+    <button class="ghost" id="open" type="button">Open it</button>
+  </div>
+  <p class="small" id="copyNote" style="margin-top:8px">&nbsp;</p>
+  <div class="wa" id="waText"></div>
+</div>
+
+<footer>
+  Sample data only. The business names, numbers and rates on this page are placeholders, not real clients. Nothing is sent anywhere and no enquiry is created: the WhatsApp button opens a draft in the visitor's own app, and only if they press it.
+</footer>
+
+</div>
+
+<script>
+/* ---------------------------------------------------------------------------
+   Data for the ten niche packs. Adding an eleventh niche is one more object
+   here and nothing else. No HTML, no code, and never any real client data.
+   --------------------------------------------------------------------------- */
+var NICHES = [
+  { id:"interiors", label:"Interiors", tag:"For interiors and modular kitchen studios",
+    biz:"Sharma Interiors", city:"Chennai", owner:"Ravi", phone:"9841022334", dom:"sharmainteriors.in",
+    aovText:"₹4.5L", sub:"Your rate card and photos reach the customer in seconds, and their name and number reach your phone.",
+    rate:[["Modular kitchen, 8 ft","₹1,45,000"],["Full home interiors, 2BHK","₹4,50,000"],["Design and measurement visit","Free"]],
+    ask:"Hi, I saw your page. Can you send me your rate card?",
+    reply:"Hi {o}, {b} here. Sending our rate card and recent kitchen photos now. Are you looking to start this month or just planning?" },
+
+  { id:"dental", label:"Dental clinic", tag:"For dental and aesthetic clinics",
+    biz:"Smile Care Clinic", city:"Coimbatore", owner:"Priya", phone:"9940055667", dom:"smilecareclinic.in",
+    aovText:"₹30,000", sub:"Slot details, the treatment price and the doctor's timing reach the patient in seconds, day or night.",
+    rate:[["Consultation and X-ray","₹500"],["Scaling and polishing","₹1,500"],["Implant, per tooth","₹28,000 to ₹45,000"]],
+    ask:"Can I book a slot this Saturday for a check-up?",
+    reply:"Hi {o}, {b} here. We have Saturday 11 am and 4 pm free with Dr. Meera. Shall I hold 11 am for you?" },
+
+  { id:"solar", label:"Solar", tag:"For rooftop solar installers",
+    biz:"GreenSun Solar", city:"Madurai", owner:"Karthik", phone:"9865011223", dom:"greensunsolar.in",
+    aovText:"₹2L", sub:"The customer gets the price sheet and the subsidy steps in seconds, while they are still comparing quotes.",
+    rate:[["3 kW rooftop system","₹1,45,000"],["5 kW rooftop system","₹2,20,000"],["Subsidy paperwork help","Included"]],
+    ask:"3kW rooftop quotation for my home, with the subsidy details.",
+    reply:"Hi {o}, {b} here. Sending the 3 kW and 5 kW price sheet and the subsidy form now. Is your roof concrete or sheet?" },
+
+  { id:"coaching", label:"Coaching", tag:"For coaching and study abroad centres",
+    biz:"Apex Academy", city:"Salem", owner:"Suresh", phone:"9843099887", dom:"apexacademy.in",
+    aovText:"₹65,000", sub:"Fees, batch timings and the demo class slot reach the parent in seconds, even at 10 at night.",
+    rate:[["NEET 2 year classroom batch","₹65,000 a year"],["Foundation, class 9 and 10","₹40,000 a year"],["Scholarship test and demo class","Free"]],
+    ask:"Fees and batch timings for class 11 NEET coaching?",
+    reply:"Hi {o}, {b} here. Our class 11 NEET timings and fee structure are on the way. Would a demo class this week suit you?" },
+
+  { id:"realestate", label:"Real estate", tag:"For builders and property agents",
+    biz:"Green Meadows Plots", city:"Chennai", owner:"Anand", phone:"9941077665", dom:"greenmeadows.in",
+    aovText:"₹2.5L", sub:"The layout map, the price per sq ft and the site visit slot reach the buyer in seconds, before they call someone else.",
+    rate:[["Villa plot, per sq ft","₹1,450"],["2BHK apartment","₹48,00,000"],["AC cab site visit","Free"]],
+    ask:"Master layout map and the price per sq ft for the gated plots?",
+    reply:"Hi {o}, {b} here. Sending the layout map and the price sheet now. Would a Sunday morning site visit work for you?" },
+
+  { id:"gym", label:"Gym", tag:"For gyms and fitness studios",
+    biz:"Iron House Fitness", city:"Trichy", owner:"Vikram", phone:"9843522114", dom:"ironhousefitness.in",
+    aovText:"₹12,000", sub:"Plans, timings and the free trial slot reach the enquiry in seconds, before they walk into the gym next door.",
+    rate:[["Monthly membership","₹2,500"],["Quarterly membership","₹6,000"],["Annual membership","₹18,000"]],
+    ask:"What are your membership plans and timings?",
+    reply:"Hi {o}, {b} here. Plans are monthly ₹2,500, quarterly ₹6,000, annual ₹18,000. First session is free. Morning or evening?" },
+
+  { id:"salon", label:"Salon and spa", tag:"For salons, spas and bridal studios",
+    biz:"Blush Beauty Studio", city:"Coimbatore", owner:"Divya", phone:"9842033445", dom:"blushstudio.in",
+    aovText:"₹8,000", sub:"The full service menu and bridal dates reach the customer in seconds, with your work pictures attached.",
+    rate:[["Haircut and styling","₹400"],["Facial and clean-up","₹1,200"],["Bridal package","₹15,000 onwards"]],
+    ask:"Do you have a slot for bridal makeup in November?",
+    reply:"Hi {o}, {b} here. We have two bridal dates left in November. Sending the package and our recent work now." },
+
+  { id:"photography", label:"Photography", tag:"For wedding and event photographers",
+    biz:"Frame Story Studio", city:"Madurai", owner:"Manoj", phone:"9865566554", dom:"framestory.in",
+    aovText:"₹65,000", sub:"Date availability, the package and two sample albums reach the family in seconds, before they ask three other studios.",
+    rate:[["Full wedding day coverage","₹65,000"],["Pre-wedding shoot","₹25,000"],["Album and prints","₹12,000"]],
+    ask:"Are you free on 14 December for a wedding?",
+    reply:"Hi {o}, {b} here. 14 December is open. Sending the wedding package and two recent albums now. How many days of function is it?" },
+
+  { id:"travel", label:"Travel agency", tag:"For travel agents and tour operators",
+    biz:"Wander Trails", city:"Chennai", owner:"Nisha", phone:"9940588776", dom:"wandertrails.in",
+    aovText:"₹60,000", sub:"The itinerary and the per person price reach the enquiry in seconds, with visa and stay details included.",
+    rate:[["Kerala, 4 nights","₹18,500 per person"],["Bali, 6 nights","₹62,000 per person"],["Custom itinerary","Quoted on the call"]],
+    ask:"Bali package for 6 nights, 2 adults, travelling in December?",
+    reply:"Hi {o}, {b} here. Sending the December Bali itinerary and the price for 2 adults now. Visa and airport transfer are included." },
+
+  { id:"packers", label:"Packers and movers", tag:"For packers, movers and cleaning teams",
+    biz:"SafeMove Packers", city:"Chennai", owner:"Ramesh", phone:"9841544332", dom:"safemove.in",
+    aovText:"₹25,000", sub:"The shifting estimate and the insurance details reach the enquiry in seconds, before they ask two more movers.",
+    rate:[["2BHK within city","₹18,000"],["3BHK within city","₹26,000"],["Chennai to Bangalore, 2BHK","₹38,000"]],
+    ask:"Charges for shifting a 2BHK from Chennai to Bangalore?",
+    reply:"Hi {o}, {b} here. Chennai to Bangalore for a 2BHK is around ₹38,000 with packing, loading and insurance. Sending the full rate sheet now." }
+];
+
+var LEADMAXX_WA = "916382298388";
+var current = NICHES[0];
+var $ = function (s) { return document.querySelector(s); };
+
+/* Everything that arrives from the address bar is treated as untrusted: capped in length
+   and stripped of anything that is not needed for a name, a city or a number. Nothing is
+   ever placed into the page as HTML, only as text, so no markup can be injected. */
+function clean(v, max) {
+  return String(v == null ? "" : v)
+    .replace(/[<>"'`\\]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, max || 40);
+}
+
+/* Indian mobile numbers only, and only in the three shapes people actually type:
+   10 digits, 91 followed by 10, or 0 followed by 10. Anything else returns null and the
+   WhatsApp button stays switched off rather than opening a broken chat. */
+function waNumber(raw) {
+  var d = String(raw == null ? "" : raw).replace(/\D/g, "");
+  if (/^91[6-9]\d{9}$/.test(d)) d = d.slice(2);
+  else if (/^0[6-9]\d{9}$/.test(d)) d = d.slice(1);
+  return /^[6-9]\d{9}$/.test(d) ? "91" + d : null;
+}
+
+function fill(text) {
+  return String(text)
+    .replace(/\{b\}/g, $("#fB").value || current.biz)
+    .replace(/\{c\}/g, $("#fC").value || current.city)
+    .replace(/\{o\}/g, $("#fO").value || current.owner);
+}
+
+function render() {
+  var biz = clean($("#fB").value, 40) || current.biz;
+  var city = clean($("#fC").value, 30) || current.city;
+  var owner = clean($("#fO").value, 20) || current.owner;
+  var num = waNumber($("#fP").value);
+
+  $("#mBrand").textContent = biz;
+  $("#mCity").textContent = city;
+  $("#mTag").textContent = current.tag;
+  $("#mSub").textContent = current.sub;
+  $("#mPhoneCap").textContent = owner + "'s customer, on WhatsApp";
+  $("#aov").textContent = current.aovText;
+  $("#mockUrl").textContent = ($("#fB").value ? biz.toLowerCase().replace(/[^a-z0-9]+/g, "") : current.dom.replace(/\.in$/, "")) + ".in";
+
+  $("#mRate").replaceChildren.apply($("#mRate"), current.rate.map(function (r) {
+    var row = document.createElement("div");
+    var k = document.createElement("span"); k.textContent = r[0];
+    var v = document.createElement("b"); v.textContent = r[1];
+    row.appendChild(k); row.appendChild(v);
+    return row;
+  }));
+
+  $("#mAsk").textContent = current.ask;
+  $("#mReply").textContent = fill(current.reply);
+
+  /* the WhatsApp button: the customer's message goes to the business owner's number */
+  var cta = $("#mCta");
+  var warn = $("#warnPhone");
+  if (num) {
+    var text = current.ask + "\n\n(To " + biz + ")";
+    cta.href = "https://wa.me/" + num + "?text=" + encodeURIComponent(text);
+    cta.textContent = "Send my rate card on WhatsApp";
+    cta.classList.remove("off");
+    cta.removeAttribute("aria-disabled");
+    warn.classList.remove("on");
+  } else {
+    cta.href = "#";
+    cta.textContent = "Add their number to switch this on";
+    cta.classList.add("off");
+    cta.setAttribute("aria-disabled", "true");
+    warn.classList.add("on");
+  }
+
+  /* the link carries only what the demo needs, in the query string, so it opens the same
+     way in any browser on any device */
+  var q = new URLSearchParams();
+  q.set("niche", current.id);
+  q.set("business", biz);
+  q.set("city", city);
+  q.set("owner", owner);
+  if (num) q.set("phone", num);
+  var link = location.origin + location.pathname + "?" + q.toString();
+  $("#demoLink").value = link;
+  $("#waText").textContent =
+    "Hi " + owner + ", this is for " + biz + " in " + city + ".\n\n" +
+    "Open this link. It already has your business name and your rate card in it, and you can " +
+    "press Send to see the reply your customer would get.\n\n" + link;
+}
+
+function setNiche(id, keepFields) {
+  var found = NICHES.filter(function (x) { return x.id === id; })[0];
+  current = found || NICHES[0];                       /* an unknown niche falls back, never breaks */
+  document.querySelectorAll("#pills .pill").forEach(function (pill) {
+    pill.setAttribute("aria-pressed", pill.getAttribute("data-id") === current.id ? "true" : "false");
+  });
+  if (!keepFields) {
+    $("#fB").value = current.biz; $("#fC").value = current.city;
+    $("#fO").value = current.owner; $("#fP").value = current.phone;
+  }
+  render();
+}
+
+/* Read both shapes: the tidy query string used in shared links, and the older hash form. */
+function readAddress() {
+  var q = new URLSearchParams(location.search);
+  var h = new URLSearchParams(location.hash.replace(/^#/, ""));
+  var get = function (k) { return q.get(k) != null ? q.get(k) : h.get(k); };
+  var any = ["niche","n","business","b","city","c","owner","o","phone","p"].some(function (k) { return get(k) != null; });
+  if (!any) return false;
+  setNiche(get("niche") || get("n"), true);
+  var biz = get("business") || get("b"); if (biz != null) $("#fB").value = clean(biz, 40);
+  var city = get("city") || get("c");     if (city != null) $("#fC").value = clean(city, 30);
+  var owner = get("owner") || get("o");   if (owner != null) $("#fO").value = clean(owner, 20);
+  var phone = get("phone") || get("p");   if (phone != null) $("#fP").value = String(phone).slice(0, 18);
+  render();
+  return true;
+}
+
+NICHES.forEach(function (n) {
+  var b = document.createElement("button");
+  b.type = "button"; b.className = "pill"; b.textContent = n.label;
+  b.setAttribute("data-id", n.id); b.setAttribute("aria-pressed", "false");
+  b.addEventListener("click", function () { setNiche(n.id, false); });
+  $("#pills").appendChild(b);
+});
+
+["#fB", "#fC", "#fO", "#fP"].forEach(function (sel) {
+  $(sel).addEventListener("input", render);
+});
+$("#reset").addEventListener("click", function () { setNiche(current.id, false); });
+$("#open").addEventListener("click", function () { window.open($("#demoLink").value, "_blank", "noopener"); });
+
+function copied(msg) { $("#copyNote").textContent = msg; }
+$("#copy").addEventListener("click", function () {
+  var field = $("#demoLink");
+  field.select(); field.setSelectionRange(0, 9999);
+  var done = function () { copied("Link copied. Send it on WhatsApp before the call."); };
+  var fallback = function () {
+    try { document.execCommand("copy"); done(); } catch (e) { copied("Select the link above and copy it."); }
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(field.value).then(done, fallback);
+  } else fallback();
+});
+
+if (!readAddress()) setNiche("interiors", false);
+</script>
+</body>
+</html>
