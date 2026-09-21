@@ -1,5 +1,18 @@
 # Deploying LeadMaxx.ai to Cloudflare Pages
 
+> **STATUS: this guide has already been completed.**
+>
+> The site is live at https://leadmaxx-ai.pages.dev and the demo at
+> https://leadmaxx-ai.pages.dev/demo. Publishing works today: a commit to `main` in
+> `akjeelbuilds/leadmaxx-ai` goes live by itself in under a minute.
+>
+> Steps 0, 1 and 2 below are done. Keep this file as the reference for the steps that are
+> still open: Step 4 for connecting the `leadmaxx.ai` domain, Step 6 for switching off the old
+> Vercel site, the troubleshooting notes, and the API token instructions.
+>
+> **To change the site today you do not need any of this.** Edit the file on GitHub and
+> commit. Nothing else.
+
 Why Cloudflare instead of Vercel: Cloudflare Pages allows **commercial use on the free
 tier**, gives unlimited bandwidth, and hosts a single static file perfectly. Vercel's free
 Hobby plan prohibits commercial use, which this site is.
