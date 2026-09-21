@@ -8,8 +8,10 @@ for any business. No build step, no dependencies, no framework, nothing that exp
 | Main site: sells the call, collects the enquiry, hands off to WhatsApp | `public/index.html` | https://leadmaxx-ai.pages.dev/ |
 | Niche demo generator: ten niche packs, unlimited businesses | `public/demo.html` | https://leadmaxx-ai.pages.dev/demo |
 
-**Full handover, security audit and quality report:** see `HANDOVER-FINAL.md` in the workspace.
-It is written in plain language, and it starts with the things that need the owner's attention.
+**The full handover, security audit and quality report is kept with the owner, deliberately
+outside this public repository**, because it carries the sheet cleanup list and notes about
+pricing. Ask the owner for `HANDOVER-FINAL.md`. It is written in plain language and it starts
+with the things that need attention.
 
 ---
 
