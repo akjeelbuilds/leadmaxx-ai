@@ -157,6 +157,7 @@
    --------------------------------------------------------------------------- */
 var NICHES = [
   { id:"interiors", label:"Interiors", tag:"For interiors and modular kitchen studios",
+    aka:"interior interiordesign interiordesigner modular modularkitchen kitchen homeinteriors woodwork carpenter",
     biz:"Sharma Interiors", city:"Chennai", owner:"Ravi", phone:"9841022334", dom:"sharmainteriors.in",
     aovText:"₹4.5L", sub:"Your rate card and photos reach the customer in seconds, and their name and number reach your phone.",
     rate:[["Modular kitchen, 8 ft","₹1,45,000"],["Full home interiors, 2BHK","₹4,50,000"],["Design and measurement visit","Free"]],
@@ -164,6 +165,7 @@ var NICHES = [
     reply:"Hi {o}, {b} here. Sending our rate card and recent kitchen photos now. Are you looking to start this month or just planning?" },
 
   { id:"dental", label:"Dental clinic", tag:"For dental and aesthetic clinics",
+    aka:"dentist dentistry teeth dentalclinic dentalstudio braces implant clinic",
     biz:"Smile Care Clinic", city:"Coimbatore", owner:"Priya", phone:"9940055667", dom:"smilecareclinic.in",
     aovText:"₹30,000", sub:"Slot details, the treatment price and the doctor's timing reach the patient in seconds, day or night.",
     rate:[["Consultation and X-ray","₹500"],["Scaling and polishing","₹1,500"],["Implant, per tooth","₹28,000 to ₹45,000"]],
@@ -171,6 +173,7 @@ var NICHES = [
     reply:"Hi {o}, {b} here. We have Saturday 11 am and 4 pm free with Dr. Meera. Shall I hold 11 am for you?" },
 
   { id:"solar", label:"Solar", tag:"For rooftop solar installers",
+    aka:"solarenergy solarpanel solarpower solarsystem rooftop renewables installer",
     biz:"GreenSun Solar", city:"Madurai", owner:"Karthik", phone:"9865011223", dom:"greensunsolar.in",
     aovText:"₹2L", sub:"The customer gets the price sheet and the subsidy steps in seconds, while they are still comparing quotes.",
     rate:[["3 kW rooftop system","₹1,45,000"],["5 kW rooftop system","₹2,20,000"],["Subsidy paperwork help","Included"]],
@@ -178,6 +181,7 @@ var NICHES = [
     reply:"Hi {o}, {b} here. Sending the 3 kW and 5 kW price sheet and the subsidy form now. Is your roof concrete or sheet?" },
 
   { id:"coaching", label:"Coaching", tag:"For coaching and study abroad centres",
+    aka:"tuition tuitions tuitioncentre coachingclass coachingcentre classes academy institute training batches",
     biz:"Apex Academy", city:"Salem", owner:"Suresh", phone:"9843099887", dom:"apexacademy.in",
     aovText:"₹65,000", sub:"Fees, batch timings and the demo class slot reach the parent in seconds, even at 10 at night.",
     rate:[["NEET 2 year classroom batch","₹65,000 a year"],["Foundation, class 9 and 10","₹40,000 a year"],["Scholarship test and demo class","Free"]],
@@ -185,6 +189,7 @@ var NICHES = [
     reply:"Hi {o}, {b} here. Our class 11 NEET timings and fee structure are on the way. Would a demo class this week suit you?" },
 
   { id:"realestate", label:"Real estate", tag:"For builders and property agents",
+    aka:"realty estate property properties plot plots flats builder builders realtor villa land",
     biz:"Green Meadows Plots", city:"Chennai", owner:"Anand", phone:"9941077665", dom:"greenmeadows.in",
     aovText:"₹2.5L", sub:"The layout map, the price per sq ft and the site visit slot reach the buyer in seconds, before they call someone else.",
     rate:[["Villa plot, per sq ft","₹1,450"],["2BHK apartment","₹48,00,000"],["AC cab site visit","Free"]],
@@ -192,6 +197,7 @@ var NICHES = [
     reply:"Hi {o}, {b} here. Sending the layout map and the price sheet now. Would a Sunday morning site visit work for you?" },
 
   { id:"gym", label:"Gym", tag:"For gyms and fitness studios",
+    aka:"fitness fitnessstudio gymfitness workout crossfit trainers weightloss zumba",
     biz:"Iron House Fitness", city:"Trichy", owner:"Vikram", phone:"9843522114", dom:"ironhousefitness.in",
     aovText:"₹12,000", sub:"Plans, timings and the free trial slot reach the enquiry in seconds, before they walk into the gym next door.",
     rate:[["Monthly membership","₹2,500"],["Quarterly membership","₹6,000"],["Annual membership","₹18,000"]],
@@ -199,6 +205,7 @@ var NICHES = [
     reply:"Hi {o}, {b} here. Plans are monthly ₹2,500, quarterly ₹6,000, annual ₹18,000. First session is free. Morning or evening?" },
 
   { id:"salon", label:"Salon and spa", tag:"For salons, spas and bridal studios",
+    aka:"spa beautysalon beautyparlour parlour hairdresser hairstylist beauty makeup bridalmakeup",
     biz:"Blush Beauty Studio", city:"Coimbatore", owner:"Divya", phone:"9842033445", dom:"blushstudio.in",
     aovText:"₹8,000", sub:"The full service menu and bridal dates reach the customer in seconds, with your work pictures attached.",
     rate:[["Haircut and styling","₹400"],["Facial and clean-up","₹1,200"],["Bridal package","₹15,000 onwards"]],
@@ -206,6 +213,7 @@ var NICHES = [
     reply:"Hi {o}, {b} here. We have two bridal dates left in November. Sending the package and our recent work now." },
 
   { id:"photography", label:"Photography", tag:"For wedding and event photographers",
+    aka:"photographer photos photoshoot photoshoots videography weddingphotography album",
     biz:"Frame Story Studio", city:"Madurai", owner:"Manoj", phone:"9865566554", dom:"framestory.in",
     aovText:"₹65,000", sub:"Date availability, the package and two sample albums reach the family in seconds, before they ask three other studios.",
     rate:[["Full wedding day coverage","₹65,000"],["Pre-wedding shoot","₹25,000"],["Album and prints","₹12,000"]],
@@ -213,6 +221,7 @@ var NICHES = [
     reply:"Hi {o}, {b} here. 14 December is open. Sending the wedding package and two recent albums now. How many days of function is it?" },
 
   { id:"travel", label:"Travel agency", tag:"For travel agents and tour operators",
+    aka:"travels travelagency tours tour tourism holidays holiday trip packages vacationagents travelagent",
     biz:"Wander Trails", city:"Chennai", owner:"Nisha", phone:"9940588776", dom:"wandertrails.in",
     aovText:"₹60,000", sub:"The itinerary and the per person price reach the enquiry in seconds, with visa and stay details included.",
     rate:[["Kerala, 4 nights","₹18,500 per person"],["Bali, 6 nights","₹62,000 per person"],["Custom itinerary","Quoted on the call"]],
@@ -220,6 +229,7 @@ var NICHES = [
     reply:"Hi {o}, {b} here. Sending the December Bali itinerary and the price for 2 adults now. Visa and airport transfer are included." },
 
   { id:"packers", label:"Packers and movers", tag:"For packers, movers and cleaning teams",
+    aka:"packersandmovers movers packing relocation shifting shiftinglogistics transport",
     biz:"SafeMove Packers", city:"Chennai", owner:"Ramesh", phone:"9841544332", dom:"safemove.in",
     aovText:"₹25,000", sub:"The shifting estimate and the insurance details reach the enquiry in seconds, before they ask two more movers.",
     rate:[["2BHK within city","₹18,000"],["3BHK within city","₹26,000"],["Chennai to Bangalore, 2BHK","₹38,000"]],
@@ -318,9 +328,27 @@ function render() {
     "press Send to see the reply your customer would get.\n\n" + link;
 }
 
+/* A link typed by hand says "travels", "packers and movers" or "tuitions" far more often
+   than it says "travel" or "packers". Normalise what came in, accept an exact id, an exact
+   spelling, or a one-way prefix, and only accept a prefix when it points at one niche. */
+function normNiche(s) { return String(s == null ? "" : s).toLowerCase().replace(/[^a-z0-9]/g, ""); }
+function findNiche(raw) {
+  var k = normNiche(raw);
+  if (!k) return null;
+  var exact = null, loose = [];
+  NICHES.forEach(function (x) {
+    var idn = normNiche(x.id);
+    var list = [idn].concat(String(x.aka || "").split(" ").map(normNiche));
+    if (list.indexOf(k) !== -1) { exact = x; return; }
+    var hit = list.some(function (a) { return a && (a.indexOf(k) === 0 || k.indexOf(a) === 0); });
+    if (hit) loose.push(x);
+  });
+  if (exact) return exact;
+  return loose.length === 1 ? loose[0] : null;
+}
+
 function setNiche(id, keepFields) {
-  var found = NICHES.filter(function (x) { return x.id === id; })[0];
-  current = found || NICHES[0];                       /* an unknown niche falls back, never breaks */
+  current = findNiche(id) || NICHES[0];                /* an unknown niche falls back, never breaks */
   document.querySelectorAll("#pills .pill").forEach(function (pill) {
     pill.setAttribute("aria-pressed", pill.getAttribute("data-id") === current.id ? "true" : "false");
   });
