@@ -44,7 +44,7 @@ public/404.html        a plain not-found page
 public/_headers        security headers served by Cloudflare
 public/robots.txt      keeps the demo out of search results, lists the sitemap
 public/sitemap.xml     one entry, the main page
-tests/test-site.js     page logic tests, 98 assertions, no browser needed
+tests/test-site.js     page logic tests, 105 assertions, no browser needed
 tests/test-browser.js  real browser tests, 75 assertions, Chromium
 ```
 
@@ -53,7 +53,7 @@ tests/test-browser.js  real browser tests, 75 assertions, Chromium
 ```
 npm install
 npx playwright install chromium
-npm test              # expect 98 passed, 0 failed
+npm test              # expect 105 passed, 0 failed
 npm run test:browser  # expect 75 passed, 0 failed
 ```
 
@@ -68,7 +68,7 @@ request is intercepted inside the browser, so no money moves and no row is writt
 | **What they get** | Their enquiries audited, the demo shown on their own business, and a plan in writing they keep either way |
 | **Build price** | Never printed as a number. Quoted on the call |
 | **The only published build figure** | "Complete setups start from ₹4,999", one low anchor, twice on the page |
-| **Banned** | ₹14,999, tier names, free offers |
+| **Banned** | ₹14,999, tier names, free offers, and crossed out prices (the old ₹1,999 was removed on 22 Sep because it was never a real price) |
 
 Rules the content must keep: no em dashes or en dashes, plain Indian service business English,
 every claim defensible, no invented case studies or testimonials, and the four field form
