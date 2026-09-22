@@ -176,7 +176,6 @@ button{font:inherit;cursor:pointer}
 .hero .lede strong{color:var(--text);font-weight:700}
 .hero__cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .offer-inline{display:inline-flex;align-items:baseline;gap:9px;font-weight:800;margin-inline:2px}
-.offer-inline s{color:var(--text-3);font-weight:600;font-size:.82em}
 
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:11.9px;font-weight:650;color:var(--text-2);background:rgba(255,255,255,.035);border:1px solid var(--line);padding:6px 10px;border-radius:100px}
@@ -361,7 +360,6 @@ button{font:inherit;cursor:pointer}
 .price::before{content:"";position:absolute;inset:-1px -1px auto;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent)}
 .price__amt{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;margin:16px 0 4px}
 .price__amt .now{font-size:clamp(2.6rem,8vw,3.6rem);font-weight:800;letter-spacing:-.045em;line-height:1}
-.price__amt .was{font-size:1.15rem;color:var(--text-3);text-decoration:line-through;font-weight:600}
 .price__once{font-size:13.8px;color:var(--text-2);font-weight:600}
 /* The risk reversal. On a new product this is what stands in for testimonials,
    so it is given real weight instead of being buried in the small print. */
@@ -535,7 +533,6 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     .hero__cta .btn--ghost{width:auto;align-self:center;padding:13px 18px;font-size:16px;
       background:rgba(255,255,255,.06);border-color:#39445C;color:var(--text)}
     .hero__cta .btn--ghost:hover{background:rgba(255,255,255,.12);border-color:#4C5B7A;color:var(--text)}
-    .offer-inline s{display:none}
     .offer-inline{gap:0;margin-inline:0}
     .duo__cap{font-size:10.5px;margin-bottom:7px}
     /* On a phone the two phones cannot sit side by side, so they stack into a whole
@@ -676,7 +673,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
       <div class="hero__cta">
         <a class="btn btn--primary btn--lg" href="#book">
           Book your call
-          <span class="offer-inline"><s>&#8377;1,999</s> &#8377;399</span>
+          <span class="offer-inline">&#8377;399</span>
           <svg class="btn__arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn btn--ghost btn--lg" href="#demo">See it working</a>
@@ -1190,7 +1187,6 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
       <span class="cmp__badge cmp__badge--good"><span data-call-len>20 minute</span> call</span>
       <div class="price__amt">
         <span class="now">&#8377;399</span>
-        <span class="was">&#8377;1,999</span>
       </div>
       <span class="price__once">One time. Not monthly, not yearly, no auto debit.</span>
 
@@ -1451,7 +1447,6 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 
     // Price of the CONSULTATION CALL. Adjusted against the build if they go ahead.
     PRICE_INR: 399,
-    ORIGINAL_PRICE_INR: 1999,
     PRICE_LABEL: "LeadMaxx consultation call",
     CALL_LENGTH: "20 minute",       // shown in the hero, step 1 and the call badge
 

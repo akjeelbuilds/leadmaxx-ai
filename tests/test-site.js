@@ -434,6 +434,20 @@ setTimeout(() => {
           /WhatsApp \+91 63822 98388/.test((window.document.querySelector(".footer__grid") || {}).textContent || ""),
           "footer contact line");
 
+        // The owner confirmed on 22 Sep that the crossed out Rs 1,999 was never a real
+        // price, so it was removed from the hero button, the price block and CONFIG. This
+        // check exists so it cannot come back by accident: no crossed out figure anywhere.
+        const priceHtml = window.document.documentElement.outerHTML;
+        check("no crossed out price is published anywhere",
+          !/1,999|1999/.test(priceHtml) &&
+          !/<s>\s*\u20B9/.test(priceHtml) &&
+          !/class="was"/.test(priceHtml) &&
+          !window.document.querySelector('.offer-inline s, .price__amt .was'),
+          "one price on the page: \u20B9399");
+        check("the \u20B9399 call price is still stated",
+          (window.document.body.textContent.match(/\u20B9399/g) || []).length >= 5,
+          (window.document.body.textContent.match(/\u20B9399/g) || []).length + " mentions of \u20B9399 remain");
+
         // ---------- summary ----------
         section("6. Errors & warnings");
         check("zero runtime errors overall", errors.length === 0, errors.join(" | "));

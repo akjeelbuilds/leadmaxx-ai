@@ -380,9 +380,15 @@ function serve() {
     await t.close();
   }
 
-  const struck = await ph.evaluate(() =>
-    parseFloat(getComputedStyle(document.querySelector(".offer-inline s")).display === "none" ? 0 : 1));
-  check("the crossed out old price is dropped on a phone", struck === 0);
+  // Since 22 Sep there is no crossed out price anywhere: the owner confirmed the old figure
+  // was never a real price. The rule now is simply that one price is shown.
+  const struck = await ph.evaluate(() => {
+    const inline = document.querySelector(".offer-inline");
+    return { text: inline ? inline.textContent.trim() : "",
+      struckEls: document.querySelectorAll(".offer-inline s, .price__amt .was, del").length };
+  });
+  check("the call button shows one price on a phone, nothing struck out",
+    struck.struckEls === 0 && /399/.test(struck.text), `button reads "${struck.text}"`);
 
   const fonts = await ph.evaluate(() =>
     [...document.querySelectorAll("#book input, #book select, #book textarea")]
