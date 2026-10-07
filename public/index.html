@@ -453,6 +453,29 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 .stepper .is-on{color:var(--green-bright)}
 .stepper .is-on .n{background:var(--green);color:var(--green-ink)}
 .stepper .sep{width:22px;height:1px;background:var(--line-strong)}
+.flow{display:grid;gap:22px}
+@media (min-width:900px){.flow{grid-template-columns:1.1fr .9fr;gap:34px;align-items:start}}
+.flow__list{list-style:none;margin:0;padding:0}
+.flow__item{position:relative;display:flex;gap:14px;padding-bottom:20px}
+.flow__item:last-child{padding-bottom:0}
+.flow__item:not(:last-child)::before{content:"";position:absolute;left:15px;top:37px;bottom:8px;width:1px;background:var(--line-strong)}
+.flow__num{width:31px;height:31px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:13px;font-weight:800;background:var(--green-dim);color:var(--green-bright);border:1px solid rgba(34,197,94,.32)}
+.flow__h{font-size:15.5px;font-weight:750;letter-spacing:-.012em;margin:5px 0 0}
+.flow__p{font-size:13.8px;line-height:1.55;color:var(--text-2);margin:5px 0 0}
+.flow__tag{display:inline-flex;align-items:center;margin-top:8px;font-size:11px;font-weight:750;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3);background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:100px;padding:4px 10px}
+.flow__tag--you{color:var(--green-bright);background:var(--green-dim);border-color:rgba(34,197,94,.3)}
+.flow__mock{display:grid;gap:14px;align-content:start}
+.flow__note{font-size:12px;line-height:1.5;color:var(--text-3);text-align:center}
+.sheetmock{border-radius:14px}
+.sheetmock__head,.sheetmock__row{display:grid;grid-template-columns:.75fr 1fr 1.35fr;gap:8px;padding:9px 12px;font-size:12px;align-items:center}
+.sheetmock__head{background:#111C2E;border-bottom:1px solid var(--line);color:var(--text-3);font-size:10.5px;font-weight:750;letter-spacing:.06em;text-transform:uppercase}
+.sheetmock__row{border-bottom:1px solid var(--line);color:var(--text-2)}
+.sheetmock__row:last-child{border-bottom:0}
+.sheetmock__row b{color:var(--text);font-weight:750}
+.site--phone{padding:12px}
+.site--phone .site__hero{margin-top:8px}
+.site--phone .site__form{margin-top:9px}
+
 .pay-box{display:none;margin-top:22px;padding:20px;background:#0A1120;border:1px solid rgba(34,197,94,.3);border-radius:16px}
 .pay-box.show{display:block}
 .pay-box__row{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid var(--line)}
@@ -632,6 +655,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
       <a href="#demo">See it working</a>
       <a href="#story">Why us</a>
       <a href="#how">How it works</a>
+      <a href="#step2">After the call</a>
       <a href="#call">The &#8377;399 call</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -1089,6 +1113,104 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
   </div>
 </section>
 
+<!-- ===================== STEP 2 IN DETAIL ===================== -->
+<section class="sec" id="step2">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow"><span class="dot"></span> Step 2, in detail</span>
+      <h2 class="h2" style="margin-top:18px">What actually happens between the call and going live</h2>
+      <p class="lede" style="margin-top:14px">Two of the five things below are yours. Both are messages on WhatsApp, and together they take about 15 minutes.</p>
+    </div>
+
+    <div class="flow">
+      <ol class="flow__list">
+        <li class="flow__item reveal">
+          <span class="flow__num">1</span>
+          <div>
+            <h3 class="flow__h">You send your rate card, a few photos and your timings</h3>
+            <p class="flow__p">On the same WhatsApp you already use. Typed or voice noted, whichever is easier for you.</p>
+            <span class="flow__tag flow__tag--you">You, about 10 minutes</span>
+          </div>
+        </li>
+        <li class="flow__item reveal">
+          <span class="flow__num">2</span>
+          <div>
+            <h3 class="flow__h">We write your page in your own words and build it</h3>
+            <p class="flow__p">Your prices, your photos, your service area. Not a ready made template with someone else's name on it.</p>
+            <span class="flow__tag">LeadMaxx, day 1</span>
+          </div>
+        </li>
+        <li class="flow__item reveal">
+          <span class="flow__num">3</span>
+          <div>
+            <h3 class="flow__h">We connect your number to the official WhatsApp Business API</h3>
+            <p class="flow__p">Then we send test messages until the automatic reply reads exactly the way you want it to.</p>
+            <span class="flow__tag">LeadMaxx, day 1</span>
+          </div>
+        </li>
+        <li class="flow__item reveal">
+          <span class="flow__num">4</span>
+          <div>
+            <h3 class="flow__h">You open the private link on your own phone and say yes</h3>
+            <p class="flow__p">Look at it the way your customer will. Ask for any change you want, before it goes live.</p>
+            <span class="flow__tag flow__tag--you">You, about 5 minutes</span>
+          </div>
+        </li>
+        <li class="flow__item reveal">
+          <span class="flow__num">5</span>
+          <div>
+            <h3 class="flow__h">It goes live on your domain, and your first enquiry lands in your sheet</h3>
+            <p class="flow__p">The whole of step 2 takes 24 to 48 hours. You keep your own number and your own website.</p>
+            <span class="flow__tag">LeadMaxx, within 24 to 48 hours</span>
+          </div>
+        </li>
+      </ol>
+
+      <div class="flow__mock reveal">
+        <span class="duo__cap">What step 2 hands you</span>
+        <div class="phone" role="img" aria-label="Your finished page open on a customer's phone, with the enquiry form on it.">
+          <div class="phone__screen">
+            <div class="phone__bar">
+              <span class="phone__avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#04240F"><path d="M12 2C6.5 2 2 6.1 2 11.2c0 2.2.8 4.2 2.1 5.8L3 22l5.5-1.6c1.1.4 2.3.6 3.5.6 5.5 0 10-4.1 10-9.2S17.5 2 12 2z"/></svg></span>
+              <span>
+                <span class="phone__who">Your page</span>
+                <span class="phone__status"><i></i> Opens fast on any phone</span>
+              </span>
+            </div>
+            <div class="site site--phone">
+              <div class="site__nav">
+                <span class="site__brand"><span class="site__mark">Y</span>Your Business</span>
+                <span class="site__links"><span>Rates</span><span>Contact</span></span>
+              </div>
+              <div class="site__hero">
+                <span class="site__h">Your headline, in your words</span>
+                <span class="site__p">Your city and service area, and what you do best.</span>
+              </div>
+              <div class="site__form">
+                <span class="site__formh">Get a rate card</span>
+                <span class="site__formp">Replies on WhatsApp in about 5 seconds.</span>
+                <span class="site__send">Send on WhatsApp</span>
+                <span class="site__tiny">No app to install. Nothing for the customer to remember.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="browser sheetmock" role="img" aria-label="Two example rows in your Google Sheet, with the name, number and what the customer asked for.">
+          <div class="browser__bar">
+            <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="browser__url">docs.google.com/spreadsheets</span>
+          </div>
+          <div class="sheetmock__head"><span>Name</span><span>Number</span><span>What they asked for</span></div>
+          <div class="sheetmock__row"><span><b>Rahul</b></span><span>98450 2xxxx</span><span>Kitchen rates</span></div>
+          <div class="sheetmock__row"><span><b>Meena</b></span><span>98840 7xxxx</span><span>Site visit this weekend</span></div>
+        </div>
+        <p class="flow__note">Sample rows, not real customers. Your own sheet starts filling the day your page goes live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== CALCULATOR ===================== -->
 <section class="sec" id="calc" style="background:var(--bg-2);border-block:1px solid var(--line)">
   <div class="wrap">
@@ -1404,6 +1526,7 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
           <li><a href="#demo">See it working</a></li>
           <li><a href="#story">Why us</a></li>
           <li><a href="#how">How it works</a></li>
+          <li><a href="#step2">After the call</a></li>
           <li><a href="#calc">Cost calculator</a></li>
           <li><a href="#call">The &#8377;399 call</a></li>
         </ul>
