@@ -464,17 +464,45 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 .flow__p{font-size:13.8px;line-height:1.55;color:var(--text-2);margin:5px 0 0}
 .flow__tag{display:inline-flex;align-items:center;margin-top:8px;font-size:11px;font-weight:750;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3);background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:100px;padding:4px 10px}
 .flow__tag--you{color:var(--green-bright);background:var(--green-dim);border-color:rgba(34,197,94,.3)}
+.flow__left{min-width:0}
 .flow__mock{display:grid;gap:14px;align-content:start}
 .flow__note{font-size:12px;line-height:1.5;color:var(--text-3);text-align:center}
+.flow__done{margin:18px 0 0;padding:12px 14px;border:1px solid rgba(34,197,94,.28);background:var(--green-dim);border-radius:12px;font-size:13.5px;line-height:1.55;color:var(--text-2)}
+.flow__done b{color:var(--text)}
+.sheetmock__live{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:750;letter-spacing:.05em;text-transform:uppercase;color:var(--green-bright);flex:none}
+.sheetmock__live i{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blip 1.7s ease-in-out infinite}
+.sheetmock__cols{display:grid;grid-template-columns:.75fr 1fr 1.35fr;gap:8px;padding:6px 12px;background:#0E1626;border-bottom:1px solid var(--line);font-size:9.5px;font-weight:750;color:var(--text-3);letter-spacing:.08em}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.35}}
 .sheetmock{border-radius:14px}
 .sheetmock__head,.sheetmock__row{display:grid;grid-template-columns:.75fr 1fr 1.35fr;gap:8px;padding:9px 12px;font-size:12px;align-items:center}
 .sheetmock__head{background:#111C2E;border-bottom:1px solid var(--line);color:var(--text-3);font-size:10.5px;font-weight:750;letter-spacing:.06em;text-transform:uppercase}
 .sheetmock__row{border-bottom:1px solid var(--line);color:var(--text-2)}
 .sheetmock__row:last-child{border-bottom:0}
 .sheetmock__row b{color:var(--text);font-weight:750}
-.site--phone{padding:12px}
-.site--phone .site__hero{margin-top:8px}
-.site--phone .site__form{margin-top:9px}
+.pm__status{display:flex;justify-content:space-between;align-items:center;padding:7px 14px 4px;font-size:10.5px;color:var(--text-3);font-weight:650;letter-spacing:.02em}
+.pm__page{background:#F7F8FB;padding:0 13px 13px;color:#0E1726}
+.pm__nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #E4E8F0}
+.pm__brand{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:800;letter-spacing:-.01em}
+.pm__mark{width:21px;height:21px;border-radius:6px;background:#15803D;color:#fff;display:grid;place-items:center;font-size:11px;font-weight:800;flex:none}
+.pm__loc{font-size:10.5px;color:#6B7484;font-weight:650;white-space:nowrap}
+.pm__hero{padding:12px 0 2px}
+.pm__h{display:block;font-size:16.5px;font-weight:800;line-height:1.2;letter-spacing:-.022em}
+.pm__p{display:block;margin-top:5px;font-size:11.5px;color:#5C6577;line-height:1.45}
+.pm__live{display:inline-flex;align-items:center;gap:6px;margin-top:9px;font-size:10.5px;font-weight:750;color:#15803D;background:#E7F6EC;border:1px solid #CBEBD6;border-radius:100px;padding:4px 10px}
+.pm__live i{width:5px;height:5px;border-radius:50%;background:#22C55E;animation:blip 1.7s ease-in-out infinite}
+.pm__strip{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:11px}
+.pm__tile{position:relative;height:54px;border-radius:10px;overflow:hidden;display:flex;align-items:flex-end;padding:5px 7px;font-size:9.5px;font-weight:750;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+.pm__tile svg{position:absolute;right:5px;top:5px;width:15px;height:15px;opacity:.5}
+.pm__tile--a{background:linear-gradient(140deg,#4A7A66,#1E3A30)}
+.pm__tile--b{background:linear-gradient(140deg,#7A6547,#3A2E1D)}
+.pm__tile--c{background:linear-gradient(140deg,#4C5A74,#232B3B)}
+.pm__rates{margin-top:11px;background:#fff;border:1px solid #E4E8F0;border-radius:11px;overflow:hidden;box-shadow:0 10px 26px -22px rgba(15,23,42,.45)}
+.pm__row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 11px;font-size:11px;color:#5C6577;border-bottom:1px solid #EDF0F5}
+.pm__row:last-child{border-bottom:0}
+.pm__row b{color:#0E1726;font-weight:800;white-space:nowrap}
+.pm__row b.free{color:#15803D}
+.pm__cta{display:block;margin-top:11px;text-align:center;background:#15803D;color:#fff;font-size:12.5px;font-weight:800;padding:11px;border-radius:10px;box-shadow:0 12px 26px -16px rgba(21,128,61,.6)}
+.pm__trust{display:block;margin-top:7px;text-align:center;font-size:9.5px;color:#7A8496}
 
 .pay-box{display:none;margin-top:22px;padding:20px;background:#0A1120;border:1px solid rgba(34,197,94,.3);border-radius:16px}
 .pay-box.show{display:block}
@@ -1119,93 +1147,101 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
     <div class="sec-head center reveal">
       <span class="eyebrow"><span class="dot"></span> Step 2, in detail</span>
       <h2 class="h2" style="margin-top:18px">What actually happens between the call and going live</h2>
-      <p class="lede" style="margin-top:14px">Two of the five things below are yours. Both are messages on WhatsApp, and together they take about 15 minutes.</p>
+      <p class="lede" style="margin-top:14px">Two of the five steps need you, and both are WhatsApp messages. Together they take about fifteen minutes. Everything else is us.</p>
     </div>
 
     <div class="flow">
+      <div class="flow__left">
       <ol class="flow__list">
         <li class="flow__item reveal">
           <span class="flow__num">1</span>
           <div>
             <h3 class="flow__h">You send your rate card, a few photos and your timings</h3>
-            <p class="flow__p">On the same WhatsApp you already use. Typed or voice noted, whichever is easier for you.</p>
+            <p class="flow__p">On the same WhatsApp you already use. Type it or send a voice note, whatever is easier. This is the only back and forth before it goes live.</p>
             <span class="flow__tag flow__tag--you">You, about 10 minutes</span>
           </div>
         </li>
         <li class="flow__item reveal">
           <span class="flow__num">2</span>
           <div>
-            <h3 class="flow__h">We write your page in your own words and build it</h3>
-            <p class="flow__p">Your prices, your photos, your service area. Not a ready made template with someone else's name on it.</p>
-            <span class="flow__tag">LeadMaxx, day 1</span>
+            <h3 class="flow__h">We write your page and build it</h3>
+            <p class="flow__p">Your prices, your photos, your service area, in your own words. Nothing borrowed from another business.</p>
+            <span class="flow__tag">Us, day 1</span>
           </div>
         </li>
         <li class="flow__item reveal">
           <span class="flow__num">3</span>
           <div>
-            <h3 class="flow__h">We connect your number to the official WhatsApp Business API</h3>
-            <p class="flow__p">Then we send test messages until the automatic reply reads exactly the way you want it to.</p>
-            <span class="flow__tag">LeadMaxx, day 1</span>
+            <h3 class="flow__h">We connect your number to WhatsApp's official business API</h3>
+            <p class="flow__p">Then we send test messages back and forth until the automatic reply sounds exactly like your business, not like software.</p>
+            <span class="flow__tag">Us, day 1</span>
           </div>
         </li>
         <li class="flow__item reveal">
           <span class="flow__num">4</span>
           <div>
-            <h3 class="flow__h">You open the private link on your own phone and say yes</h3>
-            <p class="flow__p">Look at it the way your customer will. Ask for any change you want, before it goes live.</p>
+            <h3 class="flow__h">You check it on your own phone and say yes</h3>
+            <p class="flow__p">Open the private link, look at it the way your customer would, and tell us anything you want changed. Nothing goes live until you are happy with it.</p>
             <span class="flow__tag flow__tag--you">You, about 5 minutes</span>
           </div>
         </li>
         <li class="flow__item reveal">
           <span class="flow__num">5</span>
           <div>
-            <h3 class="flow__h">It goes live on your domain, and your first enquiry lands in your sheet</h3>
-            <p class="flow__p">The whole of step 2 takes 24 to 48 hours. You keep your own number and your own website.</p>
-            <span class="flow__tag">LeadMaxx, within 24 to 48 hours</span>
+            <h3 class="flow__h">It goes live, and your first enquiry lands in your sheet</h3>
+            <p class="flow__p">You keep your own number and your own website. If anything needs changing later, you just WhatsApp us.</p>
+            <span class="flow__tag">Us, within 24 to 48 hours</span>
           </div>
         </li>
       </ol>
 
+      <p class="flow__done reveal">That is the whole thing from your side: two messages. You never install anything, log into anything, or talk to anyone technical.</p>
+      </div>
+
       <div class="flow__mock reveal">
         <span class="duo__cap">What step 2 hands you</span>
-        <div class="phone" role="img" aria-label="Your finished page open on a customer's phone, with the enquiry form on it.">
+
+        <div class="phone" role="img" aria-label="The finished page on a customer's phone: headline, photo strip, a rate card with prices, and a WhatsApp button.">
           <div class="phone__screen">
-            <div class="phone__bar">
-              <span class="phone__avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#04240F"><path d="M12 2C6.5 2 2 6.1 2 11.2c0 2.2.8 4.2 2.1 5.8L3 22l5.5-1.6c1.1.4 2.3.6 3.5.6 5.5 0 10-4.1 10-9.2S17.5 2 12 2z"/></svg></span>
-              <span>
-                <span class="phone__who">Your page</span>
-                <span class="phone__status"><i></i> Opens fast on any phone</span>
-              </span>
-            </div>
-            <div class="site site--phone">
-              <div class="site__nav">
-                <span class="site__brand"><span class="site__mark">Y</span>Your Business</span>
-                <span class="site__links"><span>Rates</span><span>Contact</span></span>
+            <div class="pm__status"><span>9:41</span><span>Chennai</span></div>
+            <div class="pm__page">
+              <div class="pm__nav">
+                <span class="pm__brand"><span class="pm__mark">S</span>Sharma Interiors</span>
+                <span class="pm__loc">Chennai</span>
               </div>
-              <div class="site__hero">
-                <span class="site__h">Your headline, in your words</span>
-                <span class="site__p">Your city and service area, and what you do best.</span>
+              <div class="pm__hero">
+                <span class="pm__h">Modular kitchens, built to last</span>
+                <span class="pm__p">Free measurement and design visit across Chennai, this week.</span>
+                <span class="pm__live"><i></i> Replies on WhatsApp in 5 seconds</span>
               </div>
-              <div class="site__form">
-                <span class="site__formh">Get a rate card</span>
-                <span class="site__formp">Replies on WhatsApp in about 5 seconds.</span>
-                <span class="site__send">Send on WhatsApp</span>
-                <span class="site__tiny">No app to install. Nothing for the customer to remember.</span>
+              <div class="pm__strip">
+                <span class="pm__tile pm__tile--a">Kitchen<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></span>
+                <span class="pm__tile pm__tile--b">Wardrobe<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M12 3v18"/></svg></span>
+                <span class="pm__tile pm__tile--c">TV unit<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="12" rx="2"/><path d="M8 21h8"/></svg></span>
               </div>
+              <div class="pm__rates">
+                <div class="pm__row"><span>Modular kitchen, 8 ft</span><b>&#8377;1,45,000</b></div>
+                <div class="pm__row"><span>Full home interiors, 2BHK</span><b>&#8377;4,50,000</b></div>
+                <div class="pm__row"><span>Design and measurement visit</span><b class="free">Free</b></div>
+              </div>
+              <span class="pm__cta">Send my rate card on WhatsApp</span>
+              <span class="pm__trust">Free visit &middot; GST bill &middot; 5 year warranty on hardware</span>
             </div>
           </div>
         </div>
 
-        <div class="browser sheetmock" role="img" aria-label="Two example rows in your Google Sheet, with the name, number and what the customer asked for.">
+        <div class="browser sheetmock" role="img" aria-label="Your Google Sheet filling up with enquiries: the customer's name, their number and what they asked for.">
           <div class="browser__bar">
             <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
             <span class="browser__url">docs.google.com/spreadsheets</span>
+            <span class="sheetmock__live"><i></i>Live</span>
           </div>
+          <div class="sheetmock__cols"><span>A</span><span>B</span><span>C</span></div>
           <div class="sheetmock__head"><span>Name</span><span>Number</span><span>What they asked for</span></div>
-          <div class="sheetmock__row"><span><b>Rahul</b></span><span>98450 2xxxx</span><span>Kitchen rates</span></div>
-          <div class="sheetmock__row"><span><b>Meena</b></span><span>98840 7xxxx</span><span>Site visit this weekend</span></div>
+          <div class="sheetmock__row"><span><b>Rahul</b></span><span>98450 2xxxx</span><span>Kitchen rates for a 3BHK</span></div>
+          <div class="sheetmock__row"><span><b>Meena</b></span><span>98840 7xxxx</span><span>Site visit this Saturday</span></div>
         </div>
-        <p class="flow__note">Sample rows, not real customers. Your own sheet starts filling the day your page goes live.</p>
+        <p class="flow__note">Sample layout with placeholder content, so you can see the shape of it. Yours is built with your photos, your prices and your city.</p>
       </div>
     </div>
   </div>
